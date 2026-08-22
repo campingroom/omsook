@@ -1,0 +1,2206 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>OmSook · ออมสุข</title>
+<link rel="icon" type="image/svg+xml" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 64 64'%3E%3Crect width='64' height='64' rx='16' fill='%2334d399'/%3E%3Ctext x='32' y='46' font-size='34' text-anchor='middle'%3E%F0%9F%90%B7%3C/text%3E%3C/svg%3E">
+<link rel="apple-touch-icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 64 64'%3E%3Crect width='64' height='64' rx='16' fill='%2334d399'/%3E%3Ctext x='32' y='46' font-size='34' text-anchor='middle'%3E%F0%9F%90%B7%3C/text%3E%3C/svg%3E">
+<meta name="apple-mobile-web-app-title" content="OmSook">
+<script src="./support.js"></script>
+</head>
+<body>
+<x-dc>
+<helmet>
+<title>OmSook · ออมสุข</title>
+<link rel="icon" type="image/svg+xml" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 64 64'%3E%3Crect width='64' height='64' rx='16' fill='%2334d399'/%3E%3Ctext x='32' y='46' font-size='34' text-anchor='middle'%3E%F0%9F%90%B7%3C/text%3E%3C/svg%3E">
+<link rel="apple-touch-icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 64 64'%3E%3Crect width='64' height='64' rx='16' fill='%2334d399'/%3E%3Ctext x='32' y='46' font-size='34' text-anchor='middle'%3E%F0%9F%90%B7%3C/text%3E%3C/svg%3E">
+<meta name="apple-mobile-web-app-title" content="OmSook">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=IBM+Plex+Sans+Thai:wght@400;500;600;700&amp;family=IBM+Plex+Mono:wght@400;500&amp;display=swap" rel="stylesheet">
+<script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2.45.4/dist/umd/supabase.js"></script>
+<style>
+  * { box-sizing: border-box; }
+  body { margin: 0; }
+  a { color: #15803d; }
+  a:hover { color: #0f5132; }
+  ::-webkit-scrollbar { width: 10px; height: 10px; }
+  ::-webkit-scrollbar-thumb { background: #c8e6d8; border-radius: 6px; }
+  @media print {
+    .printHide, .bgblob { display: none !important; }
+    body { background: #fff !important; }
+    @page { size: A4 landscape; margin: 8mm; }
+  }
+</style>
+</helmet>
+
+<template id="__bundler_thumbnail">
+<svg viewBox="0 0 100 100" xmlns="http://www.w3.org/2000/svg">
+  <rect width="100" height="100" rx="22" fill="#34d399"></rect>
+  <circle cx="50" cy="50" r="22" fill="#ffffff"></circle>
+  <text x="50" y="60" font-size="26" text-anchor="middle" fill="#15803d" font-family="sans-serif" font-weight="bold">฿</text>
+</svg>
+</template>
+
+<div style="position: relative; min-height: 100vh; overflow-x: hidden; font-family: 'IBM Plex Sans Thai', system-ui, sans-serif; color: #134e3a; background: linear-gradient(160deg, #e8f6ee 0%, #eef7f3 38%, #f3f6e9 100%);">
+
+  <div class="bgblob" style="position: absolute; top: -160px; left: -120px; width: 520px; height: 520px; border-radius: 50%; background: radial-gradient(circle, rgba(141,221,196,.45), transparent 70%); pointer-events: none;"></div>
+  <div class="bgblob" style="position: absolute; top: 60px; right: -140px; width: 480px; height: 480px; border-radius: 50%; background: radial-gradient(circle, rgba(168,213,240,.40), transparent 70%); pointer-events: none;"></div>
+  <div class="bgblob" style="position: absolute; bottom: -180px; left: 30%; width: 560px; height: 560px; border-radius: 50%; background: radial-gradient(circle, rgba(232,229,160,.45), transparent 70%); pointer-events: none;"></div>
+
+  <!-- ══════════ 1. เลือกบทบาท ══════════ -->
+  <sc-if value="{{ screenGate }}" hint-placeholder-val="{{ true }}">
+  <div style="position: relative; max-width: 900px; margin: 0 auto; padding: 76px 22px 60px; text-align: center;">
+    <div style="width: 84px; height: 84px; margin: 0 auto 20px; border-radius: 28px; background: linear-gradient(135deg, #34d399 0%, #2dd4bf 100%); display: flex; align-items: center; justify-content: center; font-size: 44px; box-shadow: 0 12px 30px rgba(45,212,180,.4);">🐷</div>
+    <div style="font-size: 15px; font-weight: 700; color: #15803d; letter-spacing: .14em;">OMSOOK</div>
+    <h1 style="font-size: 40px; font-weight: 700; margin: 6px 0 8px; line-height: 1.2;">ออมสุข</h1>
+    <p style="font-size: 17px; color: #5b8a76; margin: 0 0 44px;">โปรแกรมออมเงินนักเรียน — บันทึกง่าย ดูย้อนหลังได้ ส่งรายงานได้ทันที</p>
+
+    <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); gap: 20px; text-align: left;">
+      <button onClick="{{ goTeacher }}" style="background: #fff; border: 2px solid #e3efe9; border-radius: 26px; padding: 28px 28px 26px; box-shadow: 0 12px 34px rgba(16,80,60,.09); cursor: pointer; font-family: inherit; text-align: left; transition: transform .24s cubic-bezier(.34,1.56,.64,1), box-shadow .24s, border-color .24s;" style-hover="transform: translateY(-6px); box-shadow: 0 22px 48px rgba(16,80,60,.18); border-color: #34d399;">
+        <div style="font-size: 38px;">👩‍🏫</div>
+        <div style="font-size: 22px; font-weight: 700; color: #134e3a; margin-top: 12px;">ฉันเป็นคุณครู</div>
+        <div style="font-size: 15px; color: #6b9483; margin-top: 6px; line-height: 1.6;">บันทึกเงินฝาก จัดการห้องเรียนและรายชื่อ ออกรายงาน — เข้าระบบด้วยบัญชี Google</div>
+        <div style="margin-top: 16px; display: inline-flex; align-items: center; gap: 7px; font-size: 14px; font-weight: 700; color: #15803d;">🔐 ต้องเข้าสู่ระบบ</div>
+      </button>
+      <button onClick="{{ goStudentLogin }}" style="background: #fff; border: 2px solid #e3efe9; border-radius: 26px; padding: 28px 28px 26px; box-shadow: 0 12px 34px rgba(16,80,60,.09); cursor: pointer; font-family: inherit; text-align: left; transition: transform .24s cubic-bezier(.34,1.56,.64,1), box-shadow .24s, border-color .24s;" style-hover="transform: translateY(-6px); box-shadow: 0 22px 48px rgba(16,80,60,.18); border-color: #34d399;">
+        <div style="font-size: 38px;">🎒</div>
+        <div style="font-size: 22px; font-weight: 700; color: #134e3a; margin-top: 12px;">ฉันเป็นนักเรียน</div>
+        <div style="font-size: 15px; color: #6b9483; margin-top: 6px; line-height: 1.6;">ดูยอดเงินออมของตัวเองและของห้อง — ใส่รหัสห้อง เลือกชื่อตัวเอง แล้วใส่ PIN</div>
+        <div style="margin-top: 16px; display: inline-flex; align-items: center; gap: 7px; font-size: 14px; font-weight: 700; color: #15803d;">✨ เข้าง่าย ไม่ต้องสมัคร</div>
+      </button>
+    </div>
+    <div style="margin-top: 34px; font-size: 13px; color: #9bbcae;">{{ connBadge }}</div>
+  </div>
+  </sc-if>
+
+  <!-- ══════════ 2. ครูเข้าสู่ระบบ ══════════ -->
+  <sc-if value="{{ screenTeacher }}" hint-placeholder-val="">
+  <div style="position: relative; max-width: 520px; margin: 0 auto; padding: 70px 22px 60px;">
+    <button onClick="{{ goGate }}" style="border: none; background: transparent; color: #5b8a76; font-family: inherit; font-size: 14px; font-weight: 700; cursor: pointer; padding: 0 0 18px;">‹ กลับ</button>
+    <div style="background: #fff; border-radius: 26px; padding: 34px 32px; box-shadow: 0 14px 40px rgba(16,80,60,.1);">
+      <div style="font-size: 34px;">👩‍🏫</div>
+      <h1 style="font-size: 25px; font-weight: 700; margin: 10px 0 6px;">เข้าสู่ระบบสำหรับคุณครู</h1>
+      <p style="font-size: 15px; color: #6b9483; margin: 0 0 26px; line-height: 1.6;">เข้าด้วยบัญชี Google ของโรงเรียนหรือบัญชีส่วนตัว — ข้อมูลห้องเรียนจะผูกกับบัญชีนี้และครูคนอื่นเข้าดูไม่ได้</p>
+
+      <button onClick="{{ signInGoogle }}" style="width: 100%; display: flex; align-items: center; justify-content: center; gap: 12px; background: #fff; border: 2px solid #dfe7e3; border-radius: 14px; padding: 15px; font-size: 16px; font-weight: 700; font-family: inherit; color: #134e3a; cursor: pointer; transition: border-color .2s, box-shadow .2s;" style-hover="border-color: #34d399; box-shadow: 0 6px 18px rgba(16,80,60,.1);">
+        <span style="font-size: 20px; font-weight: 800; color: #4285f4; font-family: 'IBM Plex Mono', monospace;">G</span> เข้าสู่ระบบด้วย Google
+      </button>
+
+      <div style="display: flex; align-items: center; gap: 12px; margin: 22px 0;">
+        <div style="flex: 1; height: 1px; background: #e8f0ec;"></div>
+        <span style="font-size: 13px; color: #9bbcae;">หรือ</span>
+        <div style="flex: 1; height: 1px; background: #e8f0ec;"></div>
+      </div>
+      <button onClick="{{ useOffline }}" style="width: 100%; background: #f3fbf6; border: 1px solid #d8ebe1; border-radius: 14px; padding: 14px; font-size: 15px; font-weight: 700; font-family: inherit; color: #15803d; cursor: pointer;">ลองใช้แบบออฟไลน์ (เก็บในเครื่องนี้)</button>
+
+      <sc-if value="{{ needCfg }}" hint-placeholder-val="">
+      <div style="margin-top: 22px; background: #fff7ed; border: 1px solid #fed7aa; border-radius: 14px; padding: 15px 16px; font-size: 13px; color: #9a3412; line-height: 1.7;">⚠️ ยังไม่ได้ตั้งค่าการเชื่อมต่อ Supabase — การเข้าด้วย Google จะยังใช้ไม่ได้</div>
+      </sc-if>
+
+      <button onClick="{{ toggleCfg }}" style="margin-top: 20px; border: none; background: transparent; color: #6b9483; font-family: inherit; font-size: 13px; font-weight: 700; cursor: pointer; padding: 0;">{{ cfgToggleLabel }}</button>
+      <sc-if value="{{ cfgOpen }}" hint-placeholder-val="">
+      <div style="margin-top: 14px; display: flex; flex-direction: column; gap: 12px; border-top: 1px dashed #cfe6da; padding-top: 16px;">
+        <label style="font-size: 13px; font-weight: 700;">Supabase Project URL</label>
+        <input type="text" placeholder="https://xxxxx.supabase.co" value="{{ cfgUrl }}" onChange="{{ setCfgUrl }}" style="{{ inputStyle }}">
+        <label style="font-size: 13px; font-weight: 700;">Supabase anon public key</label>
+        <input type="text" placeholder="eyJhbGciOi..." value="{{ cfgKey }}" onChange="{{ setCfgKey }}" style="{{ inputStyle }}">
+        <button onClick="{{ saveCfg }}" style="background: linear-gradient(135deg, #34d399 0%, #2dd4bf 100%); color: #fff; border: none; border-radius: 12px; padding: 13px; font-size: 15px; font-weight: 700; font-family: inherit; cursor: pointer;">บันทึกการเชื่อมต่อ</button>
+        <div style="font-size: 12px; color: #9bbcae; line-height: 1.7;">คีย์ anon เป็นคีย์สาธารณะ ปลอดภัยที่จะใส่ในหน้าเว็บ — สิทธิ์จริงถูกคุมด้วย Row Level Security ที่ฐานข้อมูล</div>
+      </div>
+      </sc-if>
+    </div>
+  </div>
+  </sc-if>
+
+  <!-- ══════════ 3. นักเรียนเข้าดู ══════════ -->
+  <sc-if value="{{ screenStudentLogin }}" hint-placeholder-val="">
+  <div style="position: relative; max-width: 480px; margin: 0 auto; padding: 60px 20px 60px;">
+    <button onClick="{{ goGate }}" style="border: none; background: transparent; color: #5b8a76; font-family: inherit; font-size: 14px; font-weight: 700; cursor: pointer; padding: 0 0 18px;">‹ กลับ</button>
+    <div style="background: #fff; border-radius: 26px; padding: 30px 26px; box-shadow: 0 14px 40px rgba(16,80,60,.1);">
+      <div style="font-size: 34px;">🎒</div>
+      <h1 style="font-size: 24px; font-weight: 700; margin: 10px 0 22px;">ดูยอดเงินออมของฉัน</h1>
+
+      <label style="font-size: 14px; font-weight: 700; display: block; margin-bottom: 8px;">1. รหัสห้องจากคุณครู</label>
+      <div style="display: flex; gap: 10px; margin-bottom: 20px;">
+        <input type="text" maxlength="10" placeholder="เช่น P51" value="{{ sCode }}" onChange="{{ setSCode }}" style="flex: 1; border: 2px solid #d2e7dc; border-radius: 14px; padding: 14px 16px; font-size: 22px; font-weight: 700; letter-spacing: .22em; text-align: center; text-transform: uppercase; font-family: 'IBM Plex Mono', monospace; outline: none; background: #f8fbf9; color: #134e3a;">
+        <button onClick="{{ findRoom }}" style="background: linear-gradient(135deg, #34d399 0%, #2dd4bf 100%); color: #fff; border: none; border-radius: 14px; padding: 0 22px; font-size: 15px; font-weight: 700; font-family: inherit; cursor: pointer; white-space: nowrap;">{{ findLabel }}</button>
+      </div>
+
+      <sc-if value="{{ sRosterReady }}" hint-placeholder-val="">
+      <div>
+        <div style="background: #ecfdf3; border: 1px solid #bbf7d0; border-radius: 12px; padding: 11px 14px; font-size: 14px; font-weight: 700; color: #15803d; margin-bottom: 20px;">✅ ห้อง {{ sClassName }}</div>
+        <label style="font-size: 14px; font-weight: 700; display: block; margin-bottom: 8px;">2. เลือกชื่อของฉัน</label>
+        <div style="display: grid; grid-template-columns: repeat(auto-fill, minmax(96px, 1fr)); gap: 8px; max-height: 260px; overflow-y: auto; margin-bottom: 20px; padding: 2px;">
+          <sc-for list="{{ sRoster }}" as="r" hint-placeholder-count="8">
+            <button onClick="{{ r.pick }}" style="{{ r.style }}">{{ r.label }}</button>
+          </sc-for>
+        </div>
+        <sc-if value="{{ sPicked }}" hint-placeholder-val="">
+        <div>
+          <label style="font-size: 14px; font-weight: 700; display: block; margin-bottom: 8px;">3. PIN 4 ตัวของฉัน</label>
+          <input type="password" inputmode="numeric" maxlength="4" placeholder="••••" value="{{ sPin }}" onChange="{{ setSPin }}" style="width: 100%; border: 2px solid #d2e7dc; border-radius: 14px; padding: 14px; font-size: 26px; letter-spacing: .5em; text-align: center; font-family: 'IBM Plex Mono', monospace; outline: none; background: #f8fbf9; color: #134e3a; margin-bottom: 16px;">
+          <button onClick="{{ studentEnter }}" style="width: 100%; background: linear-gradient(135deg, #34d399 0%, #2dd4bf 100%); color: #fff; border: none; border-radius: 14px; padding: 16px; font-size: 17px; font-weight: 700; font-family: inherit; cursor: pointer; box-shadow: 0 8px 20px rgba(45,212,180,.35);">เข้าดูยอดของฉัน 🐷</button>
+        </div>
+        </sc-if>
+      </div>
+      </sc-if>
+
+      <sc-if value="{{ sErr }}" hint-placeholder-val="">
+      <div style="margin-top: 16px; background: #fde8e8; border-radius: 12px; padding: 12px 14px; font-size: 14px; font-weight: 600; color: #c0392b;">{{ sErr }}</div>
+      </sc-if>
+    </div>
+  </div>
+  </sc-if>
+
+  <!-- ══════════ 3.5 รออนุมัติสิทธิ์ครู ══════════ -->
+  <sc-if value="{{ screenPending }}" hint-placeholder-val="">
+  <div style="position: relative; max-width: 520px; margin: 0 auto; padding: 80px 20px;">
+    <div style="background: #fff; border-radius: 26px; padding: 34px 32px 30px; box-shadow: 0 14px 40px rgba(16,80,60,.10); text-align: center;">
+      <div style="font-size: 44px;">{{ pendIcon }}</div>
+      <h1 style="font-size: 24px; font-weight: 800; margin: 12px 0 8px;">{{ pendTitle }}</h1>
+      <p style="font-size: 15px; color: #5b8a76; line-height: 1.75; margin: 0 0 6px;">{{ pendText }}</p>
+      <div style="display: inline-block; margin-top: 12px; font-family: 'IBM Plex Mono', monospace; font-size: 14px; font-weight: 700; color: #15803d; background: #ecfdf3; border-radius: 10px; padding: 8px 14px;">{{ pendEmail }}</div>
+      <div style="display: flex; gap: 10px; margin-top: 26px;">
+        <button onClick="{{ recheckAccess }}" style="flex: 1; background: {{ accentGrad }}; color: #fff; border: none; border-radius: 13px; padding: 14px; font-size: 15px; font-weight: 700; font-family: inherit; cursor: pointer;">🔄 ตรวจสอบอีกครั้ง</button>
+        <button onClick="{{ signOut }}" style="flex: 1; background: #f8fbf9; color: #5b8a76; border: 1px solid #dfeee7; border-radius: 13px; padding: 14px; font-size: 15px; font-weight: 700; font-family: inherit; cursor: pointer;">ออกจากระบบ</button>
+      </div>
+    </div>
+  </div>
+  </sc-if>
+
+  <!-- ══════════ 3.6 หน้าผู้ดูแลระบบ ══════════ -->
+  <sc-if value="{{ screenAdmin }}" hint-placeholder-val="">
+  <div style="position: relative; max-width: 820px; margin: 0 auto; padding: 30px 22px 70px;">
+    <header style="display: flex; align-items: center; justify-content: space-between; gap: 14px; margin-bottom: 26px; flex-wrap: wrap;">
+      <div>
+        <div style="font-size: 13px; font-weight: 700; color: #15803d;">🔐 ผู้ดูแลระบบ</div>
+        <div style="font-size: 21px; font-weight: 700;">สิทธิ์เข้าใช้ของครู</div>
+      </div>
+      <button onClick="{{ backFromAdmin }}" style="border: 1px solid #cbded4; background: #fff; color: #5b8a76; border-radius: 12px; padding: 10px 16px; font-size: 14px; font-weight: 700; font-family: inherit; cursor: pointer;">‹ ห้องเรียนของฉัน</button>
+    </header>
+
+    <div style="background: #fff; border-radius: 22px; padding: 22px 24px; box-shadow: 0 10px 30px rgba(16,80,60,.08); margin-bottom: 18px;">
+      <h2 style="font-size: 17px; font-weight: 700; margin: 0 0 4px;">อนุมัติล่วงหน้า</h2>
+      <p style="color: #6b9483; margin: 0 0 14px; font-size: 14px; line-height: 1.7;">ใส่อีเมล Google ของครูที่อนุมัติไว้ก่อนได้ — คนนอกที่ล็อกอินเข้ามาจะอยู่สถานะ “รออนุมัติ” และใช้งานอะไรไม่ได้เลย</p>
+      <div style="display: flex; gap: 10px; flex-wrap: wrap;">
+        <input type="email" placeholder="teacher@gmail.com" value="{{ newAccEmail }}" onChange="{{ setNewAccEmail }}" style="{{ inputStyle }} flex: 1; min-width: 220px;">
+        <button onClick="{{ addAccEmail }}" style="background: #16a34a; color: #fff; border: none; border-radius: 12px; padding: 12px 22px; font-size: 14px; font-weight: 700; font-family: inherit; cursor: pointer;">➕ อนุมัติ</button>
+      </div>
+    </div>
+
+    <div style="background: #fff; border-radius: 22px; padding: 22px 24px 24px; box-shadow: 0 10px 30px rgba(16,80,60,.08);">
+      <div style="display: flex; align-items: baseline; justify-content: space-between; gap: 12px; flex-wrap: wrap; margin-bottom: 14px;">
+        <h2 style="font-size: 17px; font-weight: 700; margin: 0;">รายชื่อทั้งหมด</h2>
+        <button onClick="{{ reloadAccess }}" style="border: 1px solid #cbded4; background: #fff; color: #15803d; border-radius: 11px; padding: 8px 15px; font-size: 13px; font-weight: 700; font-family: inherit; cursor: pointer;">🔄 รีเฟรช</button>
+      </div>
+      <div style="display: flex; flex-direction: column; gap: 9px;">
+        <sc-for list="{{ accList }}" as="a" hint-placeholder-count="3">
+          <div style="display: flex; align-items: center; gap: 12px; background: #f8fbf9; border-radius: 13px; padding: 12px 15px; flex-wrap: wrap;">
+            <div style="flex: 1; min-width: 180px;">
+              <div style="font-size: 14px; font-weight: 700; word-break: break-all;">{{ a.email }}</div>
+              <div style="font-size: 12px; color: #9bbcae; margin-top: 2px;">{{ a.atText }}</div>
+            </div>
+            <span style="{{ a.badgeStyle }}">{{ a.statusLabel }}</span>
+            <div style="display: flex; gap: 7px;">
+              <button onClick="{{ a.approve }}" style="border: none; background: #16a34a; color: #fff; border-radius: 10px; padding: 8px 13px; font-size: 13px; font-weight: 700; font-family: inherit; cursor: pointer;">อนุมัติ</button>
+              <button onClick="{{ a.block }}" style="border: 1px solid #f3c9c4; background: #fff; color: #c0392b; border-radius: 10px; padding: 7px 13px; font-size: 13px; font-weight: 700; font-family: inherit; cursor: pointer;">ระงับ</button>
+              <button onClick="{{ a.remove }}" style="border: 1px solid #dfeee7; background: #fff; color: #5b8a76; border-radius: 10px; padding: 7px 11px; font-size: 13px; font-weight: 700; font-family: inherit; cursor: pointer;">ลบ</button>
+            </div>
+          </div>
+        </sc-for>
+      </div>
+      <sc-if value="{{ noAccess }}" hint-placeholder-val="">
+      <div style="color: #9bbcae; font-size: 14px; text-align: center; padding: 16px;">ยังไม่มีคำขอเข้าใช้</div>
+      </sc-if>
+    </div>
+  </div>
+  </sc-if>
+
+  <!-- ══════════ 4. หน้ารวมห้องเรียนของครู ══════════ -->
+  <sc-if value="{{ screenClasses }}" hint-placeholder-val="">
+  <div style="position: relative; max-width: 1080px; margin: 0 auto; padding: 30px 22px 70px;">
+    <header style="display: flex; align-items: center; justify-content: space-between; gap: 18px; margin-bottom: 30px; flex-wrap: wrap;">
+      <div style="display: flex; align-items: center; gap: 14px;">
+        <div style="width: 48px; height: 48px; border-radius: 16px; background: {{ accentGrad }}; display: flex; align-items: center; justify-content: center; font-size: 24px; box-shadow: 0 6px 16px rgba(45,212,180,.35);">🐷</div>
+        <div>
+          <div style="font-size: 13px; font-weight: 700; color: #15803d;">ออมสุข · OmSook</div>
+          <div style="font-size: 21px; font-weight: 700;">สวัสดี {{ userLabel }} 👋</div>
+        </div>
+      </div>
+      <div style="display: flex; align-items: center; gap: 10px; flex-wrap: wrap;">
+        <span style="font-size: 13px; color: #6b9483; font-weight: 600;">{{ connBadge }}</span>
+        <sc-if value="{{ isAdmin }}" hint-placeholder-val="">
+        <button onClick="{{ goAdmin }}" style="border: 1px solid #cbded4; background: #fff; color: #15803d; border-radius: 11px; padding: 9px 16px; font-size: 13px; font-weight: 700; font-family: inherit; cursor: pointer;">🔐 ผู้ดูแลระบบ</button>
+        </sc-if>
+        <button onClick="{{ signOut }}" style="border: 1px solid #cbded4; background: #fff; color: #5b8a76; border-radius: 11px; padding: 9px 16px; font-size: 13px; font-weight: 700; font-family: inherit; cursor: pointer;">ออกจากระบบ</button>
+      </div>
+    </header>
+
+    <sc-if value="{{ hasClasses }}" hint-placeholder-val="">
+    <div style="background: #fff; border-radius: 22px; padding: 20px 24px 22px; box-shadow: 0 10px 30px rgba(16,80,60,.08); margin-bottom: 24px;">
+      <div style="display: flex; align-items: baseline; justify-content: space-between; gap: 12px; flex-wrap: wrap; margin-bottom: 10px;">
+        <div style="font-size: 17px; font-weight: 700;">🏫 สรุปทุกห้องรวมกัน</div>
+        <div style="font-size: 13px; color: #6b9483; font-weight: 600;">{{ allClassSub }}</div>
+      </div>
+      <div style="display: flex; align-items: baseline; gap: 8px; margin-bottom: 16px;">
+        <div style="font-size: 34px; font-weight: 800; color: #16a34a;">{{ allTotalText }}</div>
+        <div style="font-size: 14px; color: #9bbcae; font-weight: 600;">บาท</div>
+      </div>
+      <div style="display: flex; flex-direction: column; gap: 9px;">
+        <sc-for list="{{ allClassRows }}" as="r" hint-placeholder-count="2">
+          <div style="display: flex; align-items: center; gap: 12px;">
+            <div style="width: 128px; font-size: 13px; font-weight: 700; white-space: nowrap; overflow: hidden; text-overflow: ellipsis;">{{ r.name }}</div>
+            <div style="flex: 1; height: 10px; border-radius: 999px; background: #edf5f1; overflow: hidden;"><div style="{{ r.barStyle }}"></div></div>
+            <div style="width: 104px; text-align: right; font-size: 14px; font-weight: 800; color: #16a34a;">{{ r.totalText }}</div>
+          </div>
+        </sc-for>
+      </div>
+      <button onClick="{{ exportAllCsv }}" style="margin-top: 18px; border: 1px solid #cbded4; background: #fff; color: #15803d; border-radius: 11px; padding: 10px 18px; font-size: 13px; font-weight: 700; font-family: inherit; cursor: pointer;">⬇️ สรุปทุกห้อง (CSV)</button>
+    </div>
+    </sc-if>
+
+    <h2 style="font-size: 19px; font-weight: 700; margin: 0 0 16px;">ห้องเรียนของฉัน <span style="font-weight: 500; color: #9bbcae; font-size: 15px;">{{ classCountText }}</span></h2>
+
+    <div style="display: grid; grid-template-columns: repeat(auto-fill, minmax(268px, 1fr)); gap: 18px;">
+      <sc-for list="{{ classCards }}" as="c" hint-placeholder-count="2">
+        <div onClick="{{ c.open }}" style="background: #fff; border: 2px solid #e8f0ec; border-radius: 24px; padding: 22px 24px 20px; box-shadow: 0 10px 30px rgba(16,80,60,.08); cursor: pointer; transition: transform .24s cubic-bezier(.34,1.56,.64,1), box-shadow .24s, border-color .24s;" style-hover="transform: translateY(-7px); box-shadow: 0 22px 46px rgba(16,80,60,.17); border-color: #34d399;">
+          <div style="display: flex; align-items: center; justify-content: space-between; gap: 10px;">
+            <div style="width: 42px; height: 42px; border-radius: 14px; background: {{ c.bg }}; display: flex; align-items: center; justify-content: center; font-size: 21px;">{{ c.icon }}</div>
+            <div style="font-family: 'IBM Plex Mono', monospace; font-size: 13px; font-weight: 600; color: #15803d; background: #ecfdf3; border-radius: 8px; padding: 4px 9px;">{{ c.code }}</div>
+          </div>
+          <div style="font-size: 20px; font-weight: 700; margin-top: 14px;">{{ c.name }}</div>
+          <div style="font-size: 13px; color: #6b9483; font-weight: 600; margin-top: 2px;">ปีการศึกษา {{ c.year }} · {{ c.countText }}</div>
+          <div style="margin-top: 10px;"><span style="{{ c.roleStyle }}">{{ c.roleLabel }}</span></div>
+          <div style="margin-top: 16px; padding-top: 14px; border-top: 1px solid #f0f5f2; display: flex; align-items: baseline; justify-content: space-between;">
+            <span style="font-size: 13px; color: #6b9483; font-weight: 600;">ยอดออมรวม</span>
+            <span style="font-size: 24px; font-weight: 800; color: #16a34a;">{{ c.totalText }} <span style="font-size: 13px; font-weight: 600; color: #9bbcae;">บาท</span></span>
+          </div>
+        </div>
+      </sc-for>
+
+      <div style="border: 2px dashed #b8d8c8; border-radius: 24px; padding: 22px 24px; background: rgba(255,255,255,.55);">
+        <div style="font-size: 16px; font-weight: 700; margin-bottom: 14px;">➕ สร้างห้องใหม่</div>
+        <input type="text" placeholder="ชื่อห้อง เช่น ป.5/1" value="{{ newClassName }}" onChange="{{ setNewClassName }}" style="{{ inputStyle }} width: 100%; margin-bottom: 10px;">
+        <input type="number" placeholder="ปีการศึกษา (พ.ศ.)" value="{{ newClassYear }}" onChange="{{ setNewClassYear }}" style="{{ inputStyle }} width: 100%; margin-bottom: 10px;">
+        <input type="text" maxlength="10" placeholder="รหัสห้องที่ต้องการ เช่น P51 (เว้นว่าง = สุ่มให้)" value="{{ newClassCode }}" onChange="{{ setNewClassCode }}" style="{{ inputStyle }} width: 100%; margin-bottom: 12px; text-transform: uppercase; font-family: 'IBM Plex Mono', monospace;">
+        <button onClick="{{ createClass }}" style="width: 100%; background: {{ accentGrad }}; color: #fff; border: none; border-radius: 12px; padding: 13px; font-size: 15px; font-weight: 700; font-family: inherit; cursor: pointer; box-shadow: 0 6px 16px rgba(45,212,180,.35);">สร้างห้องเรียน</button>
+      </div>
+    </div>
+  </div>
+  </sc-if>
+
+  <!-- ══════════ 5. ในห้องเรียน (ครู) ══════════ -->
+  <sc-if value="{{ screenClass }}" hint-placeholder-val="">
+  <div style="position: relative; max-width: 1140px; margin: 0 auto; padding: 22px 20px 96px;">
+
+    <header class="printHide" style="display: flex; align-items: center; justify-content: space-between; gap: 16px; margin-bottom: 24px; flex-wrap: wrap;">
+      <div style="display: flex; align-items: center; gap: 12px; min-width: 0;">
+        <button onClick="{{ backToClasses }}" style="border: 1px solid #cbded4; background: #fff; color: #5b8a76; border-radius: 12px; padding: 10px 15px; font-size: 14px; font-weight: 700; font-family: inherit; cursor: pointer; white-space: nowrap;">‹ ทุกห้อง</button>
+        <div style="min-width: 0;">
+          <div style="display: flex; align-items: center; gap: 8px; min-width: 0;">
+            <div style="font-size: 21px; font-weight: 700; white-space: nowrap; overflow: hidden; text-overflow: ellipsis;">{{ curName }}</div>
+            <span style="{{ roleBadgeStyle }}">{{ roleBadgeLabel }}</span>
+          </div>
+          <div style="font-size: 13px; color: #6b9483; font-weight: 600;">ปีการศึกษา {{ curYear }} · {{ studentCountText }} · รหัสห้อง <b style="font-family: 'IBM Plex Mono', monospace; color: #15803d;">{{ curCode }}</b></div>
+        </div>
+      </div>
+      <div style="display: inline-flex; background: #fff; border-radius: 14px; padding: 5px; box-shadow: 0 4px 14px rgba(16,80,60,.08); flex-wrap: wrap;">
+        <button onClick="{{ goForm }}" style="{{ tabFormStyle }}">📝 บันทึก</button>
+        <button onClick="{{ goDash }}" style="{{ tabDashStyle }}">📊 สรุปผล</button>
+        <button onClick="{{ goReport }}" style="{{ tabReportStyle }}">📋 รายงาน</button>
+        <button onClick="{{ goRoster }}" style="{{ tabRosterStyle }}">👧 รายชื่อ</button>
+        <button onClick="{{ goSettings }}" style="{{ tabSettingsStyle }}">⚙️ ตั้งค่า</button>
+      </div>
+    </header>
+
+    <!-- ───── บันทึก ───── -->
+    <sc-if value="{{ showForm }}" hint-placeholder-val="{{ true }}">
+    <section>
+      <div style="background: #fff; border-radius: 24px; padding: 26px 26px 28px; box-shadow: 0 10px 34px rgba(16,80,60,.08);">
+        <h2 style="font-size: 21px; font-weight: 700; margin: 0 0 4px;">บันทึกการฝากเงิน</h2>
+        <p style="color: #6b9483; margin: 0 0 20px; font-size: 15px;">เลือกวันที่ → แตะ + / − ที่การ์ดชื่อเล่นของนักเรียน</p>
+
+        <label style="font-size: 14px; font-weight: 600; display: block; margin-bottom: 7px;">วันที่</label>
+        <div style="display: flex; gap: 10px; align-items: center; margin-bottom: 22px; flex-wrap: wrap;">
+          <input type="date" value="{{ fDate }}" onChange="{{ setDate }}" style="{{ inputStyle }}">
+          <button onClick="{{ setToday }}" style="border: none; border-radius: 12px; padding: 11px 20px; font-size: 15px; font-weight: 700; font-family: inherit; cursor: pointer; background: #e8f6ee; color: #15803d; white-space: nowrap;">วันนี้</button>
+        </div>
+
+        <div style="display: flex; align-items: center; gap: 10px; flex-wrap: wrap; margin-bottom: 14px;">
+          <span style="font-size: 13px; color: #6b9483; font-weight: 700;">⚡ ปุ่มกดเพิ่ม/ลดทีละ</span>
+          <sc-for list="{{ stepOptions }}" as="o" hint-placeholder-count="3">
+            <button onClick="{{ o.pick }}" style="{{ o.style }}">{{ o.label }}</button>
+          </sc-for>
+        </div>
+
+        <div style="display: grid; grid-template-columns: repeat(auto-fill, minmax(168px, 1fr)); gap: 12px; margin-bottom: 24px;">
+          <sc-for list="{{ students }}" as="st" hint-placeholder-count="12">
+            <div style="{{ st.cardStyle }}" style-hover="transform: translateY(-5px) scale(1.03); box-shadow: 0 14px 30px rgba(16,80,60,.16);">
+              <div style="display: flex; align-items: center; justify-content: space-between; gap: 6px;">
+                <button onClick="{{ st.minus }}" disabled="{{ st.minusDisabled }}" style="{{ st.minusStyle }}">−{{ stepLabel }}</button>
+                <div style="font-size: 11px; color: #8aa99b; font-weight: 700;">เลขที่ {{ st.no }}</div>
+                <button onClick="{{ st.plus }}" style="{{ st.plusStyle }}">+{{ stepLabel }}</button>
+              </div>
+              <div style="display: flex; align-items: baseline; justify-content: space-between; gap: 6px; margin-top: 10px;">
+                <div style="font-size: 16px; font-weight: 800; white-space: nowrap; overflow: hidden; text-overflow: ellipsis;">{{ st.nick }}</div>
+                <div style="font-size: 23px; font-weight: 800; color: {{ st.amtColor }}; white-space: nowrap;">{{ st.todayText }}</div>
+              </div>
+            </div>
+          </sc-for>
+        </div>
+
+        <div style="background: #f3fbf6; border: 1px solid #d8ebe1; border-radius: 16px; padding: 18px 20px;">
+          <div style="font-size: 14px; font-weight: 700; margin-bottom: 14px;">✏️ ระบุจำนวนเอง / รายการถอน</div>
+          <div style="display: flex; gap: 10px; flex-wrap: wrap; align-items: center; margin-bottom: 14px;">
+            <select value="{{ selIdStr }}" onChange="{{ selectStudent }}" style="border: 1px solid #d2e7dc; border-radius: 12px; padding: 11px 14px; font-size: 15px; font-family: inherit; outline: none; background: #fff; color: #134e3a; min-width: 240px;">
+              <option value="">— เลือกนักเรียน —</option>
+              <sc-for list="{{ studentOptions }}" as="o" hint-placeholder-count="10">
+                <option value="{{ o.val }}">{{ o.label }}</option>
+              </sc-for>
+            </select>
+            <input type="number" min="0" placeholder="จำนวนเงิน" value="{{ fAmount }}" onChange="{{ setAmount }}" style="{{ inputStyle }} width: 140px;">
+          </div>
+          <div style="display: flex; align-items: center; gap: 10px; flex-wrap: wrap;">
+            <button onClick="{{ submitDeposit }}" style="background: {{ accentGrad }}; color: #fff; border: none; border-radius: 12px; padding: 13px 28px; font-size: 15px; font-weight: 700; font-family: inherit; cursor: pointer; box-shadow: 0 6px 16px rgba(45,212,180,.35); white-space: nowrap;">💰 บันทึกฝาก</button>
+            <button onClick="{{ submitWithdraw }}" style="background: #fff; color: #c0392b; border: 2px solid #f3c9c4; border-radius: 12px; padding: 11px 24px; font-size: 15px; font-weight: 700; font-family: inherit; cursor: pointer; white-space: nowrap;">🏧 บันทึกถอน</button>
+            <div style="font-size: 14px; color: #5b8a76;">{{ selectSummary }}</div>
+          </div>
+        </div>
+
+        <sc-if value="{{ flash }}" hint-placeholder-val="">
+        <div style="margin-top: 16px; background: #dcfce7; border-radius: 12px; padding: 12px 14px; font-size: 14px; font-weight: 600; color: #15803d;">✅ {{ flash }}</div>
+        </sc-if>
+      </div>
+
+      <h3 style="font-size: 17px; font-weight: 700; margin: 30px 0 12px;">รายการของวันที่ {{ fDate }}</h3>
+      <sc-if value="{{ hasDayRows }}" hint-placeholder-val="{{ true }}">
+      <div style="background: #fff; border-radius: 20px; padding: 10px 8px; box-shadow: 0 10px 34px rgba(16,80,60,.08); display: flex; flex-direction: column; gap: 4px;">
+        <sc-for list="{{ dayRows }}" as="d" hint-placeholder-count="3">
+          <div style="display: flex; align-items: center; gap: 10px; padding: 8px 12px; flex-wrap: wrap;">
+            <div style="flex: 1; min-width: 140px; font-size: 15px; font-weight: 600;">{{ d.name }}</div>
+            <div style="{{ d.kindStyle }}">{{ d.kindLabel }}</div>
+            <input type="number" min="0" value="{{ d.amount }}" onChange="{{ d.setAmt }}" style="width: 104px; border: 1px solid #d2e7dc; border-radius: 10px; padding: 9px 12px; font-size: 15px; font-family: inherit; outline: none; background: #f8fbf9; color: #134e3a; text-align: right;">
+            <button onClick="{{ d.remove }}" style="border: none; background: #fde8e8; color: #c0392b; border-radius: 10px; padding: 9px 14px; font-size: 14px; font-weight: 600; font-family: inherit; cursor: pointer;">ลบ</button>
+          </div>
+        </sc-for>
+      </div>
+      </sc-if>
+      <sc-if value="{{ noDayRows }}" hint-placeholder-val="">
+      <div style="background: #fff; border-radius: 20px; padding: 22px; box-shadow: 0 10px 34px rgba(16,80,60,.08); color: #9bbcae; font-size: 14px; text-align: center;">ยังไม่มีรายการของวันที่นี้</div>
+      </sc-if>
+    </section>
+    </sc-if>
+
+    <!-- ───── สรุปผล ───── -->
+    <sc-if value="{{ showDash }}" hint-placeholder-val="">
+    <section>
+      <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(230px, 1fr)); gap: 16px; margin-bottom: 26px;">
+        <div style="background: #fff; border-radius: 22px; padding: 22px 24px; box-shadow: 0 10px 30px rgba(16,80,60,.08); transition: transform .28s cubic-bezier(.34,1.56,.64,1), box-shadow .28s;" style-hover="transform: translateY(-7px) scale(1.02); box-shadow: 0 20px 42px rgba(16,80,60,.18);">
+          <div style="font-size: 14px; color: #6b9483; font-weight: 600;">📅 ยอดออมวันนี้</div>
+          <div style="font-size: 32px; font-weight: 700; margin-top: 6px;">{{ todayText }} <span style="font-size: 15px; color: #9bbcae; font-weight: 500;">บาท</span></div>
+        </div>
+        <div style="background: #fff; border-radius: 22px; padding: 22px 24px; box-shadow: 0 10px 30px rgba(16,80,60,.08); transition: transform .28s cubic-bezier(.34,1.56,.64,1), box-shadow .28s;" style-hover="transform: translateY(-7px) scale(1.02); box-shadow: 0 20px 42px rgba(16,80,60,.18);">
+          <div style="font-size: 14px; color: #6b9483; font-weight: 600;">🗓️ ยอดออมเดือนนี้</div>
+          <div style="font-size: 32px; font-weight: 700; margin-top: 6px;">{{ monthText }} <span style="font-size: 15px; color: #9bbcae; font-weight: 500;">บาท</span></div>
+        </div>
+        <div style="background: {{ accentGrad }}; border-radius: 22px; padding: 22px 24px; box-shadow: 0 12px 30px rgba(45,212,180,.4); color: #fff; transition: transform .28s cubic-bezier(.34,1.56,.64,1), box-shadow .28s;" style-hover="transform: translateY(-7px) scale(1.02); box-shadow: 0 22px 46px rgba(45,212,180,.55);">
+          <div style="font-size: 14px; font-weight: 600; opacity: .95;">🐷 ยอดออมทั้งห้อง</div>
+          <div style="font-size: 32px; font-weight: 700; margin-top: 6px;">{{ totalText }} <span style="font-size: 15px; opacity: .85; font-weight: 500;">บาท</span></div>
+        </div>
+      </div>
+
+      <sc-if value="{{ hasGoal }}" hint-placeholder-val="">
+      <div style="background: #fff; border-radius: 22px; padding: 22px 24px; box-shadow: 0 10px 30px rgba(16,80,60,.08); margin-bottom: 26px;">
+        <div style="display: flex; align-items: baseline; justify-content: space-between; gap: 12px; flex-wrap: wrap; margin-bottom: 12px;">
+          <div style="font-size: 16px; font-weight: 700;">🎯 ความก้าวหน้าสู่เป้าหมายของห้อง</div>
+          <div style="font-size: 14px; color: #6b9483; font-weight: 600;">{{ goalText }}</div>
+        </div>
+        <div style="height: 16px; border-radius: 999px; background: #edf5f1; overflow: hidden;">
+          <div style="height: 100%; width: {{ goalPct }}; background: {{ accentGrad }}; border-radius: 999px; transition: width .5s ease;"></div>
+        </div>
+      </div>
+      </sc-if>
+
+      <h3 style="font-size: 17px; font-weight: 700; margin: 0 0 14px;">⭐ ดาวเด่นการออม</h3>
+      <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(230px, 1fr)); gap: 16px; margin-bottom: 30px;">
+        <sc-for list="{{ stars }}" as="s" hint-placeholder-count="3">
+          <div style="background: #fff; border-radius: 22px; padding: 18px 20px; box-shadow: 0 10px 30px rgba(16,80,60,.08); display: flex; align-items: center; gap: 14px; transition: transform .28s cubic-bezier(.34,1.56,.64,1), box-shadow .28s;" style-hover="transform: translateY(-7px) scale(1.02); box-shadow: 0 20px 42px rgba(16,80,60,.18);">
+            <div style="width: 50px; height: 50px; flex-shrink: 0; border-radius: 16px; background: {{ s.bg }}; display: flex; align-items: center; justify-content: center; font-size: 25px;">{{ s.medal }}</div>
+            <div style="min-width: 0;">
+              <div style="font-size: 13px; color: #6b9483; font-weight: 600;">{{ s.period }}</div>
+              <div style="font-size: 16px; font-weight: 700; white-space: nowrap; overflow: hidden; text-overflow: ellipsis;">{{ s.name }}</div>
+              <div style="font-size: 14px; font-weight: 700; color: #16a34a;">{{ s.amountText }} บาท</div>
+            </div>
+          </div>
+        </sc-for>
+      </div>
+
+      <div style="display: flex; align-items: center; justify-content: space-between; gap: 14px; margin: 0 0 14px; flex-wrap: wrap;">
+        <h3 style="font-size: 17px; font-weight: 700; margin: 0;">{{ chartTitle }}</h3>
+        <div style="display: inline-flex; background: #fff; border-radius: 12px; padding: 4px; box-shadow: 0 3px 12px rgba(16,80,60,.08);">
+          <button onClick="{{ viewDay }}" style="{{ segDayStyle }}">รายวัน</button>
+          <button onClick="{{ viewMonth }}" style="{{ segMonthStyle }}">รายเดือน</button>
+          <button onClick="{{ viewAll }}" style="{{ segAllStyle }}">รายคน</button>
+        </div>
+      </div>
+      <div style="background: #fff; border-radius: 22px; padding: 26px 24px 16px; margin-bottom: 30px; box-shadow: 0 10px 30px rgba(16,80,60,.08);">
+        <div style="display: flex; align-items: flex-end; gap: 16px; overflow-x: auto;">
+          <sc-for list="{{ chart }}" as="c" hint-placeholder-count="6">
+            <div style="flex: 1; min-width: 44px; display: flex; flex-direction: column; align-items: center;">
+              <div style="font-size: 12px; font-weight: 600; font-family: 'IBM Plex Mono', monospace; margin-bottom: 6px;">{{ c.amountText }}</div>
+              <div style="position: relative; width: 100%; height: 180px;">
+                <div style="position: absolute; bottom: 0; left: 50%; transform: translateX(-50%); width: 100%; max-width: 58px; height: {{ c.barHeight }}; background: {{ accentGrad }}; border-radius: 10px 10px 4px 4px;"></div>
+              </div>
+              <div style="font-size: 12px; color: #6b9483; margin-top: 6px; text-align: center; white-space: nowrap;">{{ c.date }}</div>
+            </div>
+          </sc-for>
+        </div>
+      </div>
+
+      <h3 style="font-size: 17px; font-weight: 700; margin: 0 0 14px;">ยอดเงินสะสมรายบุคคล</h3>
+      <div style="background: #fff; border-radius: 20px; overflow: hidden; box-shadow: 0 10px 30px rgba(16,80,60,.08);">
+        <div style="display: grid; grid-template-columns: 0.6fr 2.2fr 1.4fr 1fr; background: #f0f9f4;">
+          <button onClick="{{ sortNo }}" style="text-align: left; padding: 13px 16px; border: none; background: transparent; font-family: inherit; font-size: 13px; font-weight: 700; color: #5b8a76; cursor: pointer;">{{ sortNoLabel }}</button>
+          <button onClick="{{ sortName }}" style="text-align: left; padding: 13px 16px; border: none; background: transparent; font-family: inherit; font-size: 13px; font-weight: 700; color: #5b8a76; cursor: pointer;">{{ sortNameLabel }}</button>
+          <div style="padding: 13px 16px; font-size: 13px; font-weight: 700; color: #5b8a76;">ความก้าวหน้า</div>
+          <button onClick="{{ sortTotal }}" style="text-align: right; padding: 13px 16px; border: none; background: transparent; font-family: inherit; font-size: 13px; font-weight: 700; color: #5b8a76; cursor: pointer;">{{ sortTotalLabel }}</button>
+        </div>
+        <sc-for list="{{ summary }}" as="s" hint-placeholder-count="6">
+          <div style="display: grid; grid-template-columns: 0.6fr 2.2fr 1.4fr 1fr; font-size: 14px; border-top: 1px solid #f0f5f2; align-items: center;">
+            <div style="padding: 12px 16px; font-family: 'IBM Plex Mono', monospace;">{{ s.no }}</div>
+            <div style="padding: 12px 16px;">{{ s.name }}</div>
+            <div style="padding: 12px 16px;">
+              <div style="height: 8px; border-radius: 999px; background: #edf5f1; overflow: hidden;">
+                <div style="height: 100%; width: {{ s.pct }}; background: {{ accentGrad }}; border-radius: 999px;"></div>
+              </div>
+            </div>
+            <div style="padding: 12px 16px; text-align: right; font-weight: 700; color: #16a34a;">{{ s.totalText }}</div>
+          </div>
+        </sc-for>
+      </div>
+    </section>
+    </sc-if>
+
+    <!-- ───── รายงาน ───── -->
+    <sc-if value="{{ showReport }}" hint-placeholder-val="">
+    <section>
+      <div class="printHide" style="display: flex; align-items: center; justify-content: space-between; gap: 14px; margin-bottom: 14px; flex-wrap: wrap;">
+        <div style="display: inline-flex; background: #fff; border-radius: 12px; padding: 4px; box-shadow: 0 3px 12px rgba(16,80,60,.08);">
+          <button onClick="{{ modeMonth }}" style="{{ modeMonthStyle }}">🗓️ รายเดือน</button>
+          <button onClick="{{ modeYear }}" style="{{ modeYearStyle }}">📊 สรุปรวมทุกเดือน</button>
+        </div>
+        <div style="display: flex; align-items: center; gap: 10px; flex-wrap: wrap;">
+          <sc-if value="{{ reportByMonth }}" hint-placeholder-val="{{ true }}">
+          <button onClick="{{ toggleEditReport }}" style="{{ editReportBtnStyle }}">{{ editReportLabel }}</button>
+          </sc-if>
+          <button onClick="{{ goPassbook }}" style="border: 1px solid #cbded4; background: #fff; color: #15803d; border-radius: 12px; padding: 11px 18px; font-size: 14px; font-weight: 700; font-family: inherit; cursor: pointer; white-space: nowrap;">📗 สมุดคู่ฝากรายคน</button>
+          <button onClick="{{ exportCsvMonth }}" style="border: 1px solid #cbded4; background: #fff; color: #15803d; border-radius: 12px; padding: 11px 18px; font-size: 14px; font-weight: 700; font-family: inherit; cursor: pointer; white-space: nowrap;">⬇️ CSV / Excel</button>
+          <button onClick="{{ exportPdf }}" style="background: {{ accentGrad }}; color: #fff; border: none; border-radius: 12px; padding: 11px 22px; font-size: 14px; font-weight: 700; font-family: inherit; cursor: pointer; box-shadow: 0 6px 16px rgba(45,212,180,.35);">⬇️ ส่งออก PDF</button>
+        </div>
+      </div>
+
+      <sc-if value="{{ reportByMonth }}" hint-placeholder-val="{{ true }}">
+      <div class="printHide" style="display: inline-flex; background: #fff; border-radius: 12px; padding: 4px; box-shadow: 0 3px 12px rgba(16,80,60,.08); overflow-x: auto; max-width: 100%; margin-bottom: 16px;">
+        <sc-for list="{{ monthOptions }}" as="m" hint-placeholder-count="3">
+          <button onClick="{{ m.pick }}" style="{{ m.style }}">{{ m.label }}</button>
+        </sc-for>
+      </div>
+      </sc-if>
+
+      <sc-if value="{{ reportByMonth }}" hint-placeholder-val="{{ true }}">
+      <div>
+      <sc-if value="{{ editReport }}" hint-placeholder-val="">
+      <div class="printHide" style="background: #f0fdf4; border: 1px solid #bbf7d0; border-radius: 12px; padding: 12px 16px; margin-bottom: 14px; font-size: 13px; color: #15803d; line-height: 1.6;">✏️ <b>โหมดแก้ไข:</b> คลิกช่องวันของนักเรียนเพื่อกรอก/แก้/ลบจำนวนเงิน (ใส่ 0 เพื่อลบ) — บันทึกขึ้นฐานข้อมูลทันที</div>
+      </sc-if>
+
+      <div style="background: #fff; border-radius: 18px; padding: 22px; box-shadow: 0 10px 30px rgba(16,80,60,.08); overflow-x: auto;">
+        <div style="text-align: center; margin-bottom: 14px;">
+          <div style="font-size: 20px; font-weight: 700;">🐷 แบบบันทึกการออมเงิน</div>
+          <div style="font-size: 14px; color: #5b8a76; margin-top: 2px;">{{ curName }} · {{ reportTitle }} · {{ semesterText }}</div>
+        </div>
+        <table style="border-collapse: collapse; width: 100%; font-size: 11px;">
+          <thead>
+            <tr>
+              <th style="border: 1px solid #cfe6da; background: #eaf6f0; padding: 6px 4px; font-weight: 700; width: 34px;">เลขที่</th>
+              <th style="border: 1px solid #cfe6da; background: #eaf6f0; padding: 6px 8px; font-weight: 700; text-align: left; min-width: 150px;">ชื่อ-ชื่อเล่น</th>
+              <th style="border: 1px solid #cfe6da; background: #f6f9ec; padding: 6px 5px; font-weight: 700; color: #6b7c3a; width: 48px;">ยกมา</th>
+              <sc-for list="{{ dayHeaders }}" as="d" hint-placeholder-count="30">
+                <th style="{{ d.thStyle }}">{{ d.day }}</th>
+              </sc-for>
+              <th style="border: 1px solid #cfe6da; background: #dcfce7; padding: 6px 6px; font-weight: 700; color: #15803d; width: 56px;">รวมเงิน</th>
+              <th style="border: 1px solid #cfe6da; background: #cdf3dd; padding: 6px 6px; font-weight: 700; color: #14532d; width: 62px;">สะสม</th>
+            </tr>
+          </thead>
+          <tbody>
+            <sc-for list="{{ reportRows }}" as="row" hint-placeholder-count="10">
+              <tr>
+                <td style="border: 1px solid #e3efe9; padding: 5px 4px; text-align: center; color: #6b9483;">{{ row.no }}</td>
+                <td style="border: 1px solid #e3efe9; padding: 5px 8px; text-align: left; white-space: nowrap;">{{ row.name }}</td>
+                <td style="border: 1px solid #e3efe9; padding: 5px 5px; text-align: center; color: #6b7c3a; background: #fcfdf5;">{{ row.openText }}</td>
+                <sc-for list="{{ row.cells }}" as="c" hint-placeholder-count="30">
+                  <td style="{{ c.tdStyle }}" onClick="{{ c.onClick }}">{{ c.text }}</td>
+                </sc-for>
+                <td style="border: 1px solid #e3efe9; padding: 5px 6px; text-align: center; font-weight: 700; color: #16a34a; background: #f3fbf6;">{{ row.totalText }}</td>
+                <td style="border: 1px solid #e3efe9; padding: 5px 6px; text-align: center; font-weight: 800; color: #14532d; background: #eafaf0;">{{ row.cumText }}</td>
+              </tr>
+            </sc-for>
+            <tr>
+              <td colspan="2" style="border: 1px solid #cfe6da; background: #eaf6f0; padding: 6px 8px; text-align: right; font-weight: 700;">รวมทั้งห้อง</td>
+              <td style="border: 1px solid #cfe6da; background: #f6f9ec; padding: 5px 5px; text-align: center; font-weight: 700; color: #6b7c3a;">{{ openTotalText }}</td>
+              <sc-for list="{{ colTotals }}" as="ct" hint-placeholder-count="30">
+                <td style="border: 1px solid #cfe6da; background: #eaf6f0; padding: 5px 3px; text-align: center; font-weight: 600; color: #15803d;">{{ ct.text }}</td>
+              </sc-for>
+              <td style="border: 1px solid #cfe6da; background: #dcfce7; padding: 6px 6px; text-align: center; font-weight: 700; color: #15803d;">{{ grandTotalText }}</td>
+              <td style="border: 1px solid #cfe6da; background: #cdf3dd; padding: 6px 6px; text-align: center; font-weight: 800; color: #14532d;">{{ grandCumText }}</td>
+            </tr>
+          </tbody>
+        </table>
+        <div style="display: flex; justify-content: space-around; margin-top: 38px; gap: 36px; flex-wrap: wrap;">
+          <div style="text-align: center; font-size: 13px; color: #4a6b5d;">
+            <div style="border-top: 1px dotted #9bbcae; width: 220px; margin-bottom: 6px;"></div>
+            {{ teacherSig }}<br>ครูประจำชั้น
+          </div>
+          <div style="text-align: center; font-size: 13px; color: #4a6b5d;">
+            <div style="border-top: 1px dotted #9bbcae; width: 220px; margin-bottom: 6px;"></div>
+            {{ principalSig }}<br>ผู้อำนวยการโรงเรียน
+          </div>
+        </div>
+      </div>
+      </div>
+      </sc-if>
+
+      <!-- ตารางสรุปรวมทุกเดือน -->
+      <sc-if value="{{ reportByYear }}" hint-placeholder-val="">
+      <div style="background: #fff; border-radius: 18px; padding: 22px; box-shadow: 0 10px 30px rgba(16,80,60,.08); overflow-x: auto;">
+        <div style="text-align: center; margin-bottom: 14px;">
+          <div style="font-size: 20px; font-weight: 700;">🐷 สรุปยอดการออมเงินรายเดือน</div>
+          <div style="font-size: 14px; color: #5b8a76; margin-top: 2px;">{{ curName }} · ปีการศึกษา {{ curYear }} · รวมทุกเดือนที่มีการออม</div>
+        </div>
+        <table style="border-collapse: collapse; width: 100%; font-size: 12px;">
+          <thead>
+            <tr>
+              <th style="border: 1px solid #cfe6da; background: #eaf6f0; padding: 8px 4px; font-weight: 700; width: 40px;">เลขที่</th>
+              <th style="border: 1px solid #cfe6da; background: #eaf6f0; padding: 8px 10px; font-weight: 700; text-align: left; min-width: 170px;">ชื่อ-ชื่อเล่น</th>
+              <sc-for list="{{ ymHeaders }}" as="m" hint-placeholder-count="6">
+                <th style="border: 1px solid #cfe6da; background: #eaf6f0; padding: 8px 6px; font-weight: 700; text-align: center; min-width: 54px; white-space: nowrap;">{{ m.label }}</th>
+              </sc-for>
+              <th style="border: 1px solid #cfe6da; background: #dcfce7; padding: 8px 8px; font-weight: 700; color: #15803d; min-width: 76px;">รวมทั้งปี</th>
+            </tr>
+          </thead>
+          <tbody>
+            <sc-for list="{{ ymRows }}" as="row" hint-placeholder-count="10">
+              <tr>
+                <td style="border: 1px solid #e3efe9; padding: 7px 4px; text-align: center; color: #6b9483;">{{ row.no }}</td>
+                <td style="border: 1px solid #e3efe9; padding: 7px 10px; text-align: left; white-space: nowrap;">{{ row.name }}</td>
+                <sc-for list="{{ row.cells }}" as="c" hint-placeholder-count="6">
+                  <td style="{{ c.tdStyle }}">{{ c.text }}</td>
+                </sc-for>
+                <td style="border: 1px solid #e3efe9; padding: 7px 8px; text-align: right; font-weight: 800; color: #16a34a; background: #f3fbf6;">{{ row.totalText }}</td>
+              </tr>
+            </sc-for>
+            <tr>
+              <td colspan="2" style="border: 1px solid #cfe6da; background: #eaf6f0; padding: 8px 10px; text-align: right; font-weight: 700;">รวมทั้งห้อง</td>
+              <sc-for list="{{ ymColTotals }}" as="ct" hint-placeholder-count="6">
+                <td style="border: 1px solid #cfe6da; background: #eaf6f0; padding: 7px 6px; text-align: right; font-weight: 700; color: #15803d;">{{ ct.text }}</td>
+              </sc-for>
+              <td style="border: 1px solid #cfe6da; background: #dcfce7; padding: 8px 8px; text-align: right; font-weight: 800; color: #15803d;">{{ ymGrandTotal }}</td>
+            </tr>
+          </tbody>
+        </table>
+        <div style="display: flex; justify-content: space-around; margin-top: 38px; gap: 36px; flex-wrap: wrap;">
+          <div style="text-align: center; font-size: 13px; color: #4a6b5d;">
+            <div style="border-top: 1px dotted #9bbcae; width: 220px; margin-bottom: 6px;"></div>
+            {{ teacherSig }}<br>ครูประจำชั้น
+          </div>
+          <div style="text-align: center; font-size: 13px; color: #4a6b5d;">
+            <div style="border-top: 1px dotted #9bbcae; width: 220px; margin-bottom: 6px;"></div>
+            {{ principalSig }}<br>ผู้อำนวยการโรงเรียน
+          </div>
+        </div>
+      </div>
+      </sc-if>
+    </section>
+    </sc-if>
+
+    <!-- ───── สมุดคู่ฝาก / บัตรเข้าใช้ ───── -->
+    <sc-if value="{{ showPassbook }}" hint-placeholder-val="">
+    <section>
+      <div class="printHide" style="display: flex; align-items: center; gap: 10px; flex-wrap: wrap; margin-bottom: 16px;">
+        <button onClick="{{ goReport }}" style="border: 1px solid #cbded4; background: #fff; color: #5b8a76; border-radius: 12px; padding: 10px 16px; font-size: 14px; font-weight: 700; font-family: inherit; cursor: pointer;">‹ กลับรายงาน</button>
+        <div style="display: inline-flex; background: #fff; border-radius: 12px; padding: 4px; box-shadow: 0 3px 12px rgba(16,80,60,.08);">
+          <button onClick="{{ pbBook }}" style="{{ pbBookStyle }}">📗 สมุดคู่ฝาก</button>
+          <button onClick="{{ pbCard }}" style="{{ pbCardStyle }}">🎫 บัตรเข้าใช้นักเรียน</button>
+        </div>
+        <select value="{{ pbWhoStr }}" onChange="{{ pbPick }}" style="{{ inputStyle }} max-width: 260px;">
+          <option value="">— ทุกคน ({{ studentCountText }}) —</option>
+          <sc-for list="{{ studentOptions }}" as="o" hint-placeholder-count="10">
+            <option value="{{ o.val }}">{{ o.label }}</option>
+          </sc-for>
+        </select>
+        <button onClick="{{ exportPdf }}" style="background: {{ accentGrad }}; color: #fff; border: none; border-radius: 12px; padding: 11px 22px; font-size: 14px; font-weight: 700; font-family: inherit; cursor: pointer; box-shadow: 0 6px 16px rgba(45,212,180,.35);">🖨️ {{ pbPrintLabel }}</button>
+        <div style="font-size: 13px; color: #6b9483;">{{ pbHint }}</div>
+      </div>
+
+      <sc-if value="{{ pbIsBook }}" hint-placeholder-val="{{ true }}">
+      <div style="display: flex; flex-direction: column; gap: 20px;">
+        <sc-for list="{{ passbooks }}" as="p" hint-placeholder-count="3">
+          <div style="background: #fff; border-radius: 18px; padding: 24px 26px 28px; box-shadow: 0 10px 30px rgba(16,80,60,.08); break-inside: avoid; page-break-after: always;">
+            <div style="display: flex; align-items: flex-start; justify-content: space-between; gap: 16px; flex-wrap: wrap; border-bottom: 2px solid #eaf6f0; padding-bottom: 14px; margin-bottom: 16px;">
+              <div>
+                <div style="font-size: 18px; font-weight: 700;">🐷 สมุดคู่ฝากเงินออม · {{ curName }}</div>
+                <div style="font-size: 14px; color: #5b8a76; margin-top: 3px;">{{ p.name }} · เลขที่ {{ p.no }} · รหัส {{ p.code }}</div>
+              </div>
+              <div style="text-align: right;">
+                <div style="font-size: 12px; color: #6b9483; font-weight: 600;">ยอดคงเหลือ</div>
+                <div style="font-size: 26px; font-weight: 800; color: #16a34a;">{{ p.balText }} <span style="font-size: 13px; font-weight: 600; color: #9bbcae;">บาท</span></div>
+              </div>
+            </div>
+            <table style="border-collapse: collapse; width: 100%; font-size: 12px;">
+              <thead>
+                <tr>
+                  <th style="border: 1px solid #cfe6da; background: #eaf6f0; padding: 7px 6px; width: 42px;">ที่</th>
+                  <th style="border: 1px solid #cfe6da; background: #eaf6f0; padding: 7px 10px; text-align: left;">วันที่</th>
+                  <th style="border: 1px solid #cfe6da; background: #eaf6f0; padding: 7px 10px; text-align: right; width: 90px;">ฝาก</th>
+                  <th style="border: 1px solid #cfe6da; background: #eaf6f0; padding: 7px 10px; text-align: right; width: 90px;">ถอน</th>
+                  <th style="border: 1px solid #cfe6da; background: #dcfce7; padding: 7px 10px; text-align: right; width: 100px; color: #15803d;">คงเหลือ</th>
+                  <th style="border: 1px solid #cfe6da; background: #eaf6f0; padding: 7px 10px; text-align: center; width: 110px;">ลงชื่อผู้รับ</th>
+                </tr>
+              </thead>
+              <tbody>
+                <tr>
+                  <td style="border: 1px solid #e3efe9; padding: 6px; text-align: center; color: #9bbcae;">–</td>
+                  <td style="border: 1px solid #e3efe9; padding: 6px 10px; color: #6b7c3a; font-weight: 600;">ยอดยกมา</td>
+                  <td style="border: 1px solid #e3efe9; padding: 6px 10px; text-align: right;">{{ p.openText }}</td>
+                  <td style="border: 1px solid #e3efe9; padding: 6px 10px;"></td>
+                  <td style="border: 1px solid #e3efe9; padding: 6px 10px; text-align: right; font-weight: 700; background: #f3fbf6;">{{ p.openText }}</td>
+                  <td style="border: 1px solid #e3efe9; padding: 6px 10px;"></td>
+                </tr>
+                <sc-for list="{{ p.rows }}" as="r" hint-placeholder-count="6">
+                  <tr>
+                    <td style="border: 1px solid #e3efe9; padding: 6px; text-align: center; color: #6b9483;">{{ r.i }}</td>
+                    <td style="border: 1px solid #e3efe9; padding: 6px 10px; font-family: 'IBM Plex Mono', monospace;">{{ r.date }}</td>
+                    <td style="border: 1px solid #e3efe9; padding: 6px 10px; text-align: right; color: #16a34a; font-weight: 700;">{{ r.depText }}</td>
+                    <td style="border: 1px solid #e3efe9; padding: 6px 10px; text-align: right; color: #c0392b; font-weight: 700;">{{ r.wdText }}</td>
+                    <td style="border: 1px solid #e3efe9; padding: 6px 10px; text-align: right; font-weight: 700; background: #f3fbf6;">{{ r.balText }}</td>
+                    <td style="border: 1px solid #e3efe9; padding: 6px 10px;"></td>
+                  </tr>
+                </sc-for>
+                <sc-for list="{{ p.blanks }}" as="b" hint-placeholder-count="3">
+                  <tr>
+                    <td style="border: 1px solid #e3efe9; padding: 9px 6px; text-align: center; color: #cdded6;">{{ b.i }}</td>
+                    <td style="border: 1px solid #e3efe9;"></td>
+                    <td style="border: 1px solid #e3efe9;"></td>
+                    <td style="border: 1px solid #e3efe9;"></td>
+                    <td style="border: 1px solid #e3efe9; background: #fbfefc;"></td>
+                    <td style="border: 1px solid #e3efe9;"></td>
+                  </tr>
+                </sc-for>
+              </tbody>
+            </table>
+            <div style="display: flex; justify-content: space-around; margin-top: 30px; gap: 30px; flex-wrap: wrap;">
+              <div style="text-align: center; font-size: 12px; color: #4a6b5d;">
+                <div style="border-top: 1px dotted #9bbcae; width: 190px; margin-bottom: 6px;"></div>
+                {{ teacherSig }}<br>ครูประจำชั้น
+              </div>
+              <div style="text-align: center; font-size: 12px; color: #4a6b5d;">
+                <div style="border-top: 1px dotted #9bbcae; width: 190px; margin-bottom: 6px;"></div>
+                (.................................)<br>ผู้ปกครอง
+              </div>
+            </div>
+          </div>
+        </sc-for>
+      </div>
+      </sc-if>
+
+      <sc-if value="{{ pbIsCard }}" hint-placeholder-val="">
+      <div style="display: grid; grid-template-columns: repeat(auto-fill, minmax(300px, 1fr)); gap: 16px;">
+        <sc-for list="{{ accessCards }}" as="c" hint-placeholder-count="6">
+          <div style="background: #fff; border: 2px dashed #b8d8c8; border-radius: 16px; padding: 16px 18px; display: flex; gap: 14px; align-items: center; break-inside: avoid;">
+            <div style="{{ c.qrStyle }}"></div>
+            <div style="min-width: 0;">
+              <div style="font-size: 11px; color: #6b9483; font-weight: 700;">ออมสุข · {{ curName }}</div>
+              <div style="font-size: 16px; font-weight: 800; margin-top: 3px; white-space: nowrap; overflow: hidden; text-overflow: ellipsis;">{{ c.nick }}</div>
+              <div style="font-size: 12px; color: #5b8a76; margin-top: 2px;">เลขที่ {{ c.no }} · {{ c.name }}</div>
+              <div style="margin-top: 8px; font-size: 13px; font-family: 'IBM Plex Mono', monospace; font-weight: 700; color: #15803d;">รหัสห้อง {{ curCode }} · PIN {{ c.pin }}</div>
+              <div style="font-size: 11px; color: #9bbcae; margin-top: 4px; word-break: break-all;">{{ shareLink }}</div>
+            </div>
+          </div>
+        </sc-for>
+      </div>
+      </sc-if>
+    </section>
+    </sc-if>
+
+    <!-- ───── รายชื่อ ───── -->
+    <sc-if value="{{ showRoster }}" hint-placeholder-val="">
+    <section style="display: flex; flex-direction: column; gap: 20px;">
+
+      <div style="background: #fff; border-radius: 22px; padding: 24px 26px; box-shadow: 0 10px 30px rgba(16,80,60,.08);">
+        <h2 style="font-size: 19px; font-weight: 700; margin: 0 0 4px;">นำเข้ารายชื่อจากไฟล์ CSV 📄</h2>
+        <p style="color: #6b9483; margin: 0 0 16px; font-size: 14px; line-height: 1.7;">ดาวน์โหลดเทมเพลต → กรอกใน Excel / Google Sheets → บันทึกเป็น <b>.csv</b> → อัพโหลดกลับ<br>ระบบเทียบด้วย <b>รหัสนักเรียน</b> — <b style="color: #15803d;">คนที่มีอยู่แล้วจะไม่ถูกทับ</b> เพิ่มให้เฉพาะคนใหม่ และเติมช่องที่เคยว่างไว้เท่านั้น</p>
+        <div style="display: flex; gap: 10px; flex-wrap: wrap;">
+          <button onClick="{{ downloadTemplate }}" style="border: 1px solid #cbded4; background: #fff; color: #15803d; border-radius: 11px; padding: 11px 18px; font-size: 14px; font-weight: 700; font-family: inherit; cursor: pointer;">📄 ดาวน์โหลดเทมเพลต CSV</button>
+          <label style="background: #16a34a; color: #fff; border-radius: 11px; padding: 12px 20px; font-size: 14px; font-weight: 700; font-family: inherit; cursor: pointer;">⬆️ อัพโหลดไฟล์รายชื่อ
+            <input type="file" accept=".csv,.txt" onChange="{{ uploadRoster }}" style="display: none;">
+          </label>
+        </div>
+        <div style="margin-top: 14px; background: #f3fbf6; border: 1px solid #d2e7dc; border-radius: 12px; padding: 12px 14px; font-size: 12px; color: #4a6b5d; font-family: 'IBM Plex Mono', monospace; overflow-x: auto; white-space: nowrap;">{{ csvHeaderText }}</div>
+      </div>
+
+      <div style="background: #fff; border-radius: 22px; padding: 24px 26px; box-shadow: 0 10px 30px rgba(16,80,60,.08);">
+        <h2 style="font-size: 19px; font-weight: 700; margin: 0 0 4px;">วางรายชื่อทีละหลายคน 📝</h2>
+        <p style="color: #6b9483; margin: 0 0 14px; font-size: 14px; line-height: 1.7;">พิมพ์หรือวางบรรทัดละ 1 คน — รูปแบบ <b>เลขที่,รหัสนักเรียน,ชื่อ-นามสกุล,ชื่อเล่น</b> หรือแค่ <b>ชื่อ (ชื่อเล่น)</b> ก็ได้</p>
+        <textarea rows="6" placeholder="1,10501,เด็กชายสมชาย ใจดี,บอส&#10;2,10502,เด็กหญิงสมหญิง รักเรียน,ปลา" value="{{ bulkText }}" onChange="{{ setBulkText }}" style="width: 100%; border: 1px solid #d2e7dc; border-radius: 14px; padding: 14px; font-size: 14px; font-family: 'IBM Plex Mono', monospace; line-height: 1.7; outline: none; background: #f8fbf9; color: #134e3a; resize: vertical;"></textarea>
+        <button onClick="{{ addBulk }}" style="margin-top: 12px; background: {{ accentGrad }}; color: #fff; border: none; border-radius: 12px; padding: 13px 26px; font-size: 15px; font-weight: 700; font-family: inherit; cursor: pointer; box-shadow: 0 6px 16px rgba(45,212,180,.35);">➕ เพิ่มรายชื่อทั้งหมด</button>
+        <sc-if value="{{ importMsg }}" hint-placeholder-val="">
+        <div style="margin-top: 14px; background: #dcfce7; border-radius: 12px; padding: 12px 14px; font-size: 14px; font-weight: 600; color: #15803d; line-height: 1.7;">{{ importMsg }}</div>
+        </sc-if>
+      </div>
+
+      <div style="background: #fff; border-radius: 22px; padding: 24px 26px; box-shadow: 0 10px 30px rgba(16,80,60,.08);">
+        <div style="display: flex; align-items: center; justify-content: space-between; gap: 12px; flex-wrap: wrap; margin-bottom: 6px;">
+          <h2 style="font-size: 19px; font-weight: 700; margin: 0;">รายชื่อในห้อง 👧🧒 <span style="font-weight: 500; color: #9bbcae; font-size: 15px;">{{ studentCountText }}</span></h2>
+          <div style="display: flex; gap: 8px; flex-wrap: wrap;">
+            <button onClick="{{ samePin }}" style="border: 1px solid #cbded4; background: #fff; color: #15803d; border-radius: 11px; padding: 9px 16px; font-size: 13px; font-weight: 700; font-family: inherit; cursor: pointer;">🔓 ตั้ง PIN เดียวกันทั้งห้อง</button>
+            <button onClick="{{ autoPins }}" style="border: 1px solid #cbded4; background: #fff; color: #15803d; border-radius: 11px; padding: 9px 16px; font-size: 13px; font-weight: 700; font-family: inherit; cursor: pointer;">🔑 ตั้ง PIN ให้คนที่ยังไม่มี</button>
+          </div>
+        </div>
+        <p style="color: #6b9483; margin: 0 0 16px; font-size: 13px;">PIN คือรหัส 4 ตัวที่นักเรียนใช้เข้าดูยอดของตัวเอง — <b>ซ้ำกันได้</b> (ตั้งเหมือนกันทั้งห้องก็ได้) เพราะนักเรียนต้องเลือกชื่อตัวเองจากรายการก่อนอยู่แล้ว · เว้นว่างไว้ = เข้าดูได้เลยไม่ต้องใส่ PIN</p>
+        <div style="display: flex; flex-direction: column; gap: 8px;">
+          <div style="display: grid; grid-template-columns: 46px 1fr 1.7fr 1fr 78px 60px; gap: 8px; font-size: 12px; font-weight: 700; color: #5b8a76; padding: 0 2px;">
+            <div>เลขที่</div><div>รหัส น.ร.</div><div>ชื่อ-นามสกุล</div><div>ชื่อเล่น</div><div>PIN</div><div></div>
+          </div>
+          <sc-for list="{{ rosterEditors }}" as="e" hint-placeholder-count="8">
+            <div style="display: grid; grid-template-columns: 46px 1fr 1.7fr 1fr 78px 60px; gap: 8px; align-items: center;">
+              <input type="number" value="{{ e.no }}" onChange="{{ e.setNo }}" style="{{ e.cell }}">
+              <input type="text" value="{{ e.code }}" onChange="{{ e.setCode }}" style="{{ e.cell }}">
+              <input type="text" value="{{ e.name }}" onChange="{{ e.setName }}" style="{{ e.cell }}">
+              <input type="text" value="{{ e.nick }}" onChange="{{ e.setNick }}" style="{{ e.cell }}">
+              <input type="text" maxlength="4" value="{{ e.pin }}" onChange="{{ e.setPin }}" style="{{ e.cell }}">
+              <button onClick="{{ e.remove }}" style="border: none; background: #fde8e8; color: #c0392b; border-radius: 10px; padding: 9px 6px; font-size: 13px; font-weight: 700; font-family: inherit; cursor: pointer;">ลบ</button>
+            </div>
+          </sc-for>
+        </div>
+        <div style="display: grid; grid-template-columns: 46px 1fr 1.7fr 1fr 78px 60px; gap: 8px; align-items: center; border-top: 1px dashed #cfe6da; padding-top: 14px; margin-top: 14px;">
+          <div></div>
+          <input type="text" placeholder="รหัส" value="{{ newCode }}" onChange="{{ setNewCode }}" style="{{ cellStyle }}">
+          <input type="text" placeholder="ชื่อ-นามสกุล" value="{{ newName }}" onChange="{{ setNewName }}" style="{{ cellStyle }}">
+          <input type="text" placeholder="ชื่อเล่น" value="{{ newNick }}" onChange="{{ setNewNick }}" style="{{ cellStyle }}">
+          <div></div>
+          <button onClick="{{ addOne }}" style="border: none; background: #16a34a; color: #fff; border-radius: 10px; padding: 9px 6px; font-size: 13px; font-weight: 700; font-family: inherit; cursor: pointer;">เพิ่ม</button>
+        </div>
+      </div>
+    </section>
+    </sc-if>
+
+    <!-- ───── ตั้งค่า ───── -->
+    <sc-if value="{{ showSettings }}" hint-placeholder-val="">
+    <section style="display: flex; flex-direction: column; gap: 20px; max-width: 760px;">
+
+      <div style="background: #fff; border-radius: 22px; padding: 24px 26px; box-shadow: 0 10px 30px rgba(16,80,60,.08);">
+        <h2 style="font-size: 19px; font-weight: 700; margin: 0 0 4px;">แชร์ให้นักเรียนเข้าดู 🔗</h2>
+        <p style="color: #6b9483; margin: 0 0 18px; font-size: 14px; line-height: 1.7;">ให้นักเรียนสแกน QR หรือเปิดลิงก์นี้ แล้วเลือกชื่อตัวเองและใส่ PIN — ดูได้เท่านั้น แก้ไขไม่ได้</p>
+        <div style="display: flex; gap: 20px; align-items: center; flex-wrap: wrap;">
+          <div style="{{ qrStyle }}"></div>
+          <div style="flex: 1; min-width: 240px;">
+            <div style="font-size: 13px; color: #6b9483; font-weight: 600; margin-bottom: 7px;">รหัสห้อง — ตั้งเองได้ (4–10 ตัว A–Z / 0–9)</div>
+            <div style="display: flex; gap: 8px; flex-wrap: wrap;">
+              <input type="text" maxlength="10" value="{{ codeDraft }}" onChange="{{ setCodeDraft }}" style="flex: 1; min-width: 150px; border: 2px solid #d2e7dc; border-radius: 12px; padding: 10px 14px; font-size: 24px; font-weight: 800; letter-spacing: .14em; text-transform: uppercase; font-family: 'IBM Plex Mono', monospace; outline: none; background: #f8fbf9; color: #15803d;">
+              <button onClick="{{ saveCode }}" style="border: none; background: #16a34a; color: #fff; border-radius: 12px; padding: 10px 18px; font-size: 14px; font-weight: 700; font-family: inherit; cursor: pointer; white-space: nowrap;">บันทึกรหัส</button>
+            </div>
+            <div style="font-size: 12px; color: #9bbcae; margin: 10px 0 8px; word-break: break-all; font-family: 'IBM Plex Mono', monospace;">{{ shareLink }}</div>
+            <button onClick="{{ copyLink }}" style="border: 1px solid #cbded4; background: #fff; color: #15803d; border-radius: 11px; padding: 9px 16px; font-size: 13px; font-weight: 700; font-family: inherit; cursor: pointer;">{{ copyLabel }}</button>
+          </div>
+        </div>
+        <label style="display: flex; align-items: center; gap: 10px; margin-top: 20px; cursor: pointer; font-size: 14px; font-weight: 600;">
+          <input type="checkbox" checked="{{ shareTotals }}" onChange="{{ toggleShareTotals }}" style="width: 18px; height: 18px; accent-color: #16a34a; cursor: pointer;">
+          👀 ให้นักเรียนเห็นตารางยอดรวมของทุกคนในห้อง
+        </label>
+      </div>
+
+      <div style="background: #fff; border-radius: 22px; padding: 24px 26px; box-shadow: 0 10px 30px rgba(16,80,60,.08);">
+        <h2 style="font-size: 19px; font-weight: 700; margin: 0 0 18px;">ข้อมูลห้องเรียน 🏫</h2>
+        <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(200px, 1fr)); gap: 14px;">
+          <div style="display: flex; flex-direction: column; gap: 7px;">
+            <label style="font-size: 13px; font-weight: 700;">ชื่อห้อง</label>
+            <input type="text" value="{{ curName }}" onChange="{{ setCurName }}" style="{{ inputStyle }}">
+          </div>
+          <div style="display: flex; flex-direction: column; gap: 7px;">
+            <label style="font-size: 13px; font-weight: 700;">ปีการศึกษา (พ.ศ.)</label>
+            <input type="number" value="{{ curYear }}" onChange="{{ setCurYear }}" style="{{ inputStyle }}">
+          </div>
+          <div style="display: flex; flex-direction: column; gap: 7px;">
+            <label style="font-size: 13px; font-weight: 700;">🎯 เป้าหมายการออมต่อคน (บาท)</label>
+            <input type="number" min="0" value="{{ curGoal }}" onChange="{{ setCurGoal }}" style="{{ inputStyle }}">
+          </div>
+        </div>
+        <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(220px, 1fr)); gap: 14px; margin-top: 16px;">
+          <div style="display: flex; flex-direction: column; gap: 7px;">
+            <label style="font-size: 13px; font-weight: 700;">ครูประจำชั้น (ลงนามในรายงาน)</label>
+            <input type="text" placeholder="เช่น นางสาวสมศรี ใจดี" value="{{ teacherName }}" onChange="{{ setTeacherName }}" style="{{ inputStyle }}">
+          </div>
+          <div style="display: flex; flex-direction: column; gap: 7px;">
+            <label style="font-size: 13px; font-weight: 700;">ผู้อำนวยการโรงเรียน</label>
+            <input type="text" placeholder="เช่น นายสมชาย รักเรียน" value="{{ principalName }}" onChange="{{ setPrincipalName }}" style="{{ inputStyle }}">
+          </div>
+        </div>
+      </div>
+
+      <sc-if value="{{ notOwner }}" hint-placeholder-val="">
+      <div style="background: #eff6ff; border: 1px solid #bfdbfe; border-radius: 18px; padding: 16px 20px; font-size: 14px; color: #075985; line-height: 1.7;">🤝 {{ ownerNote }}</div>
+      </sc-if>
+
+      <sc-if value="{{ isOwner }}" hint-placeholder-val="{{ true }}">
+      <div style="background: #fff; border-radius: 22px; padding: 24px 26px; box-shadow: 0 10px 30px rgba(16,80,60,.08);">
+        <h2 style="font-size: 19px; font-weight: 700; margin: 0 0 4px;">ครูผู้ช่วยร่วมห้อง 👩‍🏫👨‍🏫</h2>
+        <p style="color: #6b9483; margin: 0 0 16px; font-size: 14px; line-height: 1.7;">เพิ่มอีเมล Google ของครูท่านอื่นเพื่อให้เข้าบันทึกและแก้ไขห้องนี้ได้</p>
+        <div style="display: flex; gap: 10px; flex-wrap: wrap; margin-bottom: 14px;">
+          <input type="email" placeholder="teacher@gmail.com" value="{{ newMember }}" onChange="{{ setNewMember }}" style="{{ inputStyle }} flex: 1; min-width: 200px;">
+          <button onClick="{{ addMember }}" style="background: #16a34a; color: #fff; border: none; border-radius: 12px; padding: 12px 22px; font-size: 14px; font-weight: 700; font-family: inherit; cursor: pointer; white-space: nowrap;">+ เชิญ</button>
+        </div>
+        <div style="display: flex; flex-direction: column; gap: 8px;">
+          <sc-for list="{{ memberList }}" as="m" hint-placeholder-count="1">
+            <div style="display: flex; align-items: center; gap: 10px; background: #f3fbf6; border-radius: 11px; padding: 10px 14px;">
+              <div style="flex: 1; font-size: 14px; font-weight: 600; word-break: break-all;">{{ m.email }}</div>
+              <button onClick="{{ m.remove }}" style="border: none; background: #fde8e8; color: #c0392b; border-radius: 9px; padding: 7px 12px; font-size: 13px; font-weight: 700; font-family: inherit; cursor: pointer;">นำออก</button>
+            </div>
+          </sc-for>
+        </div>
+      </div>
+      </sc-if>
+
+      <div style="background: #fff; border-radius: 22px; padding: 24px 26px; box-shadow: 0 10px 30px rgba(16,80,60,.08);">
+        <h2 style="font-size: 19px; font-weight: 700; margin: 0 0 4px;">ขึ้นปีการศึกษาใหม่ 🎓</h2>
+        <p style="color: #6b9483; margin: 0 0 16px; font-size: 14px; line-height: 1.7;">คัดลอกรายชื่อทั้งห้องไปเป็นห้องใหม่ของปีการศึกษาถัดไป (ไม่คัดลอกรายการเงิน) — ห้องเดิมยังอยู่ครบสำหรับดูย้อนหลัง</p>
+        <button onClick="{{ rollover }}" style="background: #134e3a; color: #fff; border: none; border-radius: 12px; padding: 13px 24px; font-size: 15px; font-weight: 700; font-family: inherit; cursor: pointer;">คัดลอกรายชื่อไปปี {{ nextYear }}</button>
+      </div>
+
+      <div style="background: #fff; border-radius: 22px; padding: 24px 26px; box-shadow: 0 10px 30px rgba(16,80,60,.08);">
+        <h2 style="font-size: 19px; font-weight: 700; margin: 0 0 4px;">สำรอง &amp; ประวัติการแก้ไข 🗂️</h2>
+        <p style="color: #6b9483; margin: 0 0 16px; font-size: 14px;">ดาวน์โหลดข้อมูลห้องนี้เก็บไว้ในเครื่อง และดูว่ามีใครแก้ไขอะไรไปบ้าง</p>
+        <button onClick="{{ backupData }}" style="background: #134e3a; color: #fff; border: none; border-radius: 12px; padding: 12px 22px; font-size: 14px; font-weight: 700; font-family: inherit; cursor: pointer; margin-bottom: 18px;">💾 ดาวน์โหลดไฟล์สำรอง</button>
+        <div style="display: flex; flex-direction: column; gap: 6px; max-height: 260px; overflow-y: auto;">
+          <sc-for list="{{ auditList }}" as="a" hint-placeholder-count="3">
+            <div style="display: flex; gap: 10px; font-size: 13px; padding: 8px 12px; background: #f8fbf9; border-radius: 10px; align-items: baseline; flex-wrap: wrap;">
+              <span style="font-family: 'IBM Plex Mono', monospace; color: #9bbcae; white-space: nowrap;">{{ a.at }}</span>
+              <span style="font-weight: 700; color: #15803d;">{{ a.actor }}</span>
+              <span style="color: #4a6b5d;">{{ a.text }}</span>
+            </div>
+          </sc-for>
+        </div>
+        <sc-if value="{{ noAudit }}" hint-placeholder-val="">
+        <div style="color: #9bbcae; font-size: 14px; text-align: center; padding: 14px;">ยังไม่มีประวัติการแก้ไข</div>
+        </sc-if>
+      </div>
+
+      <sc-if value="{{ isOwner }}" hint-placeholder-val="{{ true }}">
+      <div style="background: #fff; border: 1px solid #f3c9c4; border-radius: 22px; padding: 22px 26px;">
+        <h2 style="font-size: 17px; font-weight: 700; margin: 0 0 10px; color: #c0392b;">ลบห้องเรียนนี้</h2>
+        <p style="color: #a06a63; margin: 0 0 14px; font-size: 13px; line-height: 1.7;">ลบห้อง รายชื่อ และรายการเงินทั้งหมดของห้องนี้อย่างถาวร — ควรดาวน์โหลดไฟล์สำรองก่อน</p>
+        <button onClick="{{ deleteClass }}" style="background: #fff; color: #c0392b; border: 2px solid #f3c9c4; border-radius: 12px; padding: 11px 22px; font-size: 14px; font-weight: 700; font-family: inherit; cursor: pointer;">ลบห้องนี้ถาวร</button>
+      </div>
+      </sc-if>
+    </section>
+    </sc-if>
+
+    <!-- แถบล่างสำหรับมือถือ -->
+    <sc-if value="{{ mobile }}" hint-placeholder-val="">
+    <div class="printHide" style="position: fixed; bottom: 0; left: 0; right: 0; background: #fff; border-top: 1px solid #eaf3ee; display: flex; justify-content: space-around; align-items: flex-end; padding: 8px 8px 14px; box-shadow: 0 -4px 20px rgba(16,80,60,.08); z-index: 20;">
+      <button onClick="{{ goDash }}" style="{{ navDashStyle }}"><span style="font-size: 20px;">📊</span>สรุปผล</button>
+      <button onClick="{{ goReport }}" style="{{ navReportStyle }}"><span style="font-size: 20px;">📋</span>รายงาน</button>
+      <button onClick="{{ goForm }}" style="display: flex; flex-direction: column; align-items: center; gap: 4px; border: none; background: transparent; cursor: pointer; font-family: inherit; font-size: 11px; font-weight: 700; color: #15803d;">
+        <span style="width: 50px; height: 50px; margin-top: -26px; border-radius: 50%; background: {{ accentGrad }}; color: #fff; display: flex; align-items: center; justify-content: center; font-size: 28px; box-shadow: 0 6px 16px rgba(45,212,180,.45);">+</span>
+        บันทึก
+      </button>
+      <button onClick="{{ goRoster }}" style="{{ navRosterStyle }}"><span style="font-size: 20px;">👧</span>รายชื่อ</button>
+      <button onClick="{{ goSettings }}" style="{{ navSettingsStyle }}"><span style="font-size: 20px;">⚙️</span>ตั้งค่า</button>
+    </div>
+    </sc-if>
+
+  </div>
+  </sc-if>
+
+  <!-- ══════════ 6. หน้านักเรียน ══════════ -->
+  <sc-if value="{{ screenStudent }}" hint-placeholder-val="">
+  <div style="position: relative; max-width: 1040px; margin: 0 auto; padding: 24px 18px 60px;">
+    <div style="display: flex; align-items: center; justify-content: space-between; gap: 12px; margin-bottom: 20px; max-width: 620px; margin-left: auto; margin-right: auto;">
+      <div style="font-size: 13px; font-weight: 700; color: #15803d;">🐷 ออมสุข · {{ spClassName }}</div>
+      <button onClick="{{ studentExit }}" style="border: 1px solid #cbded4; background: #fff; color: #5b8a76; border-radius: 11px; padding: 8px 15px; font-size: 13px; font-weight: 700; font-family: inherit; cursor: pointer;">ออก</button>
+    </div>
+
+    <div style="max-width: 620px; margin: 0 auto;">
+    <div style="background: {{ accentGrad }}; border-radius: 26px; padding: 26px 26px 24px; color: #fff; box-shadow: 0 14px 34px rgba(45,212,180,.42); margin-bottom: 18px;">
+      <div style="font-size: 15px; font-weight: 600; opacity: .95;">ยอดเงินออมของ {{ spNick }}</div>
+      <div style="font-size: 50px; font-weight: 800; line-height: 1.1; margin-top: 6px;">{{ spTotalText }} <span style="font-size: 20px; opacity: .85; font-weight: 500;">บาท</span></div>
+      <div style="font-size: 14px; opacity: .92; margin-top: 4px;">{{ spName }} · เลขที่ {{ spNo }}</div>
+      <sc-if value="{{ spHasGoal }}" hint-placeholder-val="">
+      <div style="margin-top: 18px;">
+        <div style="display: flex; justify-content: space-between; font-size: 13px; font-weight: 600; opacity: .95; margin-bottom: 7px;">
+          <span>🎯 เป้าหมาย {{ spGoalText }} บาท</span><span>{{ spGoalPct }}</span>
+        </div>
+        <div style="height: 12px; border-radius: 999px; background: rgba(255,255,255,.32); overflow: hidden;">
+          <div style="height: 100%; width: {{ spGoalPct }}; background: #fff; border-radius: 999px; transition: width .6s ease;"></div>
+        </div>
+      </div>
+      </sc-if>
+    </div>
+
+    <sc-if value="{{ spHasBadges }}" hint-placeholder-val="">
+    <div style="display: flex; gap: 10px; flex-wrap: wrap; margin-bottom: 18px;">
+      <sc-for list="{{ spBadges }}" as="b" hint-placeholder-count="2">
+        <div style="{{ b.style }}"><span style="font-size: 19px;">{{ b.icon }}</span><div><div style="font-size: 13px; font-weight: 800;">{{ b.title }}</div><div style="font-size: 11px; opacity: .8;">{{ b.sub }}</div></div></div>
+      </sc-for>
+    </div>
+    </sc-if>
+
+    <sc-if value="{{ spHasChart }}" hint-placeholder-val="">
+    <div style="background: #fff; border-radius: 18px; padding: 18px 20px 14px; box-shadow: 0 8px 24px rgba(16,80,60,.08); margin-bottom: 6px;">
+      <div style="font-size: 14px; font-weight: 700; margin-bottom: 14px;">📈 เงินออมสะสมของฉัน</div>
+      <div style="display: flex; align-items: flex-end; gap: 10px; height: 120px;">
+        <sc-for list="{{ spChart }}" as="b" hint-placeholder-count="4">
+          <div style="flex: 1; display: flex; flex-direction: column; align-items: center; gap: 6px;">
+            <div style="font-size: 11px; font-weight: 700; color: #16a34a;">{{ b.amountText }}</div>
+            <div style="{{ b.barStyle }}"></div>
+            <div style="font-size: 11px; color: #9bbcae; font-weight: 600;">{{ b.label }}</div>
+          </div>
+        </sc-for>
+      </div>
+    </div>
+    </sc-if>
+
+    <h3 style="font-size: 16px; font-weight: 700; margin: 22px 0 10px;">📜 ประวัติการฝากของฉัน</h3>
+    <div style="background: #fff; border-radius: 18px; overflow: hidden; box-shadow: 0 8px 24px rgba(16,80,60,.08);">
+      <sc-for list="{{ spHistory }}" as="h" hint-placeholder-count="5">
+        <div style="display: flex; align-items: center; gap: 12px; padding: 12px 16px; border-bottom: 1px solid #f0f5f2;">
+          <div style="flex: 1; font-size: 14px; font-family: 'IBM Plex Mono', monospace; color: #6b9483;">{{ h.date }}</div>
+          <div style="font-size: 12px; font-weight: 700; color: {{ h.color }};">{{ h.kind }}</div>
+          <div style="font-size: 16px; font-weight: 800; color: {{ h.color }}; min-width: 80px; text-align: right;">{{ h.amountText }}</div>
+        </div>
+      </sc-for>
+    </div>
+    <sc-if value="{{ spNoHistory }}" hint-placeholder-val="">
+    <div style="background: #fff; border-radius: 18px; padding: 22px; text-align: center; color: #9bbcae; font-size: 14px; box-shadow: 0 8px 24px rgba(16,80,60,.08);">ยังไม่มีรายการฝาก — เริ่มออมวันนี้กันเถอะ! 🐷</div>
+    </sc-if>
+    </div>
+
+    <sc-if value="{{ spShowGrid }}" hint-placeholder-val="">
+    <div>
+      <h3 style="font-size: 16px; font-weight: 700; margin: 28px 0 10px;">📋 แบบบันทึกการออมเงินของห้อง <span style="font-size: 13px; font-weight: 500; color: #9bbcae;">รวมทั้งปี {{ spClassTotalText }} บาท</span></h3>
+      <div style="display: flex; align-items: center; gap: 8px; flex-wrap: wrap; margin-bottom: 12px;">
+        <div style="display: inline-flex; gap: 4px; background: #fff; border-radius: 12px; padding: 4px; box-shadow: 0 3px 12px rgba(16,80,60,.08); overflow-x: auto; max-width: 100%;">
+          <sc-for list="{{ spMonthOptions }}" as="m" hint-placeholder-count="2">
+            <button onClick="{{ m.pick }}" style="{{ m.style }}">{{ m.label }}</button>
+          </sc-for>
+        </div>
+        <button onClick="{{ spToggleBig }}" style="{{ spBigStyle }}">🔍 ตัวใหญ่</button>
+        <button onClick="{{ spToggleOnlyMe }}" style="{{ spOnlyMeStyle }}">🙋 เห็นเฉพาะของฉัน</button>
+      </div>
+      <div style="background: #fff; border-radius: 18px; padding: 18px 16px 20px; box-shadow: 0 8px 24px rgba(16,80,60,.08); overflow-x: auto;">
+        <div style="text-align: center; margin-bottom: 12px;">
+          <div style="font-size: 17px; font-weight: 700;">🐷 แบบบันทึกการออมเงิน</div>
+          <div style="font-size: 12px; color: #5b8a76; margin-top: 2px;">{{ spClassName }} · {{ spReportTitle }}</div>
+        </div>
+        <table style="{{ spTableStyle }}">
+          <thead>
+            <tr>
+              <th style="border: 1px solid #cfe6da; background: #eaf6f0; padding: 6px 4px; font-weight: 700; width: 30px;">เลขที่</th>
+              <th style="border: 1px solid #cfe6da; background: #eaf6f0; padding: 6px 8px; font-weight: 700; text-align: left; min-width: 120px;">ชื่อ-ชื่อเล่น</th>
+              <th style="border: 1px solid #cfe6da; background: #f6f9ec; padding: 6px 5px; font-weight: 700; color: #6b7c3a; width: 44px;">ยกมา</th>
+              <sc-for list="{{ spDayHeaders }}" as="d" hint-placeholder-count="30">
+                <th style="{{ d.thStyle }}">{{ d.day }}</th>
+              </sc-for>
+              <th style="border: 1px solid #cfe6da; background: #dcfce7; padding: 6px 6px; font-weight: 700; color: #15803d; width: 52px;">รวมเงิน</th>
+              <th style="border: 1px solid #cfe6da; background: #cdf3dd; padding: 6px 6px; font-weight: 700; color: #14532d; width: 58px;">สะสม</th>
+            </tr>
+          </thead>
+          <tbody>
+            <sc-for list="{{ spGridRows }}" as="row" hint-placeholder-count="10">
+              <tr>
+                <td style="{{ row.noStyle }}">{{ row.no }}</td>
+                <td style="{{ row.nameStyle }}">{{ row.name }}</td>
+                <td style="{{ row.openStyle }}">{{ row.openText }}</td>
+                <sc-for list="{{ row.cells }}" as="c" hint-placeholder-count="30">
+                  <td style="{{ c.tdStyle }}">{{ c.text }}</td>
+                </sc-for>
+                <td style="{{ row.totalStyle }}">{{ row.totalText }}</td>
+                <td style="{{ row.cumStyle }}">{{ row.cumText }}</td>
+              </tr>
+            </sc-for>
+            <tr>
+              <td colspan="2" style="border: 1px solid #cfe6da; background: #eaf6f0; padding: 6px 8px; text-align: right; font-weight: 700;">รวมทั้งห้อง</td>
+              <td style="border: 1px solid #cfe6da; background: #f6f9ec; padding: 5px 5px; text-align: center; font-weight: 700; color: #6b7c3a;">{{ spOpenTotalText }}</td>
+              <sc-for list="{{ spColTotals }}" as="ct" hint-placeholder-count="30">
+                <td style="border: 1px solid #cfe6da; background: #eaf6f0; padding: 5px 1px; text-align: center; font-weight: 600; color: #15803d;">{{ ct.text }}</td>
+              </sc-for>
+              <td style="border: 1px solid #cfe6da; background: #dcfce7; padding: 6px 6px; text-align: center; font-weight: 700; color: #15803d;">{{ spGridTotalText }}</td>
+              <td style="border: 1px solid #cfe6da; background: #cdf3dd; padding: 6px 6px; text-align: center; font-weight: 800; color: #14532d;">{{ spGridCumText }}</td>
+            </tr>
+          </tbody>
+        </table>
+        <div style="font-size: 11px; color: #9bbcae; margin-top: 10px; text-align: center;">แถวสีเขียวคือชื่อของเรา · เลื่อนตารางไปทางขวาเพื่อดูวันอื่น</div>
+      </div>
+    </div>
+    </sc-if>
+
+    <sc-if value="{{ spShowTable }}" hint-placeholder-val="">
+    <div style="max-width: 620px; margin: 0 auto;">
+      <h3 style="font-size: 16px; font-weight: 700; margin: 26px 0 10px;">🏆 ยอดออมของทั้งห้อง <span style="font-size: 13px; font-weight: 500; color: #9bbcae;">รวม {{ spClassTotalText }} บาท</span></h3>
+      <div style="background: #fff; border-radius: 18px; overflow: hidden; box-shadow: 0 8px 24px rgba(16,80,60,.08);">
+        <sc-for list="{{ spTable }}" as="t" hint-placeholder-count="8">
+          <div style="{{ t.rowStyle }}">
+            <div style="width: 28px; font-size: 12px; color: #9bbcae; font-weight: 700; font-family: 'IBM Plex Mono', monospace;">{{ t.no }}</div>
+            <div style="flex: 1; min-width: 0; font-size: 14px; font-weight: 600; white-space: nowrap; overflow: hidden; text-overflow: ellipsis;">{{ t.nick }}</div>
+            <div style="font-size: 15px; font-weight: 800; color: #16a34a; white-space: nowrap;">{{ t.totalText }} ฿</div>
+          </div>
+        </sc-for>
+      </div>
+    </div>
+    </sc-if>
+  </div>
+  </sc-if>
+
+  <div class="printHide" style="position: relative; text-align: center; padding: 26px 20px 34px;"><span style="display: inline-block; background: rgba(255,255,255,.6); border-radius: 999px; padding: 9px 20px; font-family: 'IBM Plex Mono', monospace; font-size: 13px; letter-spacing: .06em; color: #8aa99b;">built by campingroom —</span></div>
+
+  <sc-if value="{{ cellEditOpen }}" hint-placeholder-val="">
+  <div class="printHide" onClick="{{ cellEditCancel }}" style="position: fixed; inset: 0; background: rgba(8,40,30,.42); display: flex; align-items: center; justify-content: center; padding: 20px; z-index: 60;">
+    <div onClick="{{ stopProp }}" style="background: #fff; border-radius: 22px; padding: 24px 24px 22px; width: 100%; max-width: 370px; box-shadow: 0 24px 60px rgba(8,40,30,.32);">
+      <div style="font-size: 17px; font-weight: 800;">{{ cellEditName }}</div>
+      <div style="font-size: 13px; color: #6b9483; margin-top: 3px;">{{ cellEditDate }}</div>
+      <input type="number" inputmode="decimal" value="{{ cellEditValue }}" onChange="{{ cellEditSet }}" placeholder="0" style="width: 100%; margin-top: 16px; border: 2px solid #d2e7dc; border-radius: 14px; padding: 13px 16px; font-size: 26px; font-weight: 800; font-family: inherit; text-align: center; color: #134e3a; outline: none;">
+      <div style="display: flex; gap: 8px; margin-top: 12px; flex-wrap: wrap;">
+        <sc-for list="{{ cellEditQuick }}" as="q" hint-placeholder-count="5">
+          <button onClick="{{ q.pick }}" style="{{ q.style }}">{{ q.label }}</button>
+        </sc-for>
+      </div>
+      <div style="display: flex; gap: 10px; margin-top: 18px;">
+        <button onClick="{{ cellEditSaveDep }}" style="flex: 1; background: #16a34a; color: #fff; border: none; border-radius: 13px; padding: 13px; font-size: 15px; font-weight: 800; font-family: inherit; cursor: pointer;">💰 ฝาก</button>
+        <button onClick="{{ cellEditSaveWd }}" style="flex: 1; background: #fff; color: #c0392b; border: 2px solid #f3c9c4; border-radius: 13px; padding: 11px; font-size: 15px; font-weight: 800; font-family: inherit; cursor: pointer;">ถอน</button>
+      </div>
+      <div style="display: flex; gap: 10px; margin-top: 10px;">
+        <button onClick="{{ cellEditClear }}" style="flex: 1; background: #f8fbf9; color: #5b8a76; border: 1px solid #dfeee7; border-radius: 13px; padding: 11px; font-size: 14px; font-weight: 700; font-family: inherit; cursor: pointer;">🗑️ ลบวันนี้</button>
+        <button onClick="{{ cellEditCancel }}" style="flex: 1; background: #f8fbf9; color: #5b8a76; border: 1px solid #dfeee7; border-radius: 13px; padding: 11px; font-size: 14px; font-weight: 700; font-family: inherit; cursor: pointer;">ยกเลิก</button>
+      </div>
+    </div>
+  </div>
+  </sc-if>
+
+</div>
+
+</x-dc>
+<script type="text/x-dc" data-dc-script data-props="{&quot;$preview&quot;: {&quot;width&quot;: 1180, &quot;height&quot;: 900}, &quot;accentGrad&quot;: {&quot;editor&quot;: null, &quot;default&quot;: &quot;linear-gradient(135deg, #34d399 0%, #2dd4bf 100%)&quot;, &quot;tsType&quot;: &quot;string&quot;}}">
+class Component extends DCLogic {
+  get TODAY() {
+    const d = new Date();
+    return `${d.getFullYear()}-${this.pad(d.getMonth() + 1)}-${this.pad(d.getDate())}`;
+  }
+  pad(n) { return String(n).padStart(2, "0"); }
+  baht(n) { return (Number(n) || 0).toLocaleString("th-TH", { maximumFractionDigits: 2 }); }
+  uid() { return "id" + Math.random().toString(36).slice(2, 11) + Date.now().toString(36).slice(-4); }
+  code6() {
+    const A = "ABCDEFGHJKLMNPQRSTUVWXYZ23456789";
+    return Array.from({ length: 6 }, () => A[Math.floor(Math.random() * A.length)]).join("");
+  }
+
+  state = {
+    screen: "gate", mode: "", booted: false,
+    cfgUrl: "", cfgKey: "", cfgOpen: false,
+    user: null,
+    classrooms: [], students: [], tx: [], members: [], audit: [], owners: {},
+    curId: null, tab: "form",
+    fDate: "", selId: "", fAmount: "", quickStep: 5, flash: "",
+    view: "day", sortKey: "no", sortDir: "asc",
+    reportMonth: "", editReport: false, reportMode: "month", ce: null, ceVal: "",
+    newClassName: "", newClassYear: "", newClassCode: "", codeDraft: "",
+    bulkText: "", importMsg: "", newCode: "", newName: "", newNick: "", newMember: "",
+    copied: false, vw: 1200,
+    sCode: "", sRoster: [], sClassName: "", sStudentId: "", sPin: "", sErr: "", sBusy: false,
+    sp: null, spMonth: "", spBig: false, spOnlyMe: false, pbMode: "book", pbWho: "",
+    acc: null, isAdmin: false, accList: [], newAccEmail: "",
+  };
+
+  LS = "omsook_v2";
+  CFG = "omsook_cfg";
+
+  // ══════════ boot ══════════
+  componentDidMount() {
+    this._onResize = () => this.setState({ vw: window.innerWidth });
+    window.addEventListener("resize", this._onResize);
+    const patch = { vw: window.innerWidth, fDate: this.TODAY, reportMonth: this.TODAY.slice(0, 7), newClassYear: String(new Date().getFullYear() + 543) };
+
+    let cfg = {};
+    try { cfg = JSON.parse(localStorage.getItem(this.CFG) || "{}"); } catch (e) {}
+    if (window.OMSOOK_CONFIG) cfg = Object.assign({}, cfg, window.OMSOOK_CONFIG);
+    patch.cfgUrl = cfg.url || ""; patch.cfgKey = cfg.key || "";
+
+    try {
+      const raw = localStorage.getItem(this.LS);
+      if (raw) {
+        const p = JSON.parse(raw);
+        ["classrooms", "students", "tx", "members", "audit"].forEach(k => { if (Array.isArray(p[k])) patch[k] = p[k]; });
+      }
+    } catch (e) {}
+
+    const q = new URLSearchParams(location.search);
+    if (q.get("c")) { patch.sCode = q.get("c").toUpperCase().slice(0, 6); patch.screen = "studentLogin"; }
+
+    this.setState(patch, () => { this._booted = true; this.initSb(patch.cfgUrl, patch.cfgKey); });
+  }
+  componentWillUnmount() { window.removeEventListener("resize", this._onResize); }
+  componentDidUpdate() {
+    if (!this._booted) return;
+    try {
+      const { classrooms, students, tx, members, audit } = this.state;
+      localStorage.setItem(this.LS, JSON.stringify({ classrooms, students, tx, members, audit: audit.slice(0, 120) }));
+    } catch (e) {}
+  }
+
+  async initSb(url, key) {
+    if (!url || !key) return;
+    for (let i = 0; i < 60 && !window.supabase; i++) await new Promise(r => setTimeout(r, 100));
+    if (!window.supabase) return;
+    this.sb = window.supabase.createClient(url, key, { auth: { persistSession: true, detectSessionInUrl: true } });
+    const { data } = await this.sb.auth.getSession();
+    if (data && data.session) this.onSignedIn(data.session);
+    this.sb.auth.onAuthStateChange((_e, s) => { if (s) this.onSignedIn(s); });
+  }
+
+  async onSignedIn(session) {
+    const u = session.user;
+    if (this.state.user && this.state.user.id === u.id) return;
+    this.setState({
+      mode: "cloud",
+      user: { id: u.id, email: u.email, name: (u.user_metadata && (u.user_metadata.full_name || u.user_metadata.name)) || u.email },
+      screen: this.state.screen === "student" ? this.state.screen : "classes",
+    });
+    const gate = await this.checkAccess();
+    if (!gate.ok) { this.setState({ screen: "pending" }); return; }
+    await this.loadCloud();
+  }
+
+  async checkAccess() {
+    if (!this.sb) return { ok: true };
+    try {
+      let { data, error } = await this.sb.rpc("my_access");
+      if (error) return { ok: true };
+      if (data && !data.is_admin && data.status !== "approved") {
+        const r = await this.sb.rpc("request_access", { p_note: null });
+        if (r && r.data) data = r.data;
+      }
+      this.setState({ acc: data || null, isAdmin: !!(data && data.is_admin) });
+      return { ok: !!(data && (data.is_admin || data.status === "approved")), data };
+    } catch (e) { console.warn("access", e); return { ok: true }; }
+  }
+
+  async loadAccess() {
+    if (!this.sb) return;
+    const { data, error } = await this.sb.from("teacher_access").select("*").order("requested_at", { ascending: false });
+    if (error) return;
+    this.setState({ accList: (data || []).map(r => ({ email: r.email, status: r.status, at: r.requested_at, note: r.note || "" })) });
+  }
+
+  async setAccess(email, status) {
+    if (!this.sb) return;
+    const by = (this.state.user && this.state.user.email) || "";
+    await this.sb.from("teacher_access").upsert({ email: String(email).toLowerCase(), status, decided_at: new Date().toISOString(), decided_by: by }, { onConflict: "email" });
+    this.loadAccess();
+  }
+
+  async loadCloud() {
+    if (!this.sb) return;
+    const { data: cs, error } = await this.sb.from("classrooms").select("*").order("created_at");
+    if (error) { alert("โหลดข้อมูลไม่สำเร็จ: " + error.message); return; }
+    const ids = (cs || []).map(c => c.id);
+    let ss = [], tt = [], mm = [], aa = [], owners = {};
+    if (ids.length) {
+      const r1 = await this.sb.from("students").select("*").in("classroom_id", ids);
+      const r2 = await this.sb.from("transactions").select("*").in("classroom_id", ids);
+      const r3 = await this.sb.from("classroom_members").select("*").in("classroom_id", ids);
+      const r4 = await this.sb.from("audit_log").select("*").in("classroom_id", ids).order("created_at", { ascending: false }).limit(120);
+      ss = r1.data || []; tt = r2.data || []; mm = r3.data || []; aa = r4.data || [];
+      const oids = Array.from(new Set((cs || []).map(c => c.owner_id).filter(Boolean)));
+      if (oids.length) {
+        const r5 = await this.sb.from("teachers").select("id, email, display_name").in("id", oids);
+        (r5.data || []).forEach(t => { owners[t.id] = t.display_name || t.email; });
+      }
+    }
+    this.setState({
+      owners,
+      classrooms: (cs || []).map(c => ({ id: c.id, ownerId: c.owner_id, name: c.name, year: c.academic_year, code: c.join_code, shareTotals: c.share_totals, goal: Number(c.goal_amount) || 0, teacherSig: c.teacher_sig || "", principalSig: c.principal_sig || "" })),
+      students: ss.map(s => ({ id: s.id, cid: s.classroom_id, code: s.student_code, no: s.no, name: s.full_name, nick: s.nickname || "", pin: s.pin || "", opening: Number(s.opening_balance) || 0 })),
+      tx: tt.map(t => ({ cid: t.classroom_id, sid: t.student_id, date: String(t.tx_date).slice(0, 10), amount: Number(t.amount) || 0, kind: t.kind || "deposit" })),
+      members: mm.map(m => ({ cid: m.classroom_id, email: m.teacher_email })),
+      audit: aa.map(a => ({ cid: a.classroom_id, at: a.created_at, actor: a.actor, text: a.action + (a.detail ? " · " + a.detail : "") })),
+    });
+    this.subscribeRealtime();
+  }
+
+  cloud(fn) { if (this.state.mode === "cloud" && this.sb) Promise.resolve(fn(this.sb)).catch(e => console.warn("cloud", e)); }
+
+  log(action, detail) {
+    const actor = (this.state.user && (this.state.user.email || this.state.user.name)) || "ออฟไลน์";
+    const cid = this.state.curId;
+    this.setState(st => ({ audit: [{ cid, at: new Date().toISOString(), actor, text: action + (detail ? " · " + detail : "") }, ...st.audit].slice(0, 120) }));
+    this.cloud(sb => sb.from("audit_log").insert({ classroom_id: cid, actor, action, detail: detail || "" }));
+  }
+
+  // ══════════ helpers ══════════
+  cur() { return this.state.classrooms.find(c => c.id === this.state.curId) || null; }
+  classStudents(cid) { return this.state.students.filter(s => s.cid === (cid || this.state.curId)).sort((a, b) => (Number(a.no) || 999) - (Number(b.no) || 999)); }
+  classTx(cid) { return this.state.tx.filter(t => t.cid === (cid || this.state.curId)); }
+  net(list) { return list.reduce((a, t) => a + (t.kind === "withdraw" ? -t.amount : t.amount), 0); }
+  stuTotal(s) { return (s.opening || 0) + this.net(this.state.tx.filter(t => t.sid === s.id)); }
+  nameOf(sid) { const s = this.state.students.find(x => x.id === sid); return s ? `${s.name}${s.nick ? " (" + s.nick + ")" : ""}` : "—"; }
+
+  setCell(sid, date, amount, kind) {
+    const cid = this.state.curId, amt = Math.max(0, Number(amount) || 0), k = kind || "deposit";
+    this.setState(st => {
+      const others = st.tx.filter(t => !(t.sid === sid && t.date === date && t.kind === k));
+      return { tx: amt > 0 ? [...others, { cid, sid, date, amount: amt, kind: k }] : others };
+    });
+    this.cloud(async sb => {
+      if (amt > 0) await sb.from("transactions").upsert({ classroom_id: cid, student_id: sid, tx_date: date, amount: amt, kind: k }, { onConflict: "student_id,tx_date,kind" });
+      else await sb.from("transactions").delete().eq("student_id", sid).eq("tx_date", date).eq("kind", k);
+    });
+  }
+
+  thDate(d) { const s = String(d).slice(0, 10); return `${s.slice(8, 10)}/${s.slice(5, 7)}/${Number(s.slice(0, 4)) + 543}`; }
+
+  downloadCsv(name, rows) {
+    const esc = v => { const s = String(v == null ? "" : v); return /[",\n]/.test(s) ? '"' + s.replace(/"/g, '""') + '"' : s; };
+    const csv = "\ufeff" + rows.map(r => r.map(esc).join(",")).join("\r\n");
+    const url = URL.createObjectURL(new Blob([csv], { type: "text/csv;charset=utf-8" }));
+    const a = document.createElement("a");
+    a.href = url; a.download = name; a.click();
+    setTimeout(() => URL.revokeObjectURL(url), 4000);
+  }
+
+  subscribeRealtime() {
+    if (!this.sb || this.rt) return;
+    try {
+      this.rt = this.sb.channel("omsook-live")
+        .on("postgres_changes", { event: "*", schema: "public", table: "transactions" }, () => this.queueReload())
+        .on("postgres_changes", { event: "*", schema: "public", table: "students" }, () => this.queueReload())
+        .subscribe();
+    } catch (e) { console.warn("realtime", e); }
+  }
+  queueReload() { clearTimeout(this._rl); this._rl = setTimeout(() => this.loadCloud(), 1500); }
+
+  monthLabel(ym) {
+    const m = ["ม.ค.", "ก.พ.", "มี.ค.", "เม.ย.", "พ.ค.", "มิ.ย.", "ก.ค.", "ส.ค.", "ก.ย.", "ต.ค.", "พ.ย.", "ธ.ค."];
+    const [y, mm] = ym.split("-");
+    return m[parseInt(mm, 10) - 1] + " " + ((parseInt(y, 10) + 543) % 100);
+  }
+  monthFull(ym) {
+    const m = ["มกราคม", "กุมภาพันธ์", "มีนาคม", "เมษายน", "พฤษภาคม", "มิถุนายน", "กรกฎาคม", "สิงหาคม", "กันยายน", "ตุลาคม", "พฤศจิกายน", "ธันวาคม"];
+    const [y, mm] = ym.split("-");
+    return "เดือน" + m[parseInt(mm, 10) - 1] + " พ.ศ. " + (parseInt(y, 10) + 543);
+  }
+
+  // แปลงข้อความ (CSV / วางหลายบรรทัด) เป็นรายชื่อ
+  parseRows(text) {
+    const lines = String(text).split(/\r?\n/).map(l => l.trim()).filter(Boolean);
+    if (!lines.length) return [];
+    const KEY = t => {
+      const s = t.toLowerCase();
+      if (/เลขที่|^no$/.test(s)) return "no";
+      if (/รหัส|code|id/.test(s)) return "code";
+      if (/ชื่อเล่น|nick/.test(s)) return "nick";
+      if (/ชื่อ|name/.test(s)) return "name";
+      if (/ชั้น|room|class/.test(s)) return "room";
+      if (/ยกมา|opening|balance/.test(s)) return "opening";
+      if (/pin/.test(s)) return "pin";
+      return "";
+    };
+    const split = l => l.split(/[,\t;]/).map(p => p.trim().replace(/^"|"$/g, ""));
+    let map = null, start = 0;
+    const h = split(lines[0]);
+    if (h.filter(x => KEY(x)).length >= 2) { map = h.map(KEY); start = 1; }
+    const out = [];
+    for (let i = start; i < lines.length; i++) {
+      const p = split(lines[i]);
+      let r = { no: "", code: "", name: "", nick: "", opening: 0, pin: "" };
+      if (map) {
+        map.forEach((k, j) => { if (k && p[j] != null) r[k] = p[j]; });
+      } else if (p.length > 1) {
+        let j = 0;
+        if (/^\d{1,3}$/.test(p[0])) { r.no = p[0]; j = 1; }
+        if (/^\d{4,}$/.test(p[j] || "")) { r.code = p[j]; j++; }
+        r.name = p[j] || ""; r.nick = p[j + 1] || "";
+      } else {
+        const m = lines[i].match(/^(.*?)[\(（](.*?)[\)）]\s*$/);
+        if (m) { r.name = m[1].trim(); r.nick = m[2].trim(); } else r.name = lines[i];
+      }
+      r.name = (r.name || "").trim();
+      r.nick = (r.nick || "").trim();
+      r.code = (r.code || "").trim();
+      r.pin = (r.pin || "").replace(/\D/g, "").slice(0, 4);
+      r.opening = Number(String(r.opening || "0").replace(/[^\d.\-]/g, "")) || 0;
+      if (r.name) out.push(r);
+    }
+    return out;
+  }
+
+  // เพิ่มรายชื่อแบบไม่ทับคนเดิม — เทียบด้วยรหัสนักเรียน (ไม่มีรหัสก็เทียบชื่อ)
+  mergeRoster(rows) {
+    const cid = this.state.curId;
+    if (!cid) return;
+    const existing = this.classStudents(cid);
+    let added = 0, filled = 0, skipped = 0;
+    const newOnes = [], patches = [];
+    let maxNo = existing.reduce((m, s) => Math.max(m, Number(s.no) || 0), 0);
+    rows.forEach(r => {
+      const hit = existing.find(s => (r.code && s.code && s.code === r.code) || (!r.code && s.name === r.name));
+      if (hit) {
+        const patch = {};
+        if (!hit.nick && r.nick) patch.nick = r.nick;
+        if (!hit.code && r.code) patch.code = r.code;
+        if (!hit.pin && r.pin) patch.pin = r.pin;
+        if (!hit.no && r.no) patch.no = Number(r.no);
+        if (Object.keys(patch).length) { patches.push({ id: hit.id, patch }); filled++; } else skipped++;
+      } else {
+        maxNo = r.no ? Math.max(maxNo, Number(r.no)) : maxNo + 1;
+        newOnes.push({ id: this.uid(), cid, code: r.code || String(Date.now()).slice(-6) + (added + 1), no: Number(r.no) || maxNo, name: r.name, nick: r.nick, pin: r.pin, opening: r.opening });
+        added++;
+      }
+    });
+    this.setState(st => ({
+      students: [...st.students.map(s => { const p = patches.find(x => x.id === s.id); return p ? { ...s, ...p.patch } : s; }), ...newOnes],
+      importMsg: `นำเข้าเรียบร้อย — เพิ่มใหม่ ${added} คน · เติมข้อมูลที่ว่าง ${filled} คน · ข้ามคนที่มีอยู่แล้ว ${skipped} คน`,
+      bulkText: "",
+    }));
+    this.cloud(async sb => {
+      if (newOnes.length) await sb.from("students").insert(newOnes.map(s => ({ id: s.id, classroom_id: cid, student_code: s.code, no: s.no, full_name: s.name, nickname: s.nick, pin: s.pin, opening_balance: s.opening })));
+      for (const p of patches) {
+        const up = {};
+        if (p.patch.nick != null) up.nickname = p.patch.nick;
+        if (p.patch.code != null) up.student_code = p.patch.code;
+        if (p.patch.pin != null) up.pin = p.patch.pin;
+        if (p.patch.no != null) up.no = p.patch.no;
+        await sb.from("students").update(up).eq("id", p.id);
+      }
+    });
+    this.log("นำเข้ารายชื่อ", `เพิ่ม ${added} · เติม ${filled} · ข้าม ${skipped}`);
+  }
+
+  download(name, text, type) {
+    const blob = new Blob([text], { type: type || "text/plain;charset=utf-8" });
+    const a = document.createElement("a");
+    a.href = URL.createObjectURL(blob); a.download = name; a.click();
+    setTimeout(() => URL.revokeObjectURL(a.href), 2000);
+  }
+
+  // ══════════ render ══════════
+  renderVals() {
+    const grad = this.props.accentGrad ?? "linear-gradient(135deg, #34d399 0%, #2dd4bf 100%)";
+    const S = this.state;
+    const isMobile = S.vw <= 640;
+    const inputStyle = "border:1px solid #d2e7dc; border-radius:12px; padding:11px 14px; font-size:15px; font-family:inherit; outline:none; background:#f8fbf9; color:#134e3a;";
+    const cellStyle = "width:100%; min-width:0; border:1px solid #d2e7dc; border-radius:9px; padding:8px 9px; font-size:13px; font-family:inherit; outline:none; background:#f8fbf9; color:#134e3a;";
+    const segBase = { border: "none", borderRadius: "9px", padding: "7px 15px", fontSize: "14px", fontWeight: 600, fontFamily: "inherit", cursor: "pointer", background: "transparent", color: "#5b8a76", whiteSpace: "nowrap" };
+    const segOn = { ...segBase, background: "#e8f6ee", color: "#15803d" };
+    const tabBase = { border: "none", borderRadius: "10px", padding: "9px 14px", fontSize: "14px", fontWeight: 600, fontFamily: "inherit", cursor: "pointer", background: "transparent", color: "#5b8a76", whiteSpace: "nowrap" };
+    const tabOn = { ...tabBase, background: grad, color: "#fff", boxShadow: "0 4px 12px rgba(45,212,180,.35)" };
+    const navItem = on => ({ display: "flex", flexDirection: "column", alignItems: "center", gap: "3px", border: "none", background: "transparent", cursor: "pointer", fontFamily: "inherit", fontSize: "11px", fontWeight: 600, color: on ? "#16a34a" : "#9bbcae", padding: "4px 8px" });
+
+    const cur = this.cur();
+    const roster = cur ? this.classStudents() : [];
+    const deps = cur ? this.classTx().filter(t => t.kind === "deposit") : [];
+    const alltx = cur ? this.classTx() : [];
+    const today = this.TODAY, month = today.slice(0, 7), year = today.slice(0, 4);
+    const tab = S.tab;
+
+    const V = {
+      accentGrad: grad, inputStyle, cellStyle,
+      mobile: isMobile,
+      screenGate: S.screen === "gate", screenTeacher: S.screen === "teacher",
+      screenStudentLogin: S.screen === "studentLogin", screenClasses: S.screen === "classes",
+      screenPending: S.screen === "pending", screenAdmin: S.screen === "admin",
+      isAdmin: S.isAdmin,
+      pendIcon: S.acc && S.acc.status === "blocked" ? "🚫" : "⏳",
+      pendTitle: S.acc && S.acc.status === "blocked" ? "บัญชีนี้ถูกระงับการเข้าใช้" : "รอผู้ดูแลระบบอนุมัติ",
+      pendText: S.acc && S.acc.status === "blocked"
+        ? "หากคิดว่าเป็นความเข้าใจผิด กรุณาติดต่อผู้ดูแลระบบของโรงเรียน"
+        : "บันทึกคำขอเข้าใช้เรียบร้อยแล้ว — แจ้งผู้ดูแลระบบเพื่ออนุมัติ เมื่ออนุมัติแล้วกด ตรวจสอบอีกครั้ง เพื่อเข้าใช้งาน",
+      pendEmail: (S.acc && S.acc.email) || (S.user && S.user.email) || "",
+      recheckAccess: async () => {
+        const g = await this.checkAccess();
+        if (g.ok) { this.setState({ screen: "classes" }); this.loadCloud(); }
+        else alert("ยังไม่ได้รับอนุมัติ ลองตรวจสอบอีกครั้งในอีกสักครู่");
+      },
+      goAdmin: () => { this.setState({ screen: "admin" }); this.loadAccess(); },
+      backFromAdmin: () => this.setState({ screen: "classes" }),
+      reloadAccess: () => this.loadAccess(),
+      noAccess: S.accList.length === 0,
+      newAccEmail: S.newAccEmail,
+      setNewAccEmail: e => this.setState({ newAccEmail: e.target.value }),
+      addAccEmail: () => {
+        const em = S.newAccEmail.trim().toLowerCase();
+        if (!/^[^@\s]+@[^@\s]+\.[^@\s]+$/.test(em)) return alert("กรอกอีเมลให้ถูกต้อง");
+        this.setState({ newAccEmail: "" });
+        this.setAccess(em, "approved");
+      },
+      accList: S.accList.map(r => {
+        const st = r.status || "pending";
+        return {
+          email: r.email,
+          atText: r.at ? "ขอเข้าใช้ " + new Date(r.at).toLocaleString("th-TH") : "",
+          statusLabel: st === "approved" ? "✅ อนุมัติแล้ว" : st === "blocked" ? "🚫 ระงับ" : "⏳ รออนุมัติ",
+          badgeStyle: "font-size:12px; font-weight:700; border-radius:9px; padding:6px 11px; white-space:nowrap; "
+            + (st === "approved" ? "background:#dcfce7; color:#15803d;" : st === "blocked" ? "background:#fde8e8; color:#c0392b;" : "background:#fef3c7; color:#92400e;"),
+          approve: () => this.setAccess(r.email, "approved"),
+          block: () => this.setAccess(r.email, "blocked"),
+          remove: async () => {
+            if (this.sb) await this.sb.from("teacher_access").delete().eq("email", r.email);
+            this.loadAccess();
+          },
+        };
+      }),
+      screenClass: S.screen === "class" && !!cur, screenStudent: S.screen === "student" && !!S.sp,
+      connBadge: S.mode === "cloud" ? "🟢 เชื่อมต่อฐานข้อมูลกลางแล้ว" : (S.cfgUrl ? "⚪ ยังไม่ได้เข้าสู่ระบบ" : "🟡 โหมดออฟไลน์ (เก็บในเครื่องนี้)"),
+      goGate: () => this.setState({ screen: "gate", sErr: "" }),
+      goTeacher: () => this.setState({ screen: "teacher" }),
+      goStudentLogin: () => this.setState({ screen: "studentLogin", sErr: "" }),
+      needCfg: !S.cfgUrl || !S.cfgKey,
+      cfgOpen: S.cfgOpen, cfgUrl: S.cfgUrl, cfgKey: S.cfgKey,
+      cfgToggleLabel: S.cfgOpen ? "▾ ซ่อนการตั้งค่าการเชื่อมต่อ" : "▸ ตั้งค่าการเชื่อมต่อฐานข้อมูล (Supabase)",
+      toggleCfg: () => this.setState(s => ({ cfgOpen: !s.cfgOpen })),
+      setCfgUrl: e => this.setState({ cfgUrl: e.target.value.trim() }),
+      setCfgKey: e => this.setState({ cfgKey: e.target.value.trim() }),
+      saveCfg: () => {
+        try { localStorage.setItem(this.CFG, JSON.stringify({ url: S.cfgUrl, key: S.cfgKey })); } catch (e) {}
+        this.initSb(S.cfgUrl, S.cfgKey);
+        alert("บันทึกการเชื่อมต่อแล้ว — กด \"เข้าสู่ระบบด้วย Google\" ได้เลย");
+      },
+      signInGoogle: async () => {
+        if (!this.sb) return alert("ยังไม่ได้ตั้งค่าการเชื่อมต่อ Supabase — เปิดหัวข้อ \"ตั้งค่าการเชื่อมต่อฐานข้อมูล\" ด้านล่างก่อน");
+        const { error } = await this.sb.auth.signInWithOAuth({ provider: "google", options: { redirectTo: location.origin + location.pathname } });
+        if (error) alert("เข้าสู่ระบบไม่สำเร็จ: " + error.message);
+      },
+      useOffline: () => this.setState({ mode: "offline", user: { name: "คุณครู (ออฟไลน์)", email: "" }, screen: "classes" }),
+      signOut: async () => {
+        if (this.sb) await this.sb.auth.signOut();
+        this.setState({ user: null, mode: "", screen: "gate", curId: null });
+      },
+      userLabel: (S.user && (S.user.name || S.user.email)) || "คุณครู",
+
+      // ---- นักเรียนล็อกอิน ----
+      sCode: S.sCode, sPin: S.sPin, sErr: S.sErr, sClassName: S.sClassName,
+      sRosterReady: S.sRoster.length > 0, sPicked: !!S.sStudentId,
+      findLabel: S.sBusy ? "⏳" : "ค้นหา",
+      setSCode: e => this.setState({ sCode: e.target.value.toUpperCase().replace(/[^A-Z0-9]/g, "").slice(0, 10), sRoster: [], sStudentId: "", sErr: "" }),
+      setSPin: e => this.setState({ sPin: e.target.value.replace(/\D/g, "").slice(0, 4), sErr: "" }),
+      findRoom: async () => {
+        const code = S.sCode.trim();
+        if (code.length < 4) return this.setState({ sErr: "กรอกรหัสห้องให้ครบก่อนนะ" });
+        this.setState({ sBusy: true, sErr: "" });
+        if (this.sb) {
+          const { data, error } = await this.sb.rpc("class_roster_public", { p_code: code });
+          this.setState({ sBusy: false });
+          if (error) return this.setState({ sErr: "ค้นหาไม่สำเร็จ: " + error.message });
+          if (!data || !data.classroom) return this.setState({ sErr: "ไม่พบรหัสห้องนี้ ลองถามคุณครูอีกครั้ง" });
+          return this.setState({ sClassName: data.classroom.name, sRoster: (data.students || []).map(x => ({ id: x.id, no: x.no, nick: x.nickname || x.name })) });
+        }
+        const c = S.classrooms.find(x => x.code === code);
+        this.setState({ sBusy: false });
+        if (!c) return this.setState({ sErr: "ไม่พบรหัสห้องนี้ในเครื่องนี้" });
+        this.setState({ sClassName: c.name, sRoster: this.classStudents(c.id).map(s => ({ id: s.id, no: s.no, nick: s.nick || s.name })) });
+      },
+      sRoster: S.sRoster.map(r => ({
+        label: r.nick, pick: () => this.setState({ sStudentId: r.id, sErr: "", sPin: "" }),
+        style: (S.sStudentId === r.id ? "border:2px solid #16a34a; background:#16a34a; color:#fff;" : "border:2px solid #e3efe9; background:#fff; color:#134e3a;")
+          + " border-radius:12px; padding:11px 6px; font-size:14px; font-weight:700; font-family:inherit; cursor:pointer; white-space:nowrap; overflow:hidden; text-overflow:ellipsis;",
+      })),
+      studentEnter: async () => {
+        if (!S.sStudentId) return this.setState({ sErr: "เลือกชื่อของตัวเองก่อนนะ" });
+        if (this.sb) {
+          const { data, error } = await this.sb.rpc("student_portal", { p_code: S.sCode, p_student: S.sStudentId, p_pin: S.sPin });
+          if (error) return this.setState({ sErr: "เข้าไม่สำเร็จ: " + error.message });
+          if (data && data.error) return this.setState({ sErr: data.error });
+          return this.setState({ sp: data, screen: "student", sPin: "" });
+        }
+        const s = S.students.find(x => x.id === S.sStudentId);
+        const c = S.classrooms.find(x => x.id === s.cid);
+        if ((s.pin || "") && s.pin !== S.sPin) return this.setState({ sErr: "PIN ไม่ถูกต้อง" });
+        this.setState({
+          screen: "student", sPin: "",
+          sp: {
+            classroom: { name: c.name, year: c.year, shareTotals: c.shareTotals, goal: c.goal },
+            student: { no: s.no, name: s.name, nickname: s.nick, opening: s.opening },
+            tx: S.tx.filter(t => t.sid === s.id).map(t => ({ date: t.date, amount: t.amount, kind: t.kind })).sort((a, b) => b.date.localeCompare(a.date)),
+            table: c.shareTotals ? this.classStudents(c.id).map(x => ({ no: x.no, nickname: x.nick || x.name, name: x.name, total: this.stuTotal(x), opening: Number(x.opening) || 0 })) : null,
+            classTx: c.shareTotals ? (() => {
+              const noOf = {};
+              this.classStudents(c.id).forEach(x => { noOf[x.id] = x.no; });
+              return S.tx.filter(t => t.cid === c.id && noOf[t.sid] != null)
+                .map(t => ({ no: noOf[t.sid], date: t.date, amount: t.amount, kind: t.kind }));
+            })() : null,
+          },
+        });
+      },
+      studentExit: () => this.setState({ screen: "gate", sp: null, sRoster: [], sStudentId: "", sCode: "" }),
+
+      // ---- หน้ารวมห้อง ----
+      classCountText: S.classrooms.length ? `${S.classrooms.length} ห้อง` : "ยังไม่มีห้อง",
+      classCards: S.classrooms
+        .map(c => ({ c, mine: !c.ownerId || !S.user || c.ownerId === S.user.id }))
+        .sort((a, b) => (a.mine === b.mine ? 0 : a.mine ? -1 : 1))
+        .map((x, i) => {
+          const c = x.c;
+          const st = this.classStudents(c.id);
+          const total = st.reduce((a, s) => a + this.stuTotal(s), 0);
+          const icons = ["🏫", "📚", "🌱", "🎈", "🧩", "🎨"];
+          const bgs = ["#dcfce7", "#dbeafe", "#fef3c7", "#fae8ff", "#e0f2fe", "#ffe4e6"];
+          const ownerName = (S.owners && S.owners[c.ownerId]) || "";
+          return {
+            name: c.name, year: c.year, code: c.code, icon: icons[i % 6], bg: bgs[i % 6],
+            countText: `${st.length} คน`, totalText: this.baht(total),
+            roleLabel: x.mine ? "👑 เจ้าของห้อง" : (ownerName ? "🤝 ครูผู้ช่วย · ของ " + ownerName : "🤝 ครูผู้ช่วย"),
+            roleStyle: "display:inline-flex; align-items:center; gap:5px; font-size:11px; font-weight:700; border-radius:8px; padding:4px 9px; white-space:nowrap; max-width:100%; overflow:hidden; text-overflow:ellipsis; "
+              + (x.mine ? "background:#fef3c7; color:#92400e;" : "background:#e0f2fe; color:#075985;"),
+            open: () => this.setState({ curId: c.id, screen: "class", tab: "form", importMsg: "", codeDraft: c.code }),
+          };
+        }),
+      newClassName: S.newClassName, newClassYear: S.newClassYear, newClassCode: S.newClassCode,
+      setNewClassName: e => this.setState({ newClassName: e.target.value }),
+      setNewClassYear: e => this.setState({ newClassYear: e.target.value }),
+      setNewClassCode: e => this.setState({ newClassCode: e.target.value.toUpperCase().replace(/[^A-Z0-9]/g, "").slice(0, 10) }),
+      createClass: () => {
+        const name = S.newClassName.trim();
+        if (!name) return alert("ตั้งชื่อห้องก่อนนะครับ เช่น ป.5/1");
+        const want = S.newClassCode.trim();
+        if (want && want.length < 4) return alert("รหัสห้องต้องยาว 4–10 ตัวอักษร");
+        if (want && S.classrooms.some(c => c.code === want)) return alert("รหัสห้องนี้ถูกใช้แล้ว ลองรหัสอื่นนะครับ");
+        const yr = Number(S.newClassYear) || new Date().getFullYear() + 543;
+        const c = { id: this.uid(), ownerId: S.user && S.user.id, name, year: yr, code: want || this.code6(), shareTotals: true, goal: 0, teacherSig: "", principalSig: "" };
+        this.setState(st => ({ classrooms: [...st.classrooms, c], newClassName: "", newClassCode: "", curId: c.id, screen: "class", tab: "roster", codeDraft: c.code }));
+        this.cloud(sb => sb.from("classrooms").insert({ id: c.id, owner_id: S.user.id, name: c.name, academic_year: c.year, join_code: c.code, share_totals: true, goal_amount: 0 }));
+      },
+      backToClasses: () => this.setState({ screen: "classes", importMsg: "" }),
+
+      // ---- แท็บ ----
+      showForm: tab === "form", showDash: tab === "dash", showReport: tab === "report",
+      showPassbook: tab === "passbook", goPassbook: () => this.setState({ tab: "passbook" }),
+      showRoster: tab === "roster", showSettings: tab === "settings",
+      tabFormStyle: tab === "form" ? tabOn : tabBase,
+      tabDashStyle: tab === "dash" ? tabOn : tabBase,
+      tabReportStyle: tab === "report" ? tabOn : tabBase,
+      tabRosterStyle: tab === "roster" ? tabOn : tabBase,
+      tabSettingsStyle: tab === "settings" ? tabOn : tabBase,
+      goForm: () => this.setState({ tab: "form" }), goDash: () => this.setState({ tab: "dash" }),
+      goReport: () => this.setState({ tab: "report" }), goRoster: () => this.setState({ tab: "roster" }),
+      goSettings: () => this.setState({ tab: "settings" }),
+      navDashStyle: navItem(tab === "dash"), navReportStyle: navItem(tab === "report"),
+      navRosterStyle: navItem(tab === "roster"), navSettingsStyle: navItem(tab === "settings"),
+
+      curName: cur ? cur.name : "", curYear: cur ? cur.year : "", curCode: cur ? cur.code : "",
+      curGoal: cur ? cur.goal : 0,
+      studentCountText: `นักเรียน ${roster.length} คน`,
+    };
+
+    // ---- สรุปทุกห้องรวมกัน (หน้ารวมห้อง) ----
+    const clsTotal = c => S.students.filter(s => s.cid === c.id).reduce((a, s) => a + this.stuTotal(s), 0);
+    const allRows = S.classrooms.map(c => ({ c, total: clsTotal(c), n: S.students.filter(s => s.cid === c.id).length })).sort((a, b) => b.total - a.total);
+    const allMax = Math.max(1, ...allRows.map(r => r.total));
+    V.hasClasses = allRows.length > 0;
+    V.allTotalText = this.baht(allRows.reduce((a, r) => a + r.total, 0));
+    V.allClassSub = `${allRows.length} ห้อง · นักเรียนรวม ${allRows.reduce((a, r) => a + r.n, 0)} คน`;
+    V.allClassRows = allRows.map(r => ({
+      name: r.c.name, totalText: this.baht(r.total) + " ฿",
+      barStyle: `height:100%; width:${Math.max(2, Math.round((r.total / allMax) * 100))}%; border-radius:999px; background:linear-gradient(90deg,#34d399,#2dd4bf);`,
+    }));
+    V.exportAllCsv = () => this.downloadCsv("สรุปทุกห้อง.csv", [
+      ["ห้องเรียน", "ปีการศึกษา", "จำนวนนักเรียน", "ยอดออมรวม (บาท)"],
+      ...allRows.map(r => [r.c.name, r.c.year, r.n, r.total]),
+      ["รวมทั้งหมด", "", allRows.reduce((a, r) => a + r.n, 0), allRows.reduce((a, r) => a + r.total, 0)],
+    ]);
+
+    // ---- หน้านักเรียน ----
+    if (S.sp) {
+      const sp = S.sp, st0 = sp.student || {}, cl = sp.classroom || {};
+      const txs = (sp.tx || []).map(t => ({ ...t, amount: Number(t.amount) || 0 }));
+      const total = (Number(st0.opening) || 0) + txs.reduce((a, t) => a + (t.kind === "withdraw" ? -t.amount : t.amount), 0);
+      const g = Number(cl.goal) || 0;
+      V.spClassName = cl.name || "";
+      V.spNick = st0.nickname || st0.name || "";
+      V.spName = st0.name || ""; V.spNo = st0.no || "-";
+      V.spTotalText = this.baht(total);
+      V.spHasGoal = g > 0;
+      V.spGoalText = this.baht(g);
+      V.spGoalPct = Math.min(100, Math.round((total / (g || 1)) * 100)) + "%";
+      V.spHistory = txs.slice(0, 40).map(t => ({
+        date: String(t.date).slice(0, 10),
+        kind: t.kind === "withdraw" ? "ถอน" : "ฝาก",
+        color: t.kind === "withdraw" ? "#c0392b" : "#16a34a",
+        amountText: (t.kind === "withdraw" ? "−" : "+") + this.baht(t.amount) + " ฿",
+      }));
+      V.spNoHistory = txs.length === 0;
+      const depOnly = txs.filter(t => t.kind !== "withdraw" && (Number(t.amount) || 0) > 0);
+      const depDates = Array.from(new Set(depOnly.map(t => String(t.date).slice(0, 10)))).sort();
+      let bestRun = 0, run = 0, prevD = null;
+      depDates.forEach(d => {
+        const dd = new Date(d + "T00:00:00");
+        run = (prevD && (dd - prevD) === 86400000) ? run + 1 : 1;
+        prevD = dd;
+        if (run > bestRun) bestRun = run;
+      });
+      const bigDay = depOnly.reduce((m, t) => Math.max(m, Number(t.amount) || 0), 0);
+      const mkBadge = (icon, title, sub, bg, col) => ({ icon, title, sub, style: `display:flex; align-items:center; gap:10px; background:${bg}; color:${col}; border-radius:14px; padding:11px 15px;` });
+      const bl = [];
+      if (depDates.length) bl.push(mkBadge("📅", `ออมแล้ว ${depDates.length} วัน`, "ทุกวันมีค่า", "#ecfdf3", "#15803d"));
+      if (bestRun >= 2) bl.push(mkBadge("🔥", `ออมต่อเนื่อง ${bestRun} วัน`, "รักษาสถิติไว้!", "#fff7ed", "#b45309"));
+      if (bigDay > 0) bl.push(mkBadge("⭐", `สูงสุด ${this.baht(bigDay)} บาท`, "ในหนึ่งวัน", "#eff6ff", "#1d4ed8"));
+      V.spBadges = bl;
+      V.spHasBadges = bl.length > 0;
+      const mAgg = {};
+      txs.forEach(t => { const ym = String(t.date).slice(0, 7); mAgg[ym] = (mAgg[ym] || 0) + (t.kind === "withdraw" ? -Math.abs(t.amount) : t.amount); });
+      let cumRun = Number(st0.opening) || 0;
+      const pts = Object.keys(mAgg).sort().map(k => { cumRun += mAgg[k]; return { label: this.monthLabel(k), v: cumRun }; }).slice(-6);
+      const pMax = Math.max(1, ...pts.map(p => p.v));
+      V.spHasChart = pts.length > 1 && pts.some(p => p.v > 0);
+      V.spChart = pts.map(p => ({
+        label: p.label, amountText: this.baht(p.v),
+        barStyle: `width:100%; height:${Math.max(4, Math.round((Math.max(0, p.v) / pMax) * 84))}px; border-radius:8px 8px 3px 3px; background:${p.v < 0 ? "linear-gradient(180deg,#f87171,#ef4444)" : "linear-gradient(180deg,#34d399,#2dd4bf)"};`,
+      }));
+      const tbl = sp.table;
+      const ctx = (Array.isArray(sp.classTx) ? sp.classTx : [])
+        .map(t => ({ no: String(t.no), date: String(t.date).slice(0, 10), kind: t.kind || "deposit", amount: (t.kind === "withdraw" ? -Math.abs(Number(t.amount) || 0) : (Number(t.amount) || 0)) }))
+        .filter(t => t.amount !== 0);
+      const hasGrid = Array.isArray(tbl) && tbl.length > 0 && Array.isArray(sp.classTx);
+      V.spShowGrid = hasGrid;
+      V.spShowTable = Array.isArray(tbl) && tbl.length > 0 && !hasGrid;
+      V.spClassTotalText = this.baht((tbl || []).reduce((a, r) => a + (Number(r.total) || 0), 0));
+      if (hasGrid) {
+        const monthsW = Array.from(new Set(ctx.map(t => t.date.slice(0, 7)))).sort();
+        const cm = monthsW.includes(S.spMonth) ? S.spMonth : (monthsW[monthsW.length - 1] || this.TODAY.slice(0, 7));
+        const [cy, cmo] = cm.split("-").map(Number);
+        const dim = new Date(cy, cmo, 0).getDate();
+        const days = Array.from({ length: dim }, (_, i) => i + 1);
+        const wknd = d => { const w = new Date(cy, cmo - 1, d).getDay(); return w === 0 || w === 6; };
+        const mtx = ctx.filter(t => t.date.slice(0, 7) === cm);
+        const activeDays = new Set(mtx.map(t => Number(t.date.slice(8, 10))));
+        V.spMonthOptions = (monthsW.length ? monthsW : [cm]).map(ym => ({
+          label: this.monthLabel(ym),
+          pick: () => this.setState({ spMonth: ym }),
+          style: (ym === cm ? "background:#16a34a; color:#fff;" : "background:transparent; color:#5b8a76;")
+            + " border:none; border-radius:9px; padding:8px 15px; font-size:13px; font-weight:700; font-family:inherit; cursor:pointer; white-space:nowrap;",
+        }));
+        V.spReportTitle = this.monthFull(cm);
+        V.spDayHeaders = days.map(d => ({
+          day: d,
+          thStyle: "border:1px solid #cfe6da; padding:6px 2px; font-weight:700; width:20px; text-align:center;"
+            + (wknd(d) ? " background:#fde8e8; color:#c0392b;" : " background:#eaf6f0;"),
+        }));
+        const rows = (tbl || []).slice().sort((a, b) => (Number(a.no) || 0) - (Number(b.no) || 0));
+        const cumOf = r => (Number(r.opening) || 0) + ctx.filter(t => t.no === String(r.no) && t.date.slice(0, 7) <= cm).reduce((a, t) => a + t.amount, 0);
+        const gridRows = rows.map(r => {
+          const me = String(r.no) === String(st0.no);
+          const bg = me ? " background:#dcfce7;" : "";
+          let total = 0;
+          const cells = days.map(d => {
+            const amt = mtx.filter(t => t.no === String(r.no) && Number(t.date.slice(8, 10)) === d).reduce((a, t) => a + t.amount, 0);
+            total += amt;
+            const act = activeDays.has(d);
+            return {
+              text: amt ? (amt < 0 ? "−" + this.baht(Math.abs(amt)) : String(amt)) : (act ? "-" : ""),
+              tdStyle: "border:1px solid #e3efe9; padding:5px 1px; text-align:center;"
+                + (me ? " background:#dcfce7;" : (wknd(d) ? " background:#fdf2f2;" : ""))
+                + (amt ? (amt < 0 ? " color:#c0392b; font-weight:800;" : " color:#15803d; font-weight:800;") : (act ? " color:#c8a23a; font-weight:700;" : " color:#9bbcae;")),
+            };
+          });
+          return {
+            no: r.no, isMe: me,
+            name: `${r.name || r.nickname || ""}${r.nickname && r.name ? " (" + r.nickname + ")" : ""}`,
+            cells, totalText: (total < 0 ? "−" : "") + this.baht(Math.abs(total)),
+            openText: this.baht(Number(r.opening) || 0),
+            cumText: this.baht(cumOf(r)),
+            openStyle: "border:1px solid #e3efe9; padding:5px 5px; text-align:center; color:#6b7c3a;" + (me ? " background:#dcfce7; font-weight:800;" : " background:#fcfdf5;"),
+            cumStyle: "border:1px solid #e3efe9; padding:5px 6px; text-align:center; font-weight:800; color:#14532d;" + (me ? " background:#bbf7d0;" : " background:#eafaf0;"),
+            noStyle: "border:1px solid #e3efe9; padding:5px 4px; text-align:center; color:#6b9483;" + bg + (me ? " font-weight:800;" : ""),
+            nameStyle: "border:1px solid #e3efe9; padding:5px 8px; text-align:left; white-space:nowrap;" + bg + (me ? " font-weight:800; color:#134e3a;" : ""),
+            totalStyle: "border:1px solid #e3efe9; padding:5px 6px; text-align:center; font-weight:800; color:#16a34a;" + (me ? " background:#bbf7d0;" : " background:#f3fbf6;"),
+          };
+        });
+        V.spGridRows = S.spOnlyMe ? gridRows.filter(r => r.isMe) : gridRows;
+        V.spColTotals = days.map(d => {
+          const t = mtx.filter(x => Number(x.date.slice(8, 10)) === d).reduce((a, x) => a + x.amount, 0);
+          return { text: t ? ((t < 0 ? "−" : "") + this.baht(Math.abs(t))) : "" };
+        });
+        const spGt = mtx.reduce((a, t) => a + t.amount, 0);
+        V.spGridTotalText = (spGt < 0 ? "−" : "") + this.baht(Math.abs(spGt));
+        V.spOpenTotalText = this.baht(rows.reduce((a, r) => a + (Number(r.opening) || 0), 0));
+        V.spGridCumText = this.baht(rows.reduce((a, r) => a + cumOf(r), 0));
+        V.spTableStyle = `border-collapse: collapse; width: 100%; font-size: ${S.spBig ? 15 : 11}px;`;
+        const tglStyle = on => "border:none; border-radius:11px; padding:9px 14px; font-size:13px; font-weight:700; font-family:inherit; cursor:pointer; white-space:nowrap; " + (on ? "background:#16a34a; color:#fff;" : "background:#fff; color:#5b8a76; box-shadow:0 3px 12px rgba(16,80,60,.08);");
+        V.spBigStyle = tglStyle(S.spBig);
+        V.spOnlyMeStyle = tglStyle(S.spOnlyMe);
+        V.spToggleBig = () => this.setState(s => ({ spBig: !s.spBig }));
+        V.spToggleOnlyMe = () => this.setState(s => ({ spOnlyMe: !s.spOnlyMe }));
+      }
+      V.spTable = (tbl || []).map((r, i) => ({
+        no: r.no, nick: r.nickname || r.name, totalText: this.baht(r.total),
+        rowStyle: "display:flex; align-items:center; gap:10px; padding:11px 16px; border-bottom:1px solid #f0f5f2;"
+          + (String(r.no) === String(st0.no) ? " background:#ecfdf3;" : ""),
+      }));
+    }
+
+    if (!cur) return V;
+
+    const patchClass = patch => {
+      this.setState(st => ({ classrooms: st.classrooms.map(c => c.id === cur.id ? { ...c, ...patch } : c) }));
+      const up = {};
+      if (patch.name != null) up.name = patch.name;
+      if (patch.year != null) up.academic_year = Number(patch.year) || cur.year;
+      if (patch.goal != null) up.goal_amount = Number(patch.goal) || 0;
+      if (patch.shareTotals != null) up.share_totals = patch.shareTotals;
+      if (patch.code != null) up.join_code = patch.code;
+      if (patch.teacherSig != null) up.teacher_sig = patch.teacherSig;
+      if (patch.principalSig != null) up.principal_sig = patch.principalSig;
+      this.cloud(sb => sb.from("classrooms").update(up).eq("id", cur.id));
+    };
+
+    // ---- บันทึก ----
+    const step = S.quickStep;
+    const dayDep = (sid, date) => deps.filter(t => t.sid === sid && t.date === date).reduce((a, t) => a + t.amount, 0);
+    V.fDate = S.fDate;
+    V.setDate = e => this.setState({ fDate: e.target.value });
+    V.setToday = () => this.setState({ fDate: this.TODAY });
+    V.stepLabel = String(step);
+    V.stepOptions = [1, 5, 10, 20, 100].map(v => ({
+      label: v + " บาท", pick: () => this.setState({ quickStep: v }),
+      style: (step === v ? "border:2px solid #16a34a; background:#16a34a; color:#fff;" : "border:2px solid #cfe6da; background:#fff; color:#15803d;")
+        + " border-radius:999px; padding:6px 16px; font-size:13px; font-weight:700; font-family:inherit; cursor:pointer;",
+    }));
+    V.students = roster.map(s => {
+      const amt = dayDep(s.id, S.fDate);
+      const off = amt <= 0;
+      return {
+        no: s.no, nick: s.nick || s.name,
+        todayText: amt > 0 ? this.baht(amt) : "0",
+        amtColor: amt > 0 ? "#16a34a" : "#cdded6",
+        plus: () => { this.setCell(s.id, S.fDate, amt + step, "deposit"); this.setState({ flash: "" }); },
+        minus: () => { if (amt > 0) this.setCell(s.id, S.fDate, Math.max(0, amt - step), "deposit"); },
+        minusDisabled: off,
+        cardStyle: (amt > 0 ? "border:2px solid #34d399; background:#ecfdf3; box-shadow:0 6px 16px rgba(45,212,180,.22);" : "border:2px solid #e3efe9; background:#fff;")
+          + " border-radius:16px; padding:12px 13px 13px; font-family:inherit; color:#134e3a; transition:transform .22s cubic-bezier(.34,1.56,.64,1), box-shadow .22s;",
+        minusStyle: "min-width:46px; height:40px; flex:none; border-radius:11px; font-size:15px; font-weight:800; font-family:inherit; border:none; " + (off ? "background:#f1f5f3; color:#cdded6; cursor:not-allowed;" : "background:#fde8e8; color:#c0392b; cursor:pointer;"),
+        plusStyle: "min-width:46px; height:40px; flex:none; border-radius:11px; font-size:15px; font-weight:800; font-family:inherit; border:none; background:#16a34a; color:#fff; cursor:pointer;",
+      };
+    });
+    V.studentOptions = roster.map(s => ({ val: s.id, label: `เลขที่ ${s.no} · ${s.name}${s.nick ? " (" + s.nick + ")" : ""}` }));
+    V.selIdStr = S.selId || "";
+    V.selectStudent = e => this.setState({ selId: e.target.value, flash: "" });
+    V.fAmount = S.fAmount;
+    V.setAmount = e => this.setState({ fAmount: e.target.value });
+    V.selectSummary = S.selId ? `เลือก: ${this.nameOf(S.selId)}` : "ยังไม่ได้เลือกนักเรียน";
+    const doSubmit = kind => {
+      const amt = parseFloat(S.fAmount);
+      if (!S.selId) return alert("เลือกนักเรียนก่อนนะครับ");
+      if (!(amt > 0)) return alert("กรอกจำนวนเงินก่อนนะครับ");
+      const prev = alltx.filter(t => t.sid === S.selId && t.date === S.fDate && t.kind === kind).reduce((a, t) => a + t.amount, 0);
+      this.setCell(S.selId, S.fDate, prev + amt, kind);
+      this.log(kind === "deposit" ? "บันทึกฝาก" : "บันทึกถอน", `${this.nameOf(S.selId)} ${this.baht(amt)} บาท (${S.fDate})`);
+      this.setState({ flash: `${kind === "deposit" ? "ฝาก" : "ถอน"} ${this.baht(amt)} บาท ของ ${this.nameOf(S.selId)} เรียบร้อย`, selId: "", fAmount: "" });
+    };
+    V.submitDeposit = () => doSubmit("deposit");
+    V.submitWithdraw = () => doSubmit("withdraw");
+    V.flash = S.flash;
+
+    const dayRows = alltx.filter(t => t.date === S.fDate).sort((a, b) => {
+      const A = roster.find(s => s.id === a.sid), B = roster.find(s => s.id === b.sid);
+      return (A ? A.no : 999) - (B ? B.no : 999);
+    }).map(t => ({
+      name: this.nameOf(t.sid), amount: t.amount,
+      kindLabel: t.kind === "withdraw" ? "ถอน" : "ฝาก",
+      kindStyle: t.kind === "withdraw" ? "font-size:12px; font-weight:700; color:#c0392b; background:#fde8e8; border-radius:8px; padding:5px 10px;" : "font-size:12px; font-weight:700; color:#15803d; background:#dcfce7; border-radius:8px; padding:5px 10px;",
+      setAmt: e => this.setCell(t.sid, t.date, parseFloat(e.target.value) || 0, t.kind),
+      remove: () => { this.setCell(t.sid, t.date, 0, t.kind); this.log("ลบรายการ", `${this.nameOf(t.sid)} (${t.date})`); },
+    }));
+    V.dayRows = dayRows; V.hasDayRows = dayRows.length > 0; V.noDayRows = dayRows.length === 0;
+
+    // ---- สรุปผล ----
+    const netOn = f => this.net(alltx.filter(f));
+    V.todayText = this.baht(netOn(t => t.date === today));
+    V.monthText = this.baht(netOn(t => t.date.slice(0, 7) === month));
+    const classTotal = roster.reduce((a, s) => a + this.stuTotal(s), 0);
+    V.totalText = this.baht(classTotal);
+
+    const goal = Number(cur.goal) || 0;
+    V.hasGoal = goal > 0;
+    const goalAll = goal * Math.max(1, roster.length);
+    V.goalText = goal > 0 ? `${this.baht(classTotal)} / ${this.baht(goalAll)} บาท (คนละ ${this.baht(goal)})` : "";
+    V.goalPct = Math.min(100, Math.round((classTotal / (goalAll || 1)) * 100)) + "%";
+
+    const top = list => {
+      const by = {};
+      list.forEach(t => { by[t.sid] = (by[t.sid] || 0) + (t.kind === "withdraw" ? -t.amount : t.amount); });
+      const a = Object.entries(by).map(([sid, v]) => ({ sid, v })).sort((x, y) => y.v - x.v);
+      return a[0] && a[0].v > 0 ? a[0] : null;
+    };
+    const mk = (period, medal, bg, t) => ({ period, medal, bg, name: t ? this.nameOf(t.sid) : "— ยังไม่มี —", amountText: t ? this.baht(t.v) : "0" });
+    V.stars = [
+      mk("ดาวเด่นวันนี้", "🥇", "#fef3c7", top(alltx.filter(t => t.date === today))),
+      mk("ดาวเด่นเดือนนี้", "🏅", "#dbeafe", top(alltx.filter(t => t.date.slice(0, 7) === month))),
+      mk("ดาวเด่นปีนี้", "🏆", "#dcfce7", top(alltx.filter(t => t.date.slice(0, 4) === year))),
+    ];
+
+    const sk = S.sortKey, dir = S.sortDir === "asc" ? 1 : -1;
+    V.summary = roster.map(s => ({ s, total: this.stuTotal(s) }))
+      .sort((a, b) => sk === "no" ? ((a.s.no || 0) - (b.s.no || 0)) * dir : sk === "name" ? a.s.name.localeCompare(b.s.name, "th") * dir : (a.total - b.total) * dir)
+      .map(x => ({ no: x.s.no, name: `${x.s.name}${x.s.nick ? " (" + x.s.nick + ")" : ""}`, totalText: this.baht(x.total), pct: goal > 0 ? Math.min(100, Math.round((x.total / goal) * 100)) + "%" : "0%" }));
+    const arrow = k => sk === k ? (S.sortDir === "asc" ? " ▲" : " ▼") : "";
+    const setSort = k => this.setState(st => ({ sortKey: k, sortDir: st.sortKey === k ? (st.sortDir === "asc" ? "desc" : "asc") : (k === "total" ? "desc" : "asc") }));
+    V.sortNo = () => setSort("no"); V.sortName = () => setSort("name"); V.sortTotal = () => setSort("total");
+    V.sortNoLabel = "เลขที่" + arrow("no"); V.sortNameLabel = "ชื่อ-ชื่อเล่น" + arrow("name"); V.sortTotalLabel = "ยอดสะสม" + arrow("total");
+
+    let series = [];
+    if (S.view === "month") {
+      const b = {}; deps.forEach(t => { const ym = t.date.slice(0, 7); b[ym] = (b[ym] || 0) + t.amount; });
+      series = Object.keys(b).sort().map(ym => ({ label: this.monthLabel(ym), value: b[ym] }));
+    } else if (S.view === "all") {
+      series = roster.map(s => ({ label: s.nick || s.name, value: this.stuTotal(s) })).sort((a, b) => b.value - a.value);
+    } else {
+      const b = {}; deps.forEach(t => { b[t.date] = (b[t.date] || 0) + t.amount; });
+      series = Object.keys(b).sort().slice(-14).map(d => ({ label: d.slice(5), value: b[d] }));
+    }
+    const maxV = Math.max(1, ...series.map(s => s.value));
+    V.chart = series.map(s => ({ date: s.label, amountText: this.baht(s.value), barHeight: Math.round((s.value / maxV) * 180) + "px" }));
+    V.chartTitle = S.view === "month" ? "ยอดเงินฝากรวมรายเดือน" : S.view === "all" ? "ยอดเงินสะสมรายคน (มาก→น้อย)" : "ยอดเงินฝากรวมรายวัน (14 วันล่าสุด)";
+    V.viewDay = () => this.setState({ view: "day" }); V.viewMonth = () => this.setState({ view: "month" }); V.viewAll = () => this.setState({ view: "all" });
+    V.segDayStyle = S.view === "day" ? segOn : segBase;
+    V.segMonthStyle = S.view === "month" ? segOn : segBase;
+    V.segAllStyle = S.view === "all" ? segOn : segBase;
+
+    // ---- รายงาน ----
+    const signed = alltx.map(t => ({ ...t, amount: t.kind === "withdraw" ? -Math.abs(t.amount) : t.amount }));
+    const netDay = (sid, date) => signed.filter(t => t.sid === sid && t.date === date).reduce((a, t) => a + t.amount, 0);
+    const mSum = {}; signed.forEach(t => { const ym = t.date.slice(0, 7); mSum[ym] = (mSum[ym] || 0) + t.amount; });
+    const monthsWith = Object.keys(mSum).sort();
+    const rm = monthsWith.includes(S.reportMonth) ? S.reportMonth : (monthsWith[monthsWith.length - 1] || month);
+    const [ry, rmo] = rm.split("-").map(Number);
+    const dim = new Date(ry, rmo, 0).getDate();
+    const dayList = Array.from({ length: dim }, (_, i) => i + 1);
+    const isWknd = d => { const w = new Date(ry, rmo - 1, d).getDay(); return w === 0 || w === 6; };
+    V.dayHeaders = dayList.map(d => ({ day: d, thStyle: "border:1px solid #cfe6da; padding:6px 2px; font-weight:700; width:22px; text-align:center;" + (isWknd(d) ? " background:#fde8e8; color:#c0392b;" : " background:#eaf6f0;") }));
+    const activeDays = new Set(signed.filter(t => t.amount !== 0 && t.date.slice(0, 7) === rm).map(t => Number(t.date.slice(8, 10))));
+    const cumUpto = (s, ym) => (Number(s.opening) || 0) + signed.filter(t => t.sid === s.id && t.date.slice(0, 7) <= ym).reduce((a, t) => a + t.amount, 0);
+    V.reportRows = roster.map(s => {
+      let total = 0;
+      const cells = dayList.map(day => {
+        const ds = `${rm}-${this.pad(day)}`;
+        const amt = netDay(s.id, ds);
+        total += amt;
+        const act = activeDays.has(day);
+        return {
+          text: amt ? (amt < 0 ? "−" + this.baht(Math.abs(amt)) : String(amt)) : (act ? "-" : ""),
+          tdStyle: "border:1px solid #e3efe9; padding:5px 1px; text-align:center;" + (isWknd(day) ? " background:#fdf2f2;" : "") + (amt ? (amt < 0 ? " color:#c0392b; font-weight:800;" : " color:#16a34a; font-weight:700;") : (act ? " color:#c8a23a; font-weight:700;" : " color:#9bbcae;")) + (S.editReport ? " cursor:pointer; outline:1px dashed #b6d8c8;" : ""),
+          onClick: () => {
+            if (!S.editReport) return;
+            this.setState({
+              ce: { sid: s.id, ds, label: this.nameOf(s.id), date: `${day}/${rmo}/${ry + 543}` },
+              ceVal: amt ? String(Math.abs(amt)) : "",
+            });
+          },
+        };
+      });
+      return { no: s.no, name: `${s.name}${s.nick ? " (" + s.nick + ")" : ""}`, cells, totalText: this.baht(total), openText: this.baht(Number(s.opening) || 0), cumText: this.baht(cumUpto(s, rm)) };
+    });
+    V.colTotals = dayList.map(day => {
+      const t = signed.filter(x => x.date === `${rm}-${this.pad(day)}`).reduce((a, x) => a + x.amount, 0);
+      return { text: t ? (t < 0 ? "−" + this.baht(Math.abs(t)) : String(t)) : "" };
+    });
+    const gt = signed.filter(t => t.date.slice(0, 7) === rm).reduce((a, t) => a + t.amount, 0);
+    V.grandTotalText = (gt < 0 ? "−" : "") + this.baht(Math.abs(gt));
+    const openTotal = roster.reduce((a, s) => a + (Number(s.opening) || 0), 0);
+    V.openTotalText = this.baht(openTotal);
+    V.grandCumText = this.baht(roster.reduce((a, s) => a + cumUpto(s, rm), 0));
+    V.exportCsvMonth = () => {
+      const head = ["เลขที่", "ชื่อ-นามสกุล", "ชื่อเล่น", "ยกมา", ...dayList.map(String), "รวมเดือนนี้", "สะสม"];
+      const body = roster.map(s => {
+        const cells = dayList.map(d => { const v = netDay(s.id, `${rm}-${this.pad(d)}`); return v ? v : ""; });
+        const mTot = dayList.reduce((a, d) => a + netDay(s.id, `${rm}-${this.pad(d)}`), 0);
+        return [s.no, s.name, s.nick || "", Number(s.opening) || 0, ...cells, mTot, cumUpto(s, rm)];
+      });
+      const foot = ["", "รวมทั้งห้อง", "", openTotal,
+        ...dayList.map(d => { const v = signed.filter(x => x.date === `${rm}-${this.pad(d)}`).reduce((a, x) => a + x.amount, 0); return v ? v : ""; }),
+        gt, roster.reduce((a, s) => a + cumUpto(s, rm), 0)];
+      this.downloadCsv(`ออมเงิน-${cur.name}-${rm}.csv`, [head, ...body, foot]);
+    };
+
+    // ---- สมุดคู่ฝากรายคน / บัตรเข้าใช้ ----
+    V.pbIsBook = S.pbMode !== "card";
+    V.pbIsCard = S.pbMode === "card";
+    V.pbBook = () => this.setState({ pbMode: "book" });
+    V.pbCard = () => this.setState({ pbMode: "card" });
+    V.pbBookStyle = S.pbMode !== "card" ? segOn : segBase;
+    V.pbCardStyle = S.pbMode === "card" ? segOn : segBase;
+    V.pbHint = S.pbMode === "card" ? "ตัดแจกนักเรียน — มี QR รหัสห้อง และ PIN ของแต่ละคน" : "1 คน 1 หน้า สำหรับให้ผู้ปกครองเซ็นรับ";
+    const pbRoster = S.pbWho ? roster.filter(s => s.id === S.pbWho) : roster;
+    V.pbWhoStr = S.pbWho || "";
+    V.pbPick = e => this.setState({ pbWho: e.target.value });
+    V.pbPrintLabel = S.pbWho ? "พิมพ์เอกสารนี้" : "พิมพ์ทั้งห้อง";
+    V.passbooks = pbRoster.map(s => {
+      const list = alltx.filter(t => t.sid === s.id).slice().sort((a, b) => a.date.localeCompare(b.date));
+      let bal = Number(s.opening) || 0;
+      const rows = list.map((t, i) => {
+        const amt = t.kind === "withdraw" ? -Math.abs(t.amount) : t.amount;
+        bal += amt;
+        return { i: i + 1, date: this.thDate(t.date), depText: amt > 0 ? this.baht(amt) : "", wdText: amt < 0 ? this.baht(-amt) : "", balText: this.baht(bal) };
+      });
+      const blanks = Array.from({ length: Math.max(0, 12 - rows.length) }, (_, i) => ({ i: rows.length + i + 1 }));
+      return { no: s.no, code: s.code || "-", name: `${s.name}${s.nick ? " (" + s.nick + ")" : ""}`, openText: this.baht(Number(s.opening) || 0), rows, blanks, balText: this.baht(bal) };
+    });
+    V.accessCards = pbRoster.map(s => ({
+      no: s.no, nick: s.nick || s.name, name: s.name, pin: s.pin || "— ยังไม่ตั้ง —",
+      qrStyle: `width:86px; height:86px; flex:none; border-radius:10px; border:1px solid #e3efe9; background:#fff center/contain no-repeat url('https://api.qrserver.com/v1/create-qr-code/?size=240x240&margin=2&data=${encodeURIComponent(location.origin + location.pathname + "?c=" + cur.code)}');`,
+    }));
+    V.monthOptions = (monthsWith.length ? monthsWith : [month]).map(ym => ({ label: this.monthLabel(ym), pick: () => this.setState({ reportMonth: ym }), style: rm === ym ? segOn : segBase }));
+    V.reportTitle = this.monthFull(rm);
+    V.semesterText = `ภาคเรียนที่ ${(rmo >= 5 && rmo <= 10) ? 1 : 2} ปีการศึกษา ${(rmo >= 5 ? ry : ry - 1) + 543}`;
+    V.editReport = S.editReport;
+    V.toggleEditReport = () => this.setState(s => ({ editReport: !s.editReport }));
+    V.editReportLabel = S.editReport ? "✅ เสร็จสิ้นการแก้ไข" : "✏️ แก้ไขตาราง";
+    V.cellEditOpen = !!S.ce;
+    V.cellEditName = S.ce ? S.ce.label : "";
+    V.cellEditDate = S.ce ? "วันที่ " + S.ce.date : "";
+    V.cellEditValue = S.ceVal;
+    V.cellEditSet = e => this.setState({ ceVal: String(e.target.value).replace(/[^\d.]/g, "") });
+    V.cellEditQuick = [1, 5, 10, 20, 100].map(v => ({
+      label: v + " ฿", pick: () => this.setState({ ceVal: String(v) }),
+      style: "border:2px solid #cfe6da; background:#fff; color:#15803d; border-radius:999px; padding:7px 14px; font-size:13px; font-weight:700; font-family:inherit; cursor:pointer;",
+    }));
+    V.stopProp = e => e.stopPropagation();
+    const ceSave = kind => {
+      const c = S.ce;
+      if (!c) return;
+      const n = Math.abs(parseFloat(S.ceVal) || 0);
+      this.setCell(c.sid, c.ds, 0, kind === "deposit" ? "withdraw" : "deposit");
+      this.setCell(c.sid, c.ds, n, kind);
+      this.log("แก้ไขตารางรายงาน", `${c.label} ${c.ds} → ${kind === "withdraw" ? "-" : ""}${n}`);
+      this.setState({ ce: null, ceVal: "" });
+    };
+    V.cellEditSaveDep = () => ceSave("deposit");
+    V.cellEditSaveWd = () => ceSave("withdraw");
+    V.cellEditClear = () => {
+      const c = S.ce;
+      if (!c) return;
+      this.setCell(c.sid, c.ds, 0, "deposit");
+      this.setCell(c.sid, c.ds, 0, "withdraw");
+      this.log("ลบรายการในตาราง", `${c.label} ${c.ds}`);
+      this.setState({ ce: null, ceVal: "" });
+    };
+    V.cellEditCancel = () => this.setState({ ce: null, ceVal: "" });
+    V.editReportBtnStyle = { whiteSpace: "nowrap", border: "none", borderRadius: "12px", padding: "11px 20px", fontSize: "14px", fontWeight: 700, fontFamily: "inherit", cursor: "pointer", background: S.editReport ? "#16a34a" : "#fff", color: S.editReport ? "#fff" : "#15803d", boxShadow: S.editReport ? "0 6px 16px rgba(22,163,74,.3)" : "inset 0 0 0 2px #34d399" };
+    V.exportPdf = () => window.print();
+
+    // ---- ตารางสรุปรวมทุกเดือน (คอลัมน์ = เดือน) ----
+    V.reportByMonth = S.reportMode !== "year";
+    V.reportByYear = S.reportMode === "year";
+    V.modeMonth = () => this.setState({ reportMode: "month" });
+    V.modeYear = () => this.setState({ reportMode: "year", editReport: false });
+    V.modeMonthStyle = S.reportMode !== "year" ? segOn : segBase;
+    V.modeYearStyle = S.reportMode === "year" ? segOn : segBase;
+
+    const g0 = (Number(cur.year) || (new Date().getFullYear() + 543)) - 543;
+    const acadMonths = Array.from({ length: 12 }, (_, i) => {
+      const m = 5 + i;
+      return m <= 12 ? `${g0}-${this.pad(m)}` : `${g0 + 1}-${this.pad(m - 12)}`;
+    });
+    const ymList = Array.from(new Set([...acadMonths, ...monthsWith])).sort();
+    V.ymHeaders = ymList.map(ym => ({ label: this.monthLabel(ym) }));
+    const ymCell = (sid, ym) => signed.filter(t => t.sid === sid && t.date.slice(0, 7) === ym).reduce((a, t) => a + t.amount, 0);
+    V.ymRows = roster.map(s => {
+      let total = 0;
+      const cells = ymList.map(ym => {
+        const v = ymCell(s.id, ym);
+        total += v;
+        return { text: v ? ((v < 0 ? "−" : "") + this.baht(Math.abs(v))) : "", tdStyle: "border:1px solid #e3efe9; padding:7px 6px; text-align:right; white-space:nowrap;" + (v ? (v < 0 ? " color:#c0392b; font-weight:800;" : " color:#16a34a; font-weight:700;") : " color:#cdded6;") };
+      });
+      return { no: s.no, name: `${s.name}${s.nick ? " (" + s.nick + ")" : ""}`, cells, totalText: this.baht(total) };
+    });
+    V.ymColTotals = ymList.map(ym => {
+      const t = deps.filter(x => x.date.slice(0, 7) === ym).reduce((a, x) => a + x.amount, 0);
+      return { text: t ? this.baht(t) : "" };
+    });
+    V.ymGrandTotal = this.baht(deps.reduce((a, t) => a + t.amount, 0));
+    V.teacherName = cur.teacherSig; V.principalName = cur.principalSig;
+    V.setTeacherName = e => patchClass({ teacherSig: e.target.value });
+    V.setPrincipalName = e => patchClass({ principalSig: e.target.value });
+    V.teacherSig = cur.teacherSig ? `( ${cur.teacherSig} )` : "( ............................................. )";
+    V.principalSig = cur.principalSig ? `( ${cur.principalSig} )` : "( ............................................. )";
+
+    // ---- รายชื่อ ----
+    V.csvHeaderText = "เลขที่,รหัสนักเรียน,ชื่อ-นามสกุล,ชื่อเล่น,ชั้น/ห้อง,ยอดยกมา,PIN";
+    V.bulkText = S.bulkText; V.importMsg = S.importMsg;
+    V.setBulkText = e => this.setState({ bulkText: e.target.value });
+    V.addBulk = () => {
+      const rows = this.parseRows(S.bulkText);
+      if (!rows.length) return alert("ไม่พบรายชื่อ — พิมพ์บรรทัดละ 1 คน");
+      this.mergeRoster(rows);
+    };
+    V.downloadTemplate = () => {
+      const rows = roster.length ? roster.map(s => `${s.no},${s.code},${s.name},${s.nick},${cur.name},${s.opening || 0},${s.pin || ""}`)
+        : [`1,10501,เด็กชายตัวอย่าง ใจดี,ออม,${cur.name},0,1234`, `2,10502,เด็กหญิงตัวอย่าง รักเรียน,สุข,${cur.name},0,5678`];
+      this.download(`ออมสุข-เทมเพลตรายชื่อ-${cur.name}.csv`, "\uFEFF" + [V.csvHeaderText, ...rows].join("\r\n"), "text/csv;charset=utf-8");
+    };
+    V.uploadRoster = e => {
+      const f = e.target.files && e.target.files[0];
+      e.target.value = "";
+      if (!f) return;
+      const r = new FileReader();
+      r.onload = () => {
+        const rows = this.parseRows(String(r.result));
+        if (!rows.length) return alert("อ่านรายชื่อจากไฟล์ไม่ได้ — ตรวจว่าบันทึกเป็น .csv และมีหัวตารางตามเทมเพลต");
+        this.mergeRoster(rows);
+      };
+      r.readAsText(f, "utf-8");
+    };
+    const patchStu = (id, patch) => {
+      this.setState(st => ({ students: st.students.map(s => s.id === id ? { ...s, ...patch } : s) }));
+      const up = {};
+      if (patch.no != null) up.no = Number(patch.no) || null;
+      if (patch.code != null) up.student_code = patch.code;
+      if (patch.name != null) up.full_name = patch.name;
+      if (patch.nick != null) up.nickname = patch.nick;
+      if (patch.pin != null) up.pin = patch.pin;
+      this.cloud(sb => sb.from("students").update(up).eq("id", id));
+    };
+    V.rosterEditors = roster.map(s => ({
+      no: s.no, code: s.code, name: s.name, nick: s.nick, pin: s.pin, cell: cellStyle,
+      setNo: e => patchStu(s.id, { no: e.target.value }),
+      setCode: e => patchStu(s.id, { code: e.target.value }),
+      setName: e => patchStu(s.id, { name: e.target.value }),
+      setNick: e => patchStu(s.id, { nick: e.target.value }),
+      setPin: e => patchStu(s.id, { pin: e.target.value.replace(/\D/g, "").slice(0, 4) }),
+      remove: () => {
+        if (!confirm(`ลบ "${s.name}" ออกจากห้อง?\n\n⚠️ รายการเงินของนักเรียนคนนี้จะถูกลบไปด้วย`)) return;
+        this.setState(st => ({ students: st.students.filter(x => x.id !== s.id), tx: st.tx.filter(t => t.sid !== s.id) }));
+        this.cloud(sb => sb.from("students").delete().eq("id", s.id));
+        this.log("ลบรายชื่อ", s.name);
+      },
+    }));
+    V.newCode = S.newCode; V.newName = S.newName; V.newNick = S.newNick;
+    V.setNewCode = e => this.setState({ newCode: e.target.value });
+    V.setNewName = e => this.setState({ newName: e.target.value });
+    V.setNewNick = e => this.setState({ newNick: e.target.value });
+    V.addOne = () => {
+      if (!S.newName.trim()) return alert("กรอกชื่อ-นามสกุลก่อนนะครับ");
+      this.mergeRoster([{ no: "", code: S.newCode.trim(), name: S.newName.trim(), nick: S.newNick.trim(), pin: "", opening: 0 }]);
+      this.setState({ newCode: "", newName: "", newNick: "" });
+    };
+    V.samePin = () => {
+      const v = window.prompt(`ตั้ง PIN เดียวกันให้นักเรียนทั้ง ${roster.length} คน\n\nกรอกเลข 4 ตัว (เว้นว่าง = ไม่ต้องใช้ PIN เลย)`, "1234");
+      if (v === null) return;
+      const pin = String(v).replace(/\D/g, "").slice(0, 4);
+      if (pin && pin.length < 4) return alert("PIN ต้องเป็นเลข 4 ตัว");
+      roster.forEach(s => patchStu(s.id, { pin }));
+      this.log("ตั้ง PIN เดียวกันทั้งห้อง", pin ? "•••• (4 ตัว)" : "ไม่ใช้ PIN");
+    };
+    V.autoPins = () => {
+      const need = roster.filter(s => !s.pin);
+      if (!need.length) return alert("นักเรียนทุกคนมี PIN แล้ว");
+      if (!confirm(`ตั้ง PIN ใหม่ให้นักเรียน ${need.length} คนที่ยังไม่มี?\n(ใช้เลขท้าย 4 ตัวของรหัสนักเรียน ถ้าไม่มีจะสุ่มให้)`)) return;
+      need.forEach(s => {
+        const pin = (s.code || "").replace(/\D/g, "").slice(-4).padStart(4, "0");
+        patchStu(s.id, { pin: pin.length === 4 && pin !== "0000" ? pin : String(Math.floor(1000 + Math.random() * 9000)) });
+      });
+      this.log("ตั้ง PIN อัตโนมัติ", `${need.length} คน`);
+    };
+
+    // ---- ตั้งค่า ----
+    const link = location.origin + location.pathname + "?c=" + cur.code;
+    V.shareLink = link;
+    V.qrStyle = "width:148px; height:148px; border-radius:16px; border:1px solid #e3efe9; background:#fff center/contain no-repeat url('https://api.qrserver.com/v1/create-qr-code/?size=280x280&margin=8&data=" + encodeURIComponent(link) + "');";
+    V.copyLabel = S.copied ? "✅ คัดลอกแล้ว" : "📋 คัดลอกลิงก์";
+    V.copyLink = () => {
+      navigator.clipboard.writeText(link).then(() => {
+        this.setState({ copied: true });
+        setTimeout(() => this.setState({ copied: false }), 2000);
+      }).catch(() => alert(link));
+    };
+    V.codeDraft = S.codeDraft || cur.code;
+    V.setCodeDraft = e => this.setState({ codeDraft: e.target.value.toUpperCase().replace(/[^A-Z0-9]/g, "").slice(0, 10) });
+    V.saveCode = async () => {
+      const nc = (S.codeDraft || "").trim().toUpperCase();
+      if (nc === cur.code) return alert("รหัสห้องเดิมอยู่แล้ว");
+      if (nc.length < 4) return alert("รหัสห้องต้องยาว 4–10 ตัว (A–Z, 0–9)");
+      if (S.classrooms.some(c => c.id !== cur.id && c.code === nc)) return alert("รหัสห้องนี้ถูกใช้กับห้องอื่นแล้ว");
+      if (!confirm(`เปลี่ยนรหัสห้องเป็น "${nc}"?\n\n⚠️ ลิงก์/QR เดิมจะใช้ไม่ได้ ต้องแจกรหัสใหม่ให้นักเรียน`)) return;
+      if (this.state.mode === "cloud" && this.sb) {
+        const { error } = await this.sb.from("classrooms").update({ join_code: nc }).eq("id", cur.id);
+        if (error) return alert("เปลี่ยนไม่สำเร็จ: " + (/duplicate|unique/i.test(error.message) ? "รหัสนี้มีครูท่านอื่นใช้แล้ว ลองรหัสอื่น" : error.message));
+      }
+      this.setState(st => ({ classrooms: st.classrooms.map(c => c.id === cur.id ? { ...c, code: nc } : c), codeDraft: nc }));
+      this.log("เปลี่ยนรหัสห้อง", `${cur.code} → ${nc}`);
+    };
+    V.shareTotals = !!cur.shareTotals;
+    V.toggleShareTotals = () => patchClass({ shareTotals: !cur.shareTotals });
+    V.setCurName = e => patchClass({ name: e.target.value });
+    V.setCurYear = e => patchClass({ year: Number(e.target.value) || cur.year });
+    V.setCurGoal = e => patchClass({ goal: Number(e.target.value) || 0 });
+
+    V.isOwner = !cur.ownerId || !S.user || cur.ownerId === S.user.id;
+    V.notOwner = !V.isOwner;
+    V.ownerNote = "ห้องนี้เป็นของ " + ((S.owners && S.owners[cur.ownerId]) || "ครูท่านอื่น") + " — คุณเข้าร่วมเป็นครูผู้ช่วย บันทึกและแก้ไขข้อมูลได้ทุกอย่าง ยกเว้นลบห้องและจัดการครูผู้ช่วย";
+    V.roleBadgeLabel = V.isOwner ? "👑 เจ้าของห้อง" : "🤝 ครูผู้ช่วย";
+    V.roleBadgeStyle = "display:inline-flex; align-items:center; font-size:11px; font-weight:700; border-radius:8px; padding:3px 8px; white-space:nowrap; "
+      + (V.isOwner ? "background:#fef3c7; color:#92400e;" : "background:#e0f2fe; color:#075985;");
+    V.newMember = S.newMember;
+    V.setNewMember = e => this.setState({ newMember: e.target.value });
+    V.memberList = S.members.filter(m => m.cid === cur.id).map(m => ({
+      email: m.email,
+      remove: () => {
+        this.setState(st => ({ members: st.members.filter(x => !(x.cid === cur.id && x.email === m.email)) }));
+        this.cloud(sb => sb.from("classroom_members").delete().eq("classroom_id", cur.id).eq("teacher_email", m.email));
+      },
+    }));
+    V.addMember = () => {
+      const em = S.newMember.trim().toLowerCase();
+      if (!/^[^@\s]+@[^@\s]+\.[^@\s]+$/.test(em)) return alert("กรอกอีเมลให้ถูกต้อง");
+      this.setState(st => ({ members: [...st.members, { cid: cur.id, email: em }], newMember: "" }));
+      this.cloud(sb => sb.from("classroom_members").insert({ classroom_id: cur.id, teacher_email: em }));
+      this.log("เชิญครูผู้ช่วย", em);
+    };
+
+    V.nextYear = Number(cur.year) + 1;
+    V.rollover = () => {
+      if (!confirm(`คัดลอกรายชื่อ ${roster.length} คน ไปเป็นห้องใหม่ของปีการศึกษา ${Number(cur.year) + 1}?`)) return;
+      const nc = { id: this.uid(), ownerId: S.user && S.user.id, name: cur.name, year: Number(cur.year) + 1, code: this.code6(), shareTotals: cur.shareTotals, goal: cur.goal, teacherSig: cur.teacherSig, principalSig: cur.principalSig };
+      const ns = roster.map(s => ({ id: this.uid(), cid: nc.id, code: s.code, no: s.no, name: s.name, nick: s.nick, pin: s.pin, opening: 0 }));
+      this.setState(st => ({ classrooms: [...st.classrooms, nc], students: [...st.students, ...ns], curId: nc.id, tab: "roster", codeDraft: nc.code }));
+      this.cloud(async sb => {
+        await sb.from("classrooms").insert({ id: nc.id, owner_id: S.user.id, name: nc.name, academic_year: nc.year, join_code: nc.code, share_totals: nc.shareTotals, goal_amount: nc.goal, teacher_sig: nc.teacherSig, principal_sig: nc.principalSig });
+        await sb.from("students").insert(ns.map(s => ({ id: s.id, classroom_id: nc.id, student_code: s.code, no: s.no, full_name: s.name, nickname: s.nick, pin: s.pin, opening_balance: 0 })));
+      });
+    };
+
+    V.backupData = () => {
+      const payload = { app: "omsook", version: 2, exportedAt: new Date().toISOString(), classroom: cur, students: roster, tx: alltx };
+      this.download(`ออมสุข-สำรอง-${cur.name}-${new Date().toISOString().slice(0, 10)}.json`, JSON.stringify(payload, null, 2), "application/json");
+    };
+    const au = S.audit.filter(a => !a.cid || a.cid === cur.id).slice(0, 60);
+    V.auditList = au.map(a => ({ at: new Date(a.at).toLocaleString("th-TH", { dateStyle: "short", timeStyle: "short" }), actor: a.actor, text: a.text }));
+    V.noAudit = au.length === 0;
+
+    V.deleteClass = () => {
+      if (!confirm(`ลบห้อง "${cur.name}" พร้อมรายชื่อและรายการเงินทั้งหมดอย่างถาวร?`)) return;
+      if (!confirm("ยืนยันอีกครั้ง — ข้อมูลนี้กู้คืนไม่ได้")) return;
+      this.setState(st => ({
+        classrooms: st.classrooms.filter(c => c.id !== cur.id),
+        students: st.students.filter(s => s.cid !== cur.id),
+        tx: st.tx.filter(t => t.cid !== cur.id),
+        screen: "classes", curId: null,
+      }));
+      this.cloud(sb => sb.from("classrooms").delete().eq("id", cur.id));
+    };
+
+    return V;
+  }
+
+  // ค่าที่ใช้ในหน้านักเรียน (แยกออกมาเพื่อความชัดเจน)
+  studentVals() { return null; }
+}
+
+</script>
+</body>
+</html>

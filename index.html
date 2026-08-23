@@ -21,6 +21,8 @@
 <script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2.45.4/dist/umd/supabase.js"></script>
 <style>
   * { box-sizing: border-box; }
+  html { overflow-x: hidden; -webkit-text-size-adjust: 100%; overscroll-behavior-y: none; }
+  html, body { background: #f1f6ea; }
   body { margin: 0; }
   a { color: #15803d; }
   a:hover { color: #0f5132; }
@@ -29,12 +31,31 @@
   .printOnly { display: none; }
   @media print {
     .printHide, .bgblob, .screenOnly { display: none !important; }
-    body { background: #fff !important; }
+    html, body { background: #fff !important; }
     .printOnly { display: block !important; }
     .printPage { break-after: page; page-break-after: always; break-inside: avoid; }
     .printPage:last-child { break-after: auto; page-break-after: auto; }
     * { -webkit-print-color-adjust: exact; print-color-adjust: exact; }
     @page { size: A4 landscape; margin: 8mm; }
+    .appRoot, .appRoot div, .appRoot section, .appRoot span, .appRoot header, .appRoot b,
+    .appRoot table, .appRoot thead, .appRoot tbody, .appRoot tr, .appRoot td, .appRoot th {
+      color: #000 !important;
+      background-image: none !important;
+      background-color: transparent !important;
+      box-shadow: none !important;
+      text-shadow: none !important;
+    }
+    .appRoot th { background-color: #ececec !important; }
+    .appRoot td, .appRoot th { border-color: #666 !important; }
+    .appRoot thead { display: table-header-group; }
+    .appRoot section, .appRoot table, .appRoot tbody, .appRoot .paper { break-inside: auto !important; page-break-inside: auto !important; }
+    .appRoot tr { break-inside: avoid; page-break-inside: avoid; }
+    .appRoot .pbSheet { break-inside: avoid !important; page-break-inside: avoid !important; }
+    .appMain { max-width: none !important; padding: 0 !important; }
+    .paper { background: #fff !important; border-radius: 0 !important; padding: 0 !important; overflow: visible !important; border: none !important; }
+    .pbWrap { display: block !important; gap: 0 !important; }
+    .pbSheet { break-inside: avoid; page-break-inside: avoid; break-after: page; page-break-after: always; }
+    .pbSheet:last-child { break-after: auto; page-break-after: auto; }
   }
 </style>
 </helmet>
@@ -47,11 +68,11 @@
 </svg>
 </template>
 
-<div style="position: relative; min-height: 100vh; overflow-x: hidden; font-family: 'IBM Plex Sans Thai', system-ui, sans-serif; color: #134e3a; background: linear-gradient(160deg, #e8f6ee 0%, #eef7f3 38%, #f3f6e9 100%);">
+<div class="appRoot" style="position: relative; min-height: 100vh; font-family: 'IBM Plex Sans Thai', system-ui, sans-serif; color: #134e3a; background: linear-gradient(160deg, #e8f6ee 0%, #eef7f3 38%, #f3f6e9 100%);">
 
-  <div class="bgblob" style="position: absolute; top: -160px; left: -120px; width: 520px; height: 520px; border-radius: 50%; background: radial-gradient(circle, rgba(141,221,196,.45), transparent 70%); pointer-events: none;"></div>
-  <div class="bgblob" style="position: absolute; top: 60px; right: -140px; width: 480px; height: 480px; border-radius: 50%; background: radial-gradient(circle, rgba(168,213,240,.40), transparent 70%); pointer-events: none;"></div>
-  <div class="bgblob" style="position: absolute; bottom: -180px; left: 30%; width: 560px; height: 560px; border-radius: 50%; background: radial-gradient(circle, rgba(232,229,160,.45), transparent 70%); pointer-events: none;"></div>
+  <div class="bgblob" style="position: absolute; top: 0; left: -120px; width: 520px; height: 420px; border-radius: 50%; background: radial-gradient(circle, rgba(141,221,196,.45), transparent 70%); pointer-events: none; transform: translateZ(0);"></div>
+  <div class="bgblob" style="position: absolute; top: 60px; right: -140px; width: 480px; height: 480px; border-radius: 50%; background: radial-gradient(circle, rgba(168,213,240,.40), transparent 70%); pointer-events: none; transform: translateZ(0);"></div>
+  <div class="bgblob" style="position: absolute; bottom: 0; left: 30%; width: 560px; height: 380px; border-radius: 50%; background: radial-gradient(circle, rgba(232,229,160,.45), transparent 70%); pointer-events: none; transform: translateZ(0);"></div>
 
   <!-- ══════════ 1. เลือกบทบาท ══════════ -->
   <sc-if value="{{ screenGate }}" hint-placeholder-val="{{ true }}">
@@ -366,7 +387,7 @@
 
   <!-- ══════════ 5. ในห้องเรียน (ครู) ══════════ -->
   <sc-if value="{{ screenClass }}" hint-placeholder-val="">
-  <div style="position: relative; max-width: 1140px; margin: 0 auto; padding: 22px 20px 96px;">
+  <div class="appMain" style="position: relative; max-width: 1140px; margin: 0 auto; padding: 22px 20px 96px;">
 
     <header class="printHide" style="display: flex; align-items: center; justify-content: space-between; gap: 16px; margin-bottom: 24px; flex-wrap: wrap;">
       <div style="display: flex; align-items: center; gap: 12px; min-width: 0;">
@@ -708,7 +729,7 @@
 
       <!-- ตารางสรุปรวมทุกเดือน -->
       <sc-if value="{{ reportByYear }}" hint-placeholder-val="">
-      <div style="background: #fff; border-radius: 18px; padding: 22px; box-shadow: 0 10px 30px rgba(16,80,60,.08); overflow-x: auto;">
+      <div class="paper" style="background: #fff; border-radius: 18px; padding: 22px; box-shadow: 0 10px 30px rgba(16,80,60,.08); overflow-x: auto;">
         <div style="text-align: center; margin-bottom: 14px;">
           <div style="font-size: 20px; font-weight: 700;">🐷 สรุปยอดการออมเงินรายเดือน</div>
           <div style="font-size: 14px; color: #5b8a76; margin-top: 2px;">{{ curName }} · ปีการศึกษา {{ curYear }} · รวมทุกเดือนที่มีการออม</div>
@@ -779,9 +800,9 @@
       </div>
 
       <sc-if value="{{ pbIsBook }}" hint-placeholder-val="{{ true }}">
-      <div style="display: flex; flex-direction: column; gap: 20px;">
+      <div class="pbWrap" style="display: flex; flex-direction: column; gap: 20px;">
         <sc-for list="{{ passbooks }}" as="p" hint-placeholder-count="3">
-          <div style="background: #fff; border-radius: 18px; padding: 24px 26px 28px; box-shadow: 0 10px 30px rgba(16,80,60,.08); break-inside: avoid; page-break-after: always;">
+          <div class="paper pbSheet" style="background: #fff; border-radius: 18px; padding: 24px 26px 28px; box-shadow: 0 10px 30px rgba(16,80,60,.08); break-inside: avoid;">
             <div style="display: flex; align-items: flex-start; justify-content: space-between; gap: 16px; flex-wrap: wrap; border-bottom: 2px solid #eaf6f0; padding-bottom: 14px; margin-bottom: 16px;">
               <div>
                 <div style="font-size: 18px; font-weight: 700;">🐷 สมุดคู่ฝากเงินออม · {{ curName }}</div>
@@ -1509,6 +1530,20 @@ class Component extends DCLogic {
     this.setState({ cloudErr: msg });
   }
 
+  mergeTx(list) {
+    const m = new Map();
+    (list || []).forEach(t => {
+      const amt = Number(t.amount) || 0;
+      if (!t || !t.sid || !t.date || !amt) return;
+      const kind = t.kind || "deposit";
+      const key = t.sid + "|" + String(t.date).slice(0, 10) + "|" + kind;
+      const prev = m.get(key);
+      if (prev) prev.amount += amt;
+      else m.set(key, { cid: t.cid, sid: t.sid, date: String(t.date).slice(0, 10), amount: amt, kind });
+    });
+    return [...m.values()];
+  }
+
   async uploadLocal() {
     if (!this.sb || this.state.mode !== "cloud") return;
     const S = this.state;
@@ -1519,15 +1554,15 @@ class Component extends DCLogic {
       const c = S.classrooms.find(x => x.id === cid);
       if (!c) continue;
       const ns = S.students.filter(s => s.cid === cid);
-      const nt = S.tx.filter(t => t.cid === cid);
-      const r1 = await this.sb.from("classrooms").insert({ id: c.id, owner_id: S.user.id, name: c.name, academic_year: c.year, join_code: c.code || this.code6(), share_totals: c.shareTotals !== false, goal_amount: c.goal || 0, teacher_sig: c.teacherSig || "", principal_sig: c.principalSig || "" });
+      const nt = this.mergeTx(S.tx.filter(t => t.cid === cid));
+      const r1 = await this.sb.from("classrooms").upsert({ id: c.id, owner_id: S.user.id, name: c.name, academic_year: c.year, join_code: c.code || this.code6(), share_totals: c.shareTotals !== false, goal_amount: c.goal || 0, teacher_sig: c.teacherSig || "", principal_sig: c.principalSig || "" }, { onConflict: "id" });
       if (r1.error) { this.setState({ uploading: false }); return this.cloudFail(r1.error); }
       if (ns.length) {
-        const r2 = await this.sb.from("students").insert(ns.map(s => ({ id: s.id, classroom_id: cid, student_code: s.code || this.code6(), no: s.no, full_name: s.name, nickname: s.nick || "", pin: s.pin || "", opening_balance: s.opening || 0 })));
+        const r2 = await this.sb.from("students").upsert(ns.map(s => ({ id: s.id, classroom_id: cid, student_code: s.code || this.code6(), no: s.no, full_name: s.name, nickname: s.nick || "", pin: s.pin || "", opening_balance: s.opening || 0 })), { onConflict: "id" });
         if (r2.error) { this.setState({ uploading: false }); return this.cloudFail(r2.error); }
       }
       for (let i = 0; i < nt.length; i += 200) {
-        const r3 = await this.sb.from("transactions").insert(nt.slice(i, i + 200).map(t => ({ classroom_id: cid, student_id: t.sid, tx_date: t.date, amount: t.amount, kind: t.kind || "deposit" })));
+        const r3 = await this.sb.from("transactions").upsert(nt.slice(i, i + 200).map(t => ({ classroom_id: cid, student_id: t.sid, tx_date: t.date, amount: t.amount, kind: t.kind })), { onConflict: "student_id,tx_date,kind" });
         if (r3.error) { this.setState({ uploading: false }); return this.cloudFail(r3.error); }
       }
     }
@@ -1758,7 +1793,7 @@ class Component extends DCLogic {
               ? d.roster.map(s => ({ id: "no" + s.no, no: s.no, name: s.name, nick: s.nick || "", pin: "", opening: 0 }))
               : stu;
             const tx = oldStyle
-              ? (d.deposits || []).filter(x => Number(x.amount) > 0).map(x => ({ sid: "no" + x.no, date: String(x.date).slice(0, 10), amount: Number(x.amount), kind: "deposit" }))
+              ? (d.deposits || d.records || d.entries || []).filter(x => Number(x.amount) > 0).map(x => ({ sid: "no" + x.no, date: String(x.date).slice(0, 10), amount: Number(x.amount), kind: "deposit" }))
               : (Array.isArray(d.tx) ? d.tx : []);
             this.setState({ impErr: "", imp: {
               file: file.name,
@@ -1778,7 +1813,7 @@ class Component extends DCLogic {
         const nc = { id: this.uid(), ownerId: S.user && S.user.id, name: d.className, year: d.year, code: this.code6(), shareTotals: d.classroom.shareTotals !== false, goal: Number(d.classroom.goal) || 0, teacherSig: d.classroom.teacherSig || "", principalSig: d.classroom.principalSig || "" };
         const map = {};
         const ns = d.students.map(s => { const id = this.uid(); map[s.id] = id; return { id, cid: nc.id, code: this.code6(), no: s.no, name: s.name, nick: s.nick || "", pin: s.pin || "", opening: Number(s.opening) || 0 }; });
-        const nt = d.tx.filter(t => map[t.sid]).map(t => ({ cid: nc.id, sid: map[t.sid], date: t.date, amount: Number(t.amount) || 0, kind: t.kind || "deposit" }));
+        const nt = this.mergeTx(d.tx.filter(t => map[t.sid]).map(t => ({ cid: nc.id, sid: map[t.sid], date: t.date, amount: t.amount, kind: t.kind })));
         this.setState(st => ({ classrooms: [...st.classrooms, nc], students: [...st.students, ...ns], tx: [...st.tx, ...nt], curId: nc.id, screen: "class", tab: "roster", codeDraft: nc.code, imp: null, impErr: "", cloudErr: "", localOnly: [...(st.localOnly || []), nc.id] }));
         if (S.mode === "cloud" && this.sb) {
           const r1 = await this.sb.from("classrooms").insert({ id: nc.id, owner_id: S.user.id, name: nc.name, academic_year: nc.year, join_code: nc.code, share_totals: nc.shareTotals, goal_amount: nc.goal, teacher_sig: nc.teacherSig, principal_sig: nc.principalSig });
@@ -1788,7 +1823,7 @@ class Component extends DCLogic {
             if (r2.error) return this.cloudFail(r2.error);
           }
           for (let i = 0; i < nt.length; i += 200) {
-            const r3 = await this.sb.from("transactions").insert(nt.slice(i, i + 200).map(t => ({ classroom_id: nc.id, student_id: t.sid, tx_date: t.date, amount: t.amount, kind: t.kind })));
+            const r3 = await this.sb.from("transactions").upsert(nt.slice(i, i + 200).map(t => ({ classroom_id: nc.id, student_id: t.sid, tx_date: t.date, amount: t.amount, kind: t.kind })), { onConflict: "student_id,tx_date,kind" });
             if (r3.error) return this.cloudFail(r3.error);
           }
           this.setState(st => ({ impDone: "นำเข้าและบันทึกขึ้นฐานข้อมูลเรียบร้อย", localOnly: (st.localOnly || []).filter(x => x !== nc.id) }));
@@ -1798,7 +1833,7 @@ class Component extends DCLogic {
         const d = S.imp; const cid = S.curId; if (!d || !cid) return;
         const map = {};
         const ns = d.students.map(s => { const id = this.uid(); map[s.id] = id; return { id, cid, code: this.code6(), no: s.no, name: s.name, nick: s.nick || "", pin: s.pin || "", opening: Number(s.opening) || 0 }; });
-        const nt = d.tx.filter(t => map[t.sid]).map(t => ({ cid, sid: map[t.sid], date: t.date, amount: Number(t.amount) || 0, kind: t.kind || "deposit" }));
+        const nt = this.mergeTx(d.tx.filter(t => map[t.sid]).map(t => ({ cid, sid: map[t.sid], date: t.date, amount: t.amount, kind: t.kind })));
         this.setState(st => ({
           students: [...st.students.filter(s => s.cid !== cid), ...ns],
           tx: [...st.tx.filter(t => t.cid !== cid), ...nt],
@@ -1812,7 +1847,7 @@ class Component extends DCLogic {
             if (r2.error) return this.cloudFail(r2.error);
           }
           for (let i = 0; i < nt.length; i += 200) {
-            const r3 = await this.sb.from("transactions").insert(nt.slice(i, i + 200).map(t => ({ classroom_id: cid, student_id: t.sid, tx_date: t.date, amount: t.amount, kind: t.kind })));
+            const r3 = await this.sb.from("transactions").upsert(nt.slice(i, i + 200).map(t => ({ classroom_id: cid, student_id: t.sid, tx_date: t.date, amount: t.amount, kind: t.kind })), { onConflict: "student_id,tx_date,kind" });
             if (r3.error) return this.cloudFail(r3.error);
           }
         }

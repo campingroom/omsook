@@ -204,6 +204,11 @@
       <button onClick="{{ backFromAdmin }}" style="border: 1px solid #cbded4; background: #fff; color: #5b8a76; border-radius: 12px; padding: 10px 16px; font-size: 14px; font-weight: 700; font-family: inherit; cursor: pointer;">‹ ห้องเรียนของฉัน</button>
     </header>
 
+    <div style="display: flex; gap: 10px; flex-wrap: wrap; margin-bottom: 18px;">
+      <button onClick="{{ openPwHelp }}" style="background: #fff; border: 2px solid #cbe6d8; color: #15803d; border-radius: 13px; padding: 11px 20px; font-size: 14px; font-weight: 700; font-family: inherit; cursor: pointer;">🔑 ครูลืมรหัสผ่าน — ทำอย่างไร</button>
+      <a href="https://supabase.com/dashboard/project/divnqmlywikhobnndgcg/auth/users" target="_blank" rel="noopener" style="background: #f8fbf9; border: 1px solid #dfeee7; color: #15803d; border-radius: 13px; padding: 11px 20px; font-size: 14px; font-weight: 700; text-decoration: none; display: inline-flex; align-items: center;">↗︎ เปิดหน้า Supabase Users</a>
+    </div>
+
     <sc-if value="{{ isSuper }}" hint-placeholder-val="">
     <div style="background: #fff; border: 1px solid #dfeee7; border-radius: 22px; padding: 22px 24px; box-shadow: 0 10px 30px rgba(16,80,60,.08); margin-bottom: 18px;">
       <h2 style="font-size: 17px; font-weight: 700; margin: 0 0 4px;">การเชื่อมต่อฐานข้อมูล 🔒</h2>
@@ -241,6 +246,7 @@
             </div>
             <span style="{{ a.badgeStyle }}">{{ a.statusLabel }}</span>
             <div style="display: flex; gap: 7px;">
+              <button onClick="{{ a.copy }}" style="border: 1px solid #dfeee7; background: #fff; color: #5b8a76; border-radius: 10px; padding: 7px 11px; font-size: 13px; font-weight: 700; font-family: inherit; cursor: pointer;">คัดลอกอีเมล</button>
               <button onClick="{{ a.approve }}" style="border: none; background: #16a34a; color: #fff; border-radius: 10px; padding: 8px 13px; font-size: 13px; font-weight: 700; font-family: inherit; cursor: pointer;">อนุมัติ</button>
               <button onClick="{{ a.block }}" style="border: 1px solid #f3c9c4; background: #fff; color: #c0392b; border-radius: 10px; padding: 7px 13px; font-size: 13px; font-weight: 700; font-family: inherit; cursor: pointer;">ระงับ</button>
               <button onClick="{{ a.remove }}" style="border: 1px solid #dfeee7; background: #fff; color: #5b8a76; border-radius: 10px; padding: 7px 11px; font-size: 13px; font-weight: 700; font-family: inherit; cursor: pointer;">ลบ</button>
@@ -1114,6 +1120,33 @@
 
   <div class="printHide" style="position: relative; text-align: center; padding: 26px 20px 34px;"><span style="display: inline-block; background: rgba(255,255,255,.6); border-radius: 999px; padding: 9px 20px; font-family: 'IBM Plex Mono', monospace; font-size: 13px; letter-spacing: .06em; color: #8aa99b;">built by campingroom —</span></div>
 
+  <sc-if value="{{ pwHelpOpen }}" hint-placeholder-val="">
+  <div class="printHide" onClick="{{ closePwHelp }}" style="position: fixed; inset: 0; background: rgba(8,40,30,.42); display: flex; align-items: center; justify-content: center; padding: 20px; z-index: 60;">
+    <div onClick="{{ stopProp }}" style="background: #fff; border-radius: 22px; padding: 28px 28px 24px; width: 100%; max-width: 520px; max-height: 86vh; overflow-y: auto; box-shadow: 0 24px 60px rgba(8,40,30,.32);">
+      <div style="font-size: 20px; font-weight: 800;">ครูลืมรหัสผ่าน 🔑</div>
+      <p style="font-size: 14px; color: #6b9483; line-height: 1.8; margin: 8px 0 18px;">รหัสผ่านดูย้อนหลังไม่ได้ — ระบบเก็บเป็นรหัสที่อ่านกลับไม่ได้ แต่คุณตั้งรหัสใหม่ให้เขาได้ โดยไม่เสียโควต้าอีเมล</p>
+      <div style="display: flex; flex-direction: column; gap: 12px;">
+        <div style="background: #f8fbf9; border-radius: 14px; padding: 15px 17px; font-size: 14px; color: #134e3a; line-height: 1.9;">
+          <b>ตั้งรหัสใหม่ให้เอง (ไม่ส่งเมล ไม่เสียโควต้า)</b>
+          <div>1. เปิด Supabase → Authentication → Users</div>
+          <div>2. ค้นหาอีเมลครูคนนั้น กดจุด 3 จุดท้ายแถว (⋮)</div>
+          <div>3. เลือก <b>Reset password</b> → พิมพ์รหัสใหม่ → Confirm</div>
+          <div>4. บอกรหัสใหม่ให้ครูทางไลน์ แล้วให้เขาเข้ามาเปลี่ยนเอง</div>
+        </div>
+        <div style="background: #fffbeb; border: 1px solid #fde68a; border-radius: 14px; padding: 15px 17px; font-size: 14px; color: #92400e; line-height: 1.9;">
+          <b>ทางอื่น (ใช้โควต้าอีเมล ประมาณ 3-4 ฉบับ/วัน)</b>
+          <div>• <b>Send password recovery</b> — ส่งลิงก์ให้ครูตั้งรหัสเอง</div>
+          <div>• <b>Send magic link</b> — ส่งลิงก์เข้าระบบโดยไม่ต้องใช้รหัส</div>
+        </div>
+        <div style="background: #f0fdf4; border: 1px solid #bbf7d0; border-radius: 14px; padding: 15px 17px; font-size: 14px; color: #15803d; line-height: 1.9;">
+          <b>กันปัญหานี้ตั้งแต่ต้น</b><div>แนะนำให้ครูเข้าด้วย Google — ไม่ต้องจำรหัสอะไรเลย ไม่มีวันลืม</div>
+        </div>
+      </div>
+      <button onClick="{{ closePwHelp }}" style="width: 100%; margin-top: 18px; background: #f8fbf9; color: #5b8a76; border: 1px solid #dfeee7; border-radius: 13px; padding: 12px; font-size: 14px; font-weight: 700; font-family: inherit; cursor: pointer;">ปิด</button>
+    </div>
+  </div>
+  </sc-if>
+
   <sc-if value="{{ impOpen }}" hint-placeholder-val="">
   <div class="printHide" onClick="{{ importCancel }}" style="position: fixed; inset: 0; background: rgba(8,40,30,.42); display: flex; align-items: center; justify-content: center; padding: 20px; z-index: 60;">
     <div onClick="{{ stopProp }}" style="background: #fff; border-radius: 22px; padding: 26px 26px 24px; width: 100%; max-width: 420px; box-shadow: 0 24px 60px rgba(8,40,30,.32);">
@@ -1188,7 +1221,7 @@ class Component extends DCLogic {
     sp: null, spMonth: "", spBig: false, spOnlyMe: false, pbMode: "book", pbWho: "",
     acc: null, isAdmin: false, accList: [], newAccEmail: "",
     imp: null, impErr: "",
-    eEmail: "", ePass: "", eErr: "", eMsg: "",
+    eEmail: "", ePass: "", eErr: "", eMsg: "", pwHelp: false,
   };
 
   LS = "omsook_v2";
@@ -1509,6 +1542,10 @@ class Component extends DCLogic {
         else alert("ยังไม่ได้รับอนุมัติ ลองตรวจสอบอีกครั้งในอีกสักครู่");
       },
       goAdmin: () => { this.setState({ screen: "admin" }); this.loadAccess(); },
+      pwHelpOpen: !!S.pwHelp,
+      stopProp: e => e.stopPropagation(),
+      openPwHelp: () => this.setState({ pwHelp: true }),
+      closePwHelp: () => this.setState({ pwHelp: false }),
       backFromAdmin: () => this.setState({ screen: "classes" }),
       reloadAccess: () => this.loadAccess(),
       noAccess: S.accList.length === 0,
@@ -1529,6 +1566,7 @@ class Component extends DCLogic {
           badgeStyle: "font-size:12px; font-weight:700; border-radius:9px; padding:6px 11px; white-space:nowrap; "
             + (st === "approved" ? "background:#dcfce7; color:#15803d;" : st === "blocked" ? "background:#fde8e8; color:#c0392b;" : "background:#fef3c7; color:#92400e;"),
           approve: () => this.setAccess(r.email, "approved"),
+          copy: () => { try { navigator.clipboard.writeText(r.email); } catch (e) {} },
           block: () => this.setAccess(r.email, "blocked"),
           remove: async () => {
             if (this.sb) await this.sb.from("teacher_access").delete().eq("email", r.email);

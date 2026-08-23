@@ -13,8 +13,8 @@
 <x-dc>
 <helmet>
 <title>OmSook · ออมสุข</title>
-<link rel="icon" type="image/svg+xml" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='64' height='64' viewBox='0 0 64 64'%3E%3Crect width='64' height='64' rx='14' fill='%2334d399'/%3E%3Cg fill='%23fff'%3E%3Cpath d='M17 21l3.5-10 8.5 6.5z'/%3E%3Crect x='24' y='40' width='6' height='10' rx='2.5'/%3E%3Crect x='38' y='40' width='6' height='10' rx='2.5'/%3E%3Cellipse cx='31' cy='34' rx='19' ry='13'/%3E%3Ccircle cx='50' cy='36.5' r='7'/%3E%3C/g%3E%3Cg fill='%2334d399'%3E%3Crect x='23' y='24' width='16' height='4' rx='2'/%3E%3Ccircle cx='41' cy='31' r='2.3'/%3E%3Ccircle cx='51' cy='36.5' r='1.7'/%3E%3C/g%3E%3C/svg%3E">
-<link rel="apple-touch-icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='64' height='64' viewBox='0 0 64 64'%3E%3Crect width='64' height='64' rx='14' fill='%2334d399'/%3E%3Cg fill='%23fff'%3E%3Cpath d='M17 21l3.5-10 8.5 6.5z'/%3E%3Crect x='24' y='40' width='6' height='10' rx='2.5'/%3E%3Crect x='38' y='40' width='6' height='10' rx='2.5'/%3E%3Cellipse cx='31' cy='34' rx='19' ry='13'/%3E%3Ccircle cx='50' cy='36.5' r='7'/%3E%3C/g%3E%3Cg fill='%2334d399'%3E%3Crect x='23' y='24' width='16' height='4' rx='2'/%3E%3Ccircle cx='41' cy='31' r='2.3'/%3E%3Ccircle cx='51' cy='36.5' r='1.7'/%3E%3C/g%3E%3C/svg%3E">
+<link rel="icon" type="image/svg+xml" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='64' height='64' view%42ox='0 0 64 64'%3E%3Crect width='64' height='64' rx='14' fill='%2334d399'/%3E%3Cg fill='%23fff'%3E%3Cpath d='M17 21l3.5-10 8.5 6.5z'/%3E%3Crect x='24' y='40' width='6' height='10' rx='2.5'/%3E%3Crect x='38' y='40' width='6' height='10' rx='2.5'/%3E%3Cellipse cx='31' cy='34' rx='19' ry='13'/%3E%3Ccircle cx='50' cy='36.5' r='7'/%3E%3C/g%3E%3Cg fill='%2334d399'%3E%3Crect x='23' y='24' width='16' height='4' rx='2'/%3E%3Ccircle cx='41' cy='31' r='2.3'/%3E%3Ccircle cx='51' cy='36.5' r='1.7'/%3E%3C/g%3E%3C/svg%3E">
+<link rel="apple-touch-icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='180' height='180' view%42ox='0 0 64 64'%3E%3Crect width='64' height='64' rx='14' fill='%2334d399'/%3E%3Cg fill='%23fff'%3E%3Cpath d='M17 21l3.5-10 8.5 6.5z'/%3E%3Crect x='24' y='40' width='6' height='10' rx='2.5'/%3E%3Crect x='38' y='40' width='6' height='10' rx='2.5'/%3E%3Cellipse cx='31' cy='34' rx='19' ry='13'/%3E%3Ccircle cx='50' cy='36.5' r='7'/%3E%3C/g%3E%3Cg fill='%2334d399'%3E%3Crect x='23' y='24' width='16' height='4' rx='2'/%3E%3Ccircle cx='41' cy='31' r='2.3'/%3E%3Ccircle cx='51' cy='36.5' r='1.7'/%3E%3C/g%3E%3C/svg%3E">
 <meta name="apple-mobile-web-app-title" content="OmSook">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link href="https://fonts.googleapis.com/css2?family=IBM+Plex+Sans+Thai:wght@400;500;600;700&amp;family=IBM+Plex+Mono:wght@400;500&amp;display=swap" rel="stylesheet">
@@ -86,6 +86,28 @@
       <button onClick="{{ signInGoogle }}" style="width: 100%; display: flex; align-items: center; justify-content: center; gap: 12px; background: #fff; border: 2px solid #dfe7e3; border-radius: 14px; padding: 15px; font-size: 16px; font-weight: 700; font-family: inherit; color: #134e3a; cursor: pointer; transition: border-color .2s, box-shadow .2s;" style-hover="border-color: #34d399; box-shadow: 0 6px 18px rgba(16,80,60,.1);">
         <span style="font-size: 20px; font-weight: 800; color: #4285f4; font-family: 'IBM Plex Mono', monospace;">G</span> เข้าสู่ระบบด้วย Google
       </button>
+
+      <div style="display: flex; align-items: center; gap: 12px; margin: 22px 0 18px;">
+        <div style="flex: 1; height: 1px; background: #e8f0ec;"></div>
+        <span style="font-size: 13px; color: #9bbcae;">หรือใช้อีเมล + รหัสผ่าน</span>
+        <div style="flex: 1; height: 1px; background: #e8f0ec;"></div>
+      </div>
+
+      <div style="display: flex; flex-direction: column; gap: 10px;">
+        <input type="email" placeholder="อีเมลของคุณครู" value="{{ eEmail }}" onChange="{{ setEEmail }}" style="{{ inputStyle }}">
+        <input type="password" placeholder="รหัสผ่าน (อย่างน้อย 6 ตัว)" value="{{ ePass }}" onChange="{{ setEPass }}" style="{{ inputStyle }}">
+        <div style="display: flex; gap: 10px;">
+          <button onClick="{{ signInEmail }}" style="flex: 1; background: linear-gradient(135deg, #34d399 0%, #2dd4bf 100%); color: #fff; border: none; border-radius: 14px; padding: 14px; font-size: 15px; font-weight: 800; font-family: inherit; cursor: pointer;">เข้าสู่ระบบ</button>
+          <button onClick="{{ signUpEmail }}" style="flex: 1; background: #fff; color: #15803d; border: 2px solid #cbe6d8; border-radius: 14px; padding: 12px; font-size: 15px; font-weight: 800; font-family: inherit; cursor: pointer;">สมัครใช้งาน</button>
+        </div>
+        <sc-if value="{{ eErr }}" hint-placeholder-val="">
+        <div style="background: #fff5f4; border: 1px solid #f3c9c4; color: #c0392b; border-radius: 12px; padding: 11px 14px; font-size: 13px; line-height: 1.7;">{{ eErr }}</div>
+        </sc-if>
+        <sc-if value="{{ eMsg }}" hint-placeholder-val="">
+        <div style="background: #f0fdf4; border: 1px solid #bbf7d0; color: #15803d; border-radius: 12px; padding: 11px 14px; font-size: 13px; line-height: 1.7;">{{ eMsg }}</div>
+        </sc-if>
+        <div style="font-size: 12px; color: #9bbcae; line-height: 1.7;">สมัครใหม่จะอยู่สทานะ “รออนุมัติ” จนกว่าผู้ดูแลระบบกดอนุมัติ</div>
+      </div>
 
       <div style="display: flex; align-items: center; gap: 12px; margin: 22px 0;">
         <div style="flex: 1; height: 1px; background: #e8f0ec;"></div>
@@ -247,11 +269,19 @@
       <div style="display: flex; align-items: center; gap: 10px; flex-wrap: wrap;">
         <span style="font-size: 13px; color: #6b9483; font-weight: 600;">{{ connBadge }}</span>
         <sc-if value="{{ isAdmin }}" hint-placeholder-val="">
-        <button onClick="{{ goAdmin }}" style="border: 1px solid #cbded4; background: #fff; color: #15803d; border-radius: 11px; padding: 9px 16px; font-size: 13px; font-weight: 700; font-family: inherit; cursor: pointer;">🔐 ผู้ดูแลระบบ</button>
+        <button onClick="{{ goAdmin }}" style="position: relative; border: 1px solid #cbded4; background: #fff; color: #15803d; border-radius: 11px; padding: 9px 16px; font-size: 13px; font-weight: 700; font-family: inherit; cursor: pointer;">🔐 ผู้ดูแลระบบ<sc-if value="{{ hasPending }}" hint-placeholder-val=""><span style="position: absolute; top: -8px; right: -8px; min-width: 22px; height: 22px; padding: 0 6px; border-radius: 999px; background: #dc2626; color: #fff; font-size: 12px; font-weight: 800; font-family: 'IBM Plex Mono', monospace; display: flex; align-items: center; justify-content: center; box-shadow: 0 3px 10px rgba(220,38,38,.45);">{{ pendCount }}</span></sc-if></button>
         </sc-if>
         <button onClick="{{ signOut }}" style="border: 1px solid #cbded4; background: #fff; color: #5b8a76; border-radius: 11px; padding: 9px 16px; font-size: 13px; font-weight: 700; font-family: inherit; cursor: pointer;">ออกจากระบบ</button>
       </div>
     </header>
+
+    <sc-if value="{{ hasPending }}" hint-placeholder-val="">
+    <div style="display: flex; align-items: center; gap: 14px; background: #fffbeb; border: 1px solid #fde68a; border-radius: 18px; padding: 16px 20px; margin-bottom: 22px; flex-wrap: wrap;">
+      <span style="min-width: 34px; height: 34px; border-radius: 999px; background: #dc2626; color: #fff; font-size: 15px; font-weight: 800; font-family: 'IBM Plex Mono', monospace; display: flex; align-items: center; justify-content: center;">{{ pendCount }}</span>
+      <div style="flex: 1; min-width: 200px; font-size: 14px; color: #92400e; line-height: 1.7;">{{ pendBanner }}</div>
+      <button onClick="{{ goAdmin }}" style="background: #92400e; color: #fff; border: none; border-radius: 12px; padding: 11px 20px; font-size: 14px; font-weight: 700; font-family: inherit; cursor: pointer;">ดูคำขอ</button>
+    </div>
+    </sc-if>
 
     <sc-if value="{{ hasClasses }}" hint-placeholder-val="">
     <div style="background: #fff; border-radius: 22px; padding: 20px 24px 22px; box-shadow: 0 10px 30px rgba(16,80,60,.08); margin-bottom: 24px;">
@@ -1158,10 +1188,13 @@ class Component extends DCLogic {
     sp: null, spMonth: "", spBig: false, spOnlyMe: false, pbMode: "book", pbWho: "",
     acc: null, isAdmin: false, accList: [], newAccEmail: "",
     imp: null, impErr: "",
+    eEmail: "", ePass: "", eErr: "", eMsg: "",
   };
 
   LS = "omsook_v2";
   CFG = "omsook_cfg";
+  // ฝังการเชื่อมต่อไว้ในตัวแอป — ครูคนใหม่เปิดเว็บก็ใช้ได้เลย ไม่ต้องกรอกอะไร
+  BAKED = { url: "https://divnqmlywikhobnndgcg.supabase.co", key: "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJzdXBhYmFzZSIsInJlZiI6ImRpdm5xbWx5d2lraG9ibm5kZ2NnIiwicm9sZSI6ImFub24iLCJpYXQiOjE3ODc0MTA2OTYsImV4cCI6MjEwMjk4NjY5Nn0.U1oVelJ-9FvLmsGIlcfTsZMhiF4WrY2xER_6wwfVli0" };
 
   // ══════════ boot ══════════
   componentDidMount() {
@@ -1169,8 +1202,8 @@ class Component extends DCLogic {
     window.addEventListener("resize", this._onResize);
     const patch = { vw: window.innerWidth, fDate: this.TODAY, reportMonth: this.TODAY.slice(0, 7), newClassYear: String(new Date().getFullYear() + 543) };
 
-    let cfg = {};
-    try { cfg = JSON.parse(localStorage.getItem(this.CFG) || "{}"); } catch (e) {}
+    let cfg = { url: this.BAKED.url || "", key: this.BAKED.key || "" };
+    try { const stored = JSON.parse(localStorage.getItem(this.CFG) || "{}"); if (stored.url && stored.key) cfg = stored; } catch (e) {}
     if (window.OMSOOK_CONFIG) cfg = Object.assign({}, cfg, window.OMSOOK_CONFIG);
     patch.cfgUrl = cfg.url || ""; patch.cfgKey = cfg.key || "";
 
@@ -1229,8 +1262,14 @@ class Component extends DCLogic {
         if (r && r.data) data = r.data;
       }
       this.setState({ acc: data || null, isAdmin: !!(data && data.is_admin) });
+      if (data && data.is_admin) { this.loadAccess(); this.watchPending(); }
       return { ok: !!(data && (data.is_admin || data.status === "approved")), data };
     } catch (e) { console.warn("access", e); return { ok: true }; }
+  }
+
+  watchPending() {
+    if (this._pendTimer) return;
+    this._pendTimer = setInterval(() => { if (this.state.isAdmin) this.loadAccess(); }, 60000);
   }
 
   async loadAccess() {
@@ -1504,6 +1543,31 @@ class Component extends DCLogic {
       goStudentLogin: () => this.setState({ screen: "studentLogin", sErr: "" }),
       needCfg: !S.cfgUrl || !S.cfgKey,
       isSuper: !!(S.user && String(S.user.email || "").toLowerCase() === "campingroom@gmail.com"),
+      pendCount: S.accList.filter(r => (r.status || "pending") === "pending").length,
+      hasPending: S.accList.some(r => (r.status || "pending") === "pending"),
+      pendBanner: "มีคนขอเข้าใช้ระบบรอการอนุมัติจากคุณอยู่",
+      eEmail: S.eEmail, ePass: S.ePass, eErr: S.eErr, eMsg: S.eMsg,
+      setEEmail: e => this.setState({ eEmail: e.target.value.trim(), eErr: "", eMsg: "" }),
+      setEPass: e => this.setState({ ePass: e.target.value, eErr: "", eMsg: "" }),
+      signInEmail: async () => {
+        if (!this.sb) return this.setState({ eErr: "ยังเชื่อมต่อฐานข้อมูลไม่ได้ — ลองรีเฟรชหน้านี้อีกครั้ง" });
+        const em = S.eEmail.toLowerCase();
+        if (!/^[^@\s]+@[^@\s]+\.[^@\s]+$/.test(em)) return this.setState({ eErr: "กรอกอีเมลให้ถูกต้อง" });
+        if (!S.ePass) return this.setState({ eErr: "ใส่รหัสผ่านด้วย" });
+        const { error } = await this.sb.auth.signInWithPassword({ email: em, password: S.ePass });
+        if (error) return this.setState({ eErr: /invalid/i.test(error.message) ? "อีเมลหรือรหัสผ่านไม่ถูกต้อง — หรือยังไม่เคยสมัคร กด “สมัครใช้งาน” ก่อน" : "เข้าสู่ระบบไม่สำเร็จ: " + error.message });
+        this.setState({ ePass: "", eErr: "", eMsg: "" });
+      },
+      signUpEmail: async () => {
+        if (!this.sb) return this.setState({ eErr: "ยังเชื่อมต่อฐานข้อมูลไม่ได้ — ลองรีเฟรชหน้านี้อีกครั้ง" });
+        const em = S.eEmail.toLowerCase();
+        if (!/^[^@\s]+@[^@\s]+\.[^@\s]+$/.test(em)) return this.setState({ eErr: "กรอกอีเมลให้ถูกต้อง" });
+        if (String(S.ePass).length < 6) return this.setState({ eErr: "รหัสผ่านต้องยาวอย่างน้อย 6 ตัว" });
+        const { data, error } = await this.sb.auth.signUp({ email: em, password: S.ePass, options: { emailRedirectTo: location.origin + location.pathname } });
+        if (error) return this.setState({ eErr: /already/i.test(error.message) ? "อีเมลนี้สมัครไว้แล้ว — กด “เข้าสู่ระบบ” เลย" : "สมัครไม่สำเร็จ: " + error.message });
+        const needConfirm = data && data.user && !data.session;
+        this.setState({ ePass: "", eErr: "", eMsg: needConfirm ? "สมัครเรียบร้อย — เช็กอีเมลเพื่อกดลิงก์ยืนยันก่อน แล้วรอผู้ดูแลระบบอนุมัติ" : "สมัครเรียบร้อย — รอผู้ดูแลระบบอนุมัติ" });
+      },
       cfgVisible: (!S.cfgUrl || !S.cfgKey) || /setup/.test(String(location.search) + String(location.hash)),
       cfgOpen: S.cfgOpen, cfgUrl: S.cfgUrl, cfgKey: S.cfgKey,
       cfgToggleLabel: S.cfgOpen ? "▾ ซ่อนการตั้งค่าการเชื่อมต่อ" : "▸ ตั้งค่าการเชื่อมต่อฐานข้อมูล (Supabase)",

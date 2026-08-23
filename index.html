@@ -22,7 +22,8 @@
 <style>
   * { box-sizing: border-box; }
   html { overflow-x: hidden; -webkit-text-size-adjust: 100%; overscroll-behavior-y: none; }
-  html, body { background: #f1f6ea; }
+  html, body { background: #f1f6ea; width: 100%; max-width: 100%; }
+  .appRoot input, .appRoot select, .appRoot textarea, .appRoot button { min-width: 0; max-width: 100%; }
   body { margin: 0; }
   a { color: #15803d; }
   a:hover { color: #0f5132; }
@@ -74,7 +75,7 @@
 </svg>
 </template>
 
-<div class="appRoot" style="position: relative; min-height: 100vh; font-family: 'IBM Plex Sans Thai', system-ui, sans-serif; color: #134e3a; background: linear-gradient(160deg, #e8f6ee 0%, #eef7f3 38%, #f3f6e9 100%);">
+<div class="appRoot" style="position: relative; min-height: 100vh; overflow-x: clip; font-family: 'IBM Plex Sans Thai', system-ui, sans-serif; color: #134e3a; background: linear-gradient(160deg, #e8f6ee 0%, #eef7f3 38%, #f3f6e9 100%);">
 
   <div class="bgblob" style="position: absolute; top: 0; left: -120px; width: 520px; height: 420px; border-radius: 50%; background: radial-gradient(circle, rgba(141,221,196,.45), transparent 70%); pointer-events: none; transform: translateZ(0);"></div>
   <div class="bgblob" style="position: absolute; top: 60px; right: -140px; width: 480px; height: 480px; border-radius: 50%; background: radial-gradient(circle, rgba(168,213,240,.40), transparent 70%); pointer-events: none; transform: translateZ(0);"></div>
@@ -88,7 +89,7 @@
     <h1 style="font-size: 40px; font-weight: 700; margin: 6px 0 8px; line-height: 1.2;">ออมสุข</h1>
     <p style="font-size: 17px; color: #5b8a76; margin: 0 0 44px;">โปรแกรมออมเงินนักเรียน — บันทึกง่าย ดูย้อนหลังได้ ส่งรายงานได้ทันที</p>
 
-    <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); gap: 20px; text-align: left;">
+    <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(min(280px, 100%), 1fr)); gap: 20px; text-align: left;">
       <button onClick="{{ goTeacher }}" style="background: #fff; border: 2px solid #e3efe9; border-radius: 26px; padding: 28px 28px 26px; box-shadow: 0 12px 34px rgba(16,80,60,.09); cursor: pointer; font-family: inherit; text-align: left; transition: transform .24s cubic-bezier(.34,1.56,.64,1), box-shadow .24s, border-color .24s;" style-hover="transform: translateY(-6px); box-shadow: 0 22px 48px rgba(16,80,60,.18); border-color: #34d399;">
         <div style="font-size: 38px;">👩‍🏫</div>
         <div style="font-size: 22px; font-weight: 700; color: #134e3a; margin-top: 12px;">ฉันเป็นคุณครู</div>
@@ -178,8 +179,8 @@
       <h1 style="font-size: 24px; font-weight: 700; margin: 10px 0 22px;">ดูยอดเงินออมของฉัน</h1>
 
       <label style="font-size: 14px; font-weight: 700; display: block; margin-bottom: 8px;">1. รหัสห้องจากคุณครู</label>
-      <div style="display: flex; gap: 10px; margin-bottom: 20px;">
-        <input type="text" maxlength="10" placeholder="เช่น P51" value="{{ sCode }}" onChange="{{ setSCode }}" style="flex: 1; border: 2px solid #d2e7dc; border-radius: 14px; padding: 14px 16px; font-size: 22px; font-weight: 700; letter-spacing: .22em; text-align: center; text-transform: uppercase; font-family: 'IBM Plex Mono', monospace; outline: none; background: #f8fbf9; color: #134e3a;">
+      <div style="display: flex; gap: 10px; margin-bottom: 20px; flex-wrap: wrap;">
+        <input type="text" maxlength="10" placeholder="เช่น P51" value="{{ sCode }}" onChange="{{ setSCode }}" style="flex: 1 1 0; min-width: 0; border: 2px solid #d2e7dc; border-radius: 14px; padding: 14px 16px; font-size: 22px; font-weight: 700; letter-spacing: .22em; text-align: center; text-transform: uppercase; font-family: 'IBM Plex Mono', monospace; outline: none; background: #f8fbf9; color: #134e3a;">
         <button onClick="{{ findRoom }}" style="background: linear-gradient(135deg, #34d399 0%, #2dd4bf 100%); color: #fff; border: none; border-radius: 14px; padding: 0 22px; font-size: 15px; font-weight: 700; font-family: inherit; cursor: pointer; white-space: nowrap;">{{ findLabel }}</button>
       </div>
 
@@ -424,7 +425,7 @@
 
     <h2 style="font-size: 19px; font-weight: 700; margin: 0 0 16px;">ห้องเรียนของฉัน <span style="font-weight: 500; color: #9bbcae; font-size: 15px;">{{ classCountText }}</span></h2>
 
-    <div style="display: grid; grid-template-columns: repeat(auto-fill, minmax(268px, 1fr)); gap: 18px;">
+    <div style="display: grid; grid-template-columns: repeat(auto-fill, minmax(min(268px, 100%), 1fr)); gap: 18px;">
       <sc-for list="{{ classCards }}" as="c" hint-placeholder-count="2">
         <div onClick="{{ c.open }}" style="background: #fff; border: 2px solid #e8f0ec; border-radius: 24px; padding: 22px 24px 20px; box-shadow: 0 10px 30px rgba(16,80,60,.08); cursor: pointer; transition: transform .24s cubic-bezier(.34,1.56,.64,1), box-shadow .24s, border-color .24s;" style-hover="transform: translateY(-7px); box-shadow: 0 22px 46px rgba(16,80,60,.17); border-color: #34d399;">
           <div style="display: flex; align-items: center; justify-content: space-between; gap: 10px;">
@@ -971,7 +972,7 @@
       <sc-if value="{{ pbIsSlip }}" hint-placeholder-val="">
       <div>
         <sc-if value="{{ hasSlips }}" hint-placeholder-val="{{ true }}">
-        <div style="display: grid; grid-template-columns: repeat(auto-fill, minmax(330px, 1fr)); gap: 14px;">
+        <div style="display: grid; grid-template-columns: repeat(auto-fill, minmax(min(330px, 100%), 1fr)); gap: 14px;">
           <sc-for list="{{ slips }}" as="s" hint-placeholder-count="4">
             <div class="slip cutbox" style="background: #fff; border: 1px dashed #b8d8c8; border-radius: 14px; padding: 16px 18px 14px;">
               <div style="display: flex; align-items: baseline; justify-content: space-between; gap: 10px; border-bottom: 1px solid #eaf6f0; padding-bottom: 9px; margin-bottom: 11px;">
@@ -1087,7 +1088,7 @@
       </sc-if>
 
       <sc-if value="{{ pbIsCard }}" hint-placeholder-val="">
-      <div style="display: grid; grid-template-columns: repeat(auto-fill, minmax(300px, 1fr)); gap: 16px;">
+      <div style="display: grid; grid-template-columns: repeat(auto-fill, minmax(min(300px, 100%), 1fr)); gap: 16px;">
         <sc-for list="{{ accessCards }}" as="c" hint-placeholder-count="6">
           <div style="background: #fff; border: 2px dashed #b8d8c8; border-radius: 16px; padding: 16px 18px; display: flex; gap: 14px; align-items: center; break-inside: avoid;">
             <div style="{{ c.qrStyle }}"></div>
@@ -1140,7 +1141,8 @@
           </div>
         </div>
         <p style="color: #6b9483; margin: 0 0 16px; font-size: 13px;">PIN คือรหัส 4 ตัวที่นักเรียนใช้เข้าดูยอดของตัวเอง — <b>ซ้ำกันได้</b> (ตั้งเหมือนกันทั้งห้องก็ได้) เพราะนักเรียนต้องเลือกชื่อตัวเองจากรายการก่อนอยู่แล้ว · เว้นว่างไว้ = เข้าดูได้เลยไม่ต้องใส่ PIN</p>
-        <div style="display: flex; flex-direction: column; gap: 8px;">
+        <div style="overflow-x: auto; -webkit-overflow-scrolling: touch;">
+        <div style="display: flex; flex-direction: column; gap: 8px; min-width: 640px;">
           <div style="display: grid; grid-template-columns: 46px 1fr 1.7fr 1fr 78px 60px 54px; gap: 8px; font-size: 12px; font-weight: 700; color: #5b8a76; padding: 0 2px;">
             <div>เลขที่</div><div>รหัส น.ร.</div><div>ชื่อ-นามสกุล</div><div>ชื่อเล่น</div><div>PIN</div><div></div><div>ย้าย</div>
           </div>
@@ -1156,7 +1158,7 @@
             </div>
           </sc-for>
         </div>
-        <div style="display: grid; grid-template-columns: 46px 1fr 1.7fr 1fr 78px 60px 54px; gap: 8px; align-items: center; border-top: 1px dashed #cfe6da; padding-top: 14px; margin-top: 14px;">
+        <div style="display: grid; grid-template-columns: 46px 1fr 1.7fr 1fr 78px 60px 54px; gap: 8px; align-items: center; border-top: 1px dashed #cfe6da; padding-top: 14px; margin-top: 14px; min-width: 640px;">
           <div></div>
           <input type="text" placeholder="รหัส" value="{{ newCode }}" onChange="{{ setNewCode }}" style="{{ cellStyle }}">
           <input type="text" placeholder="ชื่อ-นามสกุล" value="{{ newName }}" onChange="{{ setNewName }}" style="{{ cellStyle }}">
@@ -1164,6 +1166,7 @@
           <div></div>
           <button onClick="{{ addOne }}" style="border: none; background: #16a34a; color: #fff; border-radius: 10px; padding: 9px 6px; font-size: 13px; font-weight: 700; font-family: inherit; cursor: pointer;">เพิ่ม</button>
           <div></div>
+        </div>
         </div>
       </div>
     </section>

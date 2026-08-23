@@ -26,6 +26,9 @@ create table if not exists public.classrooms (
   created_at    timestamptz default now()
 );
 
+-- เดือนที่ปิดบัญชีแล้ว (ล็อกการแก้ยอด) — รูปแบบ 'YYYY-MM'
+alter table public.classrooms add column if not exists closed_months text[] default '{}';
+
 -- ครูผู้ช่วยร่วมห้อง (เชิญด้วยอีเมล)
 create table if not exists public.classroom_members (
   classroom_id  uuid not null references public.classrooms(id) on delete cascade,

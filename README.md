@@ -1,23 +1,60 @@
-# ออมสุข (OmSook) — deploy บน Vercel
+# ออมสุข · OmSook
 
-## 1) เตรียม Supabase
-1. สร้างโปรเจกต์ใหม่ที่ https://supabase.com
-2. SQL Editor → วางไฟล์ `supabase-schema.sql` ทั้งไฟล์ → Run
-3. Authentication → Providers → เปิด **Google** แล้วใส่ Client ID / Secret
-   (สร้างที่ Google Cloud Console → OAuth client → Web application,
-   Authorized redirect URI = `https://<project-ref>.supabase.co/auth/v1/callback`)
-4. Authentication → URL Configuration → Site URL = โดเมน Vercel ของคุณ และเพิ่มโดเมนนั้นใน Redirect URLs
-5. Settings → API → คัดลอก **Project URL** และ **anon public key**
+โปรแกรมออมเงินนักเรียน — ครูบันทึกรายวัน, พิมพ์แบบบันทึกการออมเงินตามแบบราชการ, นักเรียนดูยอดตัวเองด้วยรหัสห้อง + PIN
 
-## 2) Deploy ขึ้น Vercel
-- ลากโฟลเดอร์นี้ทั้งโฟลเดอร์เข้า https://vercel.com/new (เลือก Other / no framework)
-- หรือรัน `npx vercel --prod` ในโฟลเดอร์นี้
-- ⚠️ ต้องอัพโหลด **index.html และ support.js คู่กัน** เสมอ
+ไฟล์ในโฟลเดอร์นี้เป็นเว็บสถิต ไม่ต้อง build ไม่ต้อง npm install
 
-## 3) ตั้งค่าครั้งแรก
-เปิดเว็บ → **ฉันเป็นคุณครู** → กด "ตั้งค่าการเชื่อมต่อฐานข้อมูล (Supabase)" → วาง Project URL + anon key → บันทึก → **เข้าสู่ระบบด้วย Google**
+```
+index.html    ตัวแอปทั้งหมด
+support.js    ไลบรารีรันไทม์ที่แอปเรียกใช้
+vercel.json   ตั้งค่า deploy (static)
+```
 
-## ความปลอดภัย
-- **ครู**: Google OAuth + Row Level Security — เห็นและแก้ได้เฉพาะห้องของตัวเองและห้องที่ถูกเชิญเป็นครูผู้ช่วย
-- **นักเรียน**: ไม่มีบัญชี เข้าผ่านรหัสห้อง 6 หลัก + PIN 4 ตัว เรียกได้แค่ฟังก์ชันอ่านข้อมูล (read-only) — ตารางจริงถูกล็อกด้วย RLS ทั้งหมด แก้ไขอะไรไม่ได้
-- anon key เป็นคีย์สาธารณะ ปลอดภัยที่จะฝังในหน้าเว็บ
+## 1) ขึ้น GitHub
+
+```bash
+git init
+git add .
+git commit -m "OmSook: student savings app"
+git branch -M main
+git remote add origin https://github.com/<user>/omsook.git
+git push -u origin main
+```
+
+หรือใช้ GitHub Desktop / กด "Add file → Upload files" บนหน้าเว็บ GitHub ก็ได้
+
+## 2) ต่อ Vercel
+
+1. vercel.com → Add New → Project → Import จาก GitHub repo นี้
+2. Framework Preset: **Other**
+3. Build Command: เว้นว่าง · Output Directory: เว้นว่าง (root)
+4. Deploy → จะได้โดเมน เช่น `omsook.vercel.app`
+
+ถ้าไฟล์อยู่ในโฟลเดอร์ย่อยของ repo ให้ตั้ง **Root Directory** เป็นโฟลเดอร์นั้น
+
+## 3) ต่อ Supabase
+
+1. Supabase → SQL Editor → วางไฟล์ `supabase-schema.sql` ทั้งไฟล์ → Run
+   (ในไฟล์มีบรรทัดกำหนดอีเมลผู้ดูแลระบบ — แก้ให้เป็นอีเมลของคุณก่อนรัน)
+2. Authentication → Providers → เปิด **Google**
+   - Authorized redirect URI ใน Google Cloud Console:
+     `https://<project-ref>.supabase.co/auth/v1/callback`
+3. Authentication → URL Configuration
+   - Site URL: `https://<โดเมน-vercel>`
+   - Additional Redirect URLs: `https://<โดเมน-vercel>/**`
+4. เปิดเว็บที่ deploy แล้ว → หน้าเข้าสู่ระบบครู → ใส่ **Project URL** และ **anon public key**
+   (Settings → API) ครั้งเดียว ค่าจะถูกจำไว้ในเครื่องนั้น
+5. เมื่อครูเข้ามาครบแล้ว: Authentication → Sign In / Providers → ปิด
+   *Allow new users to sign up* คนนอกจะสมัครเพิ่มไม่ได้
+
+anon key เป็นคีย์สาธารณะ ปลอดภัยที่จะอยู่ในเบราว์เซอร์ — ความปลอดภัยจริงมาจาก RLS
+และ allowlist ครูในตาราง `teacher_access` / `app_admins`
+
+## 4) สิทธิ์เข้าใช้
+
+- อีเมลใน `app_admins` = ผู้ดูแลระบบ เห็นปุ่ม 🔐 ผู้ดูแลระบบ บนหน้าห้องเรียน
+- ครูคนอื่นที่ล็อกอินเข้ามาจะอยู่สถานะ "รออนุมัติ" ใช้งานไม่ได้จนผู้ดูแลกดอนุมัติ
+- นักเรียนไม่ต้องมีบัญชี — เข้าด้วยรหัสห้อง + เลือกชื่อ + PIN 4 ตัว (เก็บเป็น bcrypt hash,
+  ใส่ผิดเกิน 5 ครั้ง/10 นาที จะถูกหยุดชั่วคราว)
+
+built by campingroom —

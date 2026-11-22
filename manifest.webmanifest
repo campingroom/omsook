@@ -1,0 +1,20 @@
+{
+  "name": "OmSook · ออมสุข — โปรแกรมออมเงินนักเรียน",
+  "short_name": "OmSook",
+  "description": "ครูบันทึกเงินฝากรายวัน ออกแบบบันทึกการออมเงิน นักเรียนดูยอดตัวเองด้วยรหัสห้องและ PIN",
+  "lang": "th",
+  "id": "./",
+  "start_url": "./",
+  "scope": "./",
+  "display": "standalone",
+  "orientation": "any",
+  "background_color": "#f1f6ea",
+  "theme_color": "#34d399",
+  "categories": ["education", "finance"],
+  "icons": [
+    { "src": "icons/icon-192.png", "sizes": "192x192", "type": "image/png", "purpose": "any" },
+    { "src": "icons/icon-512.png", "sizes": "512x512", "type": "image/png", "purpose": "any" },
+    { "src": "icons/icon-maskable-512.png", "sizes": "512x512", "type": "image/png", "purpose": "maskable" },
+    { "src": "icons/icon.svg", "sizes": "any", "type": "image/svg+xml", "purpose": "any" }
+  ]
+}

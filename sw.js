@@ -2,7 +2,7 @@
  * ไฟล์ของแอป: โหลดจากเน็ตก่อนเสมอ (ได้รุ่นใหม่ทันที) ถ้าโหลดไม่ได้จึงใช้ที่เก็บไว้
  * ฟอนต์ และไลบรารีที่ล็อกรุ่นไว้ (React จาก unpkg, supabase-js จาก jsDelivr): ใช้ที่เก็บไว้ก่อน
  * ไม่แตะคำขอไป Supabase (ข้อมูลห้องเรียน/ล็อกอิน) — ต้องออนไลน์เท่านั้น */
-const CACHE = 'omsook-v1';
+const CACHE = 'omsook-v2';
 const ASSETS = ['./', 'support.js', 'pwa.js', 'manifest.webmanifest', 'icons/icon.svg', 'icons/icon-192.png', 'icons/favicon-32.png'];
 const PINNED = ['fonts.googleapis.com', 'fonts.gstatic.com', 'cdn.jsdelivr.net', 'unpkg.com'];
 
